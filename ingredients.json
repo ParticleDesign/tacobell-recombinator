@@ -1,0 +1,212 @@
+[
+	{
+		"ingredient": "Avocado Ranch Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Border Sauce - Fire",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Border Sauce - Hot",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Border Sauce - Mild",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Creamy Chipotle Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Creamy Jalapeno Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Diablo Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Fire Roasted Salsa",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Green Chile Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Green Tomatillo Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Mexican Pizza Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Nacho Cheese Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Red Sauce",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Salsa Del Sol",
+		"type": "sauce"
+	},
+	{
+		"ingredient": "Spicy Ranch Sauce",
+		"type": "sauce"
+	},
+
+	{
+		"ingredient": "Chalupa Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Doritos® Locos Taco Cool Ranch® Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Doritos® Locos Taco Fiery Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Doritos® Locos Taco Nacho Cheese Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Flour Tortilla",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Gordita Flatbread",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Mexican Pizza Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Naked Chicken Chalupa Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Taco Salad Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Taco Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Tostada Shell",
+		"type": "exterior"
+	},
+	{
+		"ingredient": "Bacon",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Fire Grilled Chicken",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Sausage Crumbles",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Sausage Patty",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Seasoned Beef",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Shredded Chicken",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Marinated Grilled Steak",
+		"type": "meat"
+	},
+	{
+		"ingredient": "Cheddar Cheese",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Cilantro",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Fritos® Chips",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Iceberg Lettuce",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Jalapeños",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Onions",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Pico de Gallo",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Premium Guacamole",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Red Strips",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Reduced-Fat Sour Cream",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Romaine Lettuce",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Three Cheese Blend",
+		"type": "topping"
+	},
+	{
+		"ingredient": "Tomatoes",
+		"type": "topping"
+	},
+
+	{
+		"ingredient": "Chili",
+		"type": "filling"
+	},
+	{
+		"ingredient": "Eggs",
+		"type": "filling"
+	},
+	{
+		"ingredient": "Potato Bites",
+		"type": "filling"
+	},
+	{
+		"ingredient": "Premium Latin Rice",
+		"type": "filling"
+	},
+	{
+		"ingredient": "Refried Beans",
+		"type": "filling"
+	},
+	{
+		"ingredient": "Black Beans",
+		"type": "filling"
+	}
+]	
