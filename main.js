@@ -120,7 +120,6 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 				//add every ingredient object chosen to the meal
 				self.meal.push(randomIngredient)
 
-
 			}
 
 			//TO-DO: loop through meal array, check type, match text to the type and add to name string
