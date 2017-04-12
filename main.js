@@ -16,7 +16,7 @@ var app = {
 	],
 
 	weightedArray_IngredientTypeChances: [
-		{item:"meat", 		chance:.2},
+		{item:"meat", 		chance:.4},
 		{item:"sauce", 		chance:.2},
 		{item:"exterior", 	chance:.1},
 		{item:"topping", 	chance:.3},
@@ -32,6 +32,9 @@ var app = {
 	//JSON ingredients
 	ingredientsArray:[], 
 		sauceArray: [], exteriorArray: [], meatArray: [], toppingArray: [], fillingArray: [],
+
+	// item name
+	mealName: "",
 
 //..................................... application .............................................
 	init: function() {
@@ -75,10 +78,28 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
 //.......................... create meal model from random ingredients .............................
 	recombinate : function() {
+			// declare variables for naming the meal
+			// currentMealName = ""
+			var prefix = ""
+			var signifier = ""
+			var fillings = ""
+			var suffix = ""
+			var numShells = 0
+			var numMeats = 0
+			var base = ""
+
 			//clear previous meal model and add an exterior
 			self.meal = []
+			self.mealName = ""
+
 			//add exterior to model			
-			self.meal.push(self.pickRandomFromArray(self.exteriorArray)) 	
+			self.meal.push(self.pickRandomFromArray(self.exteriorArray))
+
+			//add the name of the base to the mealName
+			var isBase = /Taco|Chalupa|Gordita|Pizza|Salad|Tortilla|Tostada/
+			base+=self.meal[0].ingredient.match(isBase) + " "
+			console.log(base)
+
 			//determine number of ingredients
 			self.numberOfIngredients = self.returnRandomWeightedItemFromArray(self.weightedArray_NumberOfIngredientChances)
 
@@ -97,8 +118,72 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 				else if (determineIngredientType === "filling") 	randomIngredient = self.pickRandomFromArray(self.fillingArray)
 
 				//add every ingredient object chosen to the meal
-				self.meal.push(randomIngredient) 
+				self.meal.push(randomIngredient)
+
+
 			}
+
+			//TO-DO: loop through meal array, check type, match text to the type and add to name string
+
+
+
+			self.meal.forEach(function(item) {
+			console.log(item)
+				if (item.type === "meat") {
+					var re = /Beef|Chicken|Sausage|Steak|Bacon/
+					signifier+=item.ingredient.match(re) + " "
+					numMeats++
+				}
+
+				else if (item.type === "topping") {
+					var isSupreme = /Sour Cream/
+					if (item.ingredient.match(isSupreme)) {
+						suffix+="Supreme "
+					}
+				}
+
+				else if (item.type === "filling") {
+					var isChili = /Chili/
+					if (item.ingredient.match(isChili)) {
+						signifier+=item.ingredient.match(isChili) + " "
+					}
+
+					var isBreakfast = /Eggs/
+					if (item.ingredient.match(isBreakfast)) {
+						prefix+="Breakfast" + " "
+					}
+
+					var fill = /Bean|Rice|Potato|Cheese/
+					if (item.ingredient.match(fill)) {
+							fillings+=item.ingredient.match(fill) + " "
+					}
+				}
+
+				else if (item.type === "sauce") {
+					var isNacho = /Nacho/
+					if (item.ingredient.match(isNacho)) {
+						prefix+="Nacho "
+					}
+
+					var isVolcano = /Spicy|- Fire|- Hot|Diablo/
+					if (item.ingredient.match(isVolcano)) {
+						prefix+="Volcano "
+					}
+				}
+
+				else if (item.type === "exterior") {
+					numShells++ 
+
+				}
+
+			})
+			console.log("numShells = " + numShells)
+			
+			if (numShells > 1)		prefix+="Double Decker "
+			if (numMeats == 0)	signifier+=fillings
+
+			self.mealName+=prefix + signifier + base + suffix
+			console.log("You got a: " + self.mealName)
 
 		self.displayMealDivs();
 	},
