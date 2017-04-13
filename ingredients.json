@@ -1,4 +1,5 @@
 [
+
 	{
 		"ingredient": "Avocado Ranch Sauce",
 		"type": "sauce",
@@ -75,190 +76,196 @@
 		"address": "images/taco_ingredient_placeholder_sauce.png"
 	},
 
+
 	{
 		"ingredient": "Chalupa Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Cool Ranch® Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Fiery Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Nacho Cheese Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Flour Tortilla",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tortilla.png"
 	},
 	{
 		"ingredient": "Gordita Flatbread",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tortilla.png"
 	},
 	{
 		"ingredient": "Mexican Pizza Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Naked Chicken Chalupa Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Taco Salad Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Taco Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tacoshell.png"
 	},
 	{
 		"ingredient": "Tostada Shell",
 		"type": "exterior",
-		"address":"images/taco_ingredient_placeholder_tortilla.png"
+		"address":"images/ingredient_tortilla.png"
 	},
+
+
 	{
 		"ingredient": "Bacon",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_bacon.png"
 	},
 	{
 		"ingredient": "Fire Grilled Chicken",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_chicken.png"
 	},
 	{
 		"ingredient": "Sausage Crumbles",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_sausagecrumbles.png"
 	},
 	{
 		"ingredient": "Sausage Patty",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_sausagepatty.png"
 	},
 	{
 		"ingredient": "Seasoned Beef",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_groundbeef.png"
 	},
 	{
 		"ingredient": "Shredded Chicken",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_chicken.png"
 	},
 	{
 		"ingredient": "Marinated Grilled Steak",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/ingredient_steak.png"
 	},
+
+
 	{
 		"ingredient": "Cheddar Cheese",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_cheese.png"
 	},
 	{
 		"ingredient": "Cilantro",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_cilantro.png"
 	},
 	{
 		"ingredient": "Fritos® Chips",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_pico.png"
 	},
 	{
 		"ingredient": "Iceberg Lettuce",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_lettuce.png"
 	},
 	{
 		"ingredient": "Jalapeños",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_jalapenos.png"
 	},
 	{
 		"ingredient": "Onions",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_onion.png"
 	},
 	{
 		"ingredient": "Pico de Gallo",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_pico.png"
 	},
 	{
 		"ingredient": "Premium Guacamole",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_guacamole.png"
 	},
 	{
 		"ingredient": "Red Strips",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_pico.png"
 	},
 	{
 		"ingredient": "Reduced-Fat Sour Cream",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_pico.png"
 	},
 	{
 		"ingredient": "Romaine Lettuce",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_lettuce.png"
 	},
 	{
 		"ingredient": "Three Cheese Blend",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_cheese.png"
 	},
 	{
 		"ingredient": "Tomatoes",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/ingredient_pico.png"
 	},
+
 
 	{
 		"ingredient": "Chili",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/ingredient_eggs.png"
 	},
 	{
 		"ingredient": "Eggs",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/ingredient_eggs.png"
 	},
 	{
 		"ingredient": "Potato Bites",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/ingredient_eggs.png"
 	},
 	{
 		"ingredient": "Premium Latin Rice",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/ingredient_eggs.png"
 	},
 	{
 		"ingredient": "Refried Beans",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/ingredient_eggs.png"
 	},
 	{
 		"ingredient": "Black Beans",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/ingredient_eggs.png"
 	}
 ]	

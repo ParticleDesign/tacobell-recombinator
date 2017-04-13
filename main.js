@@ -5,14 +5,16 @@ var app = {
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_NumberOfIngredientChances: [
-		{item:3, chance: .2},
-		{item:4, chance: .3},
-		{item:5, chance: .2},
-		{item:6, chance: .15},
-		{item:7, chance: .05},
-		{item:8, chance: .05},
-		{item:9, chance: .03},
-		{item:10, chance: .02}
+		// {item:3, chance: .2},
+		// {item:4, chance: .3},
+		// {item:5, chance: .2},
+		// {item:6, chance: .15},
+		// {item:7, chance: .05},
+		// {item:8, chance: .05},
+		// {item:9, chance: .03},
+		// {item:10, chance: .02}
+
+		{item:10, chance: 1}
 	],
 
 	weightedArray_IngredientTypeChances: [
@@ -47,7 +49,7 @@ var app = {
 
 	armRecombinateButton: function() {
 		$('div#recombinate_button').on("click", function(){
-console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+// console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 			
 			$('div#recombinator').html("")	//clear previous meal view
 
@@ -62,7 +64,6 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		$.getJSON('ingredients.json', function( JSONarray ){ 
 
 			JSONarray.forEach(function(item) {
-				
 				var currentIngredientType = item.type;
 
 				if 		(currentIngredientType === "sauce") 	self.sauceArray.push(item)
@@ -98,7 +99,7 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 			//add the name of the base to the mealName
 			var isBase = /Taco|Chalupa|Gordita|Pizza|Salad|Tortilla|Tostada/
 			base+=self.meal[0].ingredient.match(isBase) + " "
-			console.log(base)
+
 
 			//determine number of ingredients
 			self.numberOfIngredients = self.returnRandomWeightedItemFromArray(self.weightedArray_NumberOfIngredientChances)
@@ -127,7 +128,7 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
 
 			self.meal.forEach(function(item) {
-			console.log(item)
+
 				if (item.type === "meat") {
 					var re = /Beef|Chicken|Sausage|Steak|Bacon/
 					signifier+=item.ingredient.match(re) + " "
@@ -176,7 +177,7 @@ console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 				}
 
 			})
-			console.log("numShells = " + numShells)
+
 			
 			if (numShells > 1)		prefix+="Double Decker "
 			if (numMeats == 0)	signifier+=fillings
