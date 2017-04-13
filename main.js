@@ -45,6 +45,10 @@ var app = {
 		this.fetchIngredientsFromJSON()
 		//set handlers for 
 		this.armRecombinateButton()
+
+		$('div#meal_title_banner').transition({
+			"clip-path":"inset(0 0 0 0)"
+		},500)
 	},
 
 	armRecombinateButton: function() {
