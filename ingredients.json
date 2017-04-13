@@ -138,7 +138,7 @@
 	{
 		"ingredient": "Fire Grilled Chicken",
 		"type": "meat",
-		"address": "images/taco_ingredient_placeholder_bacon.png"
+		"address": "images/grilled_chicken.png"
 	},
 	{
 		"ingredient": "Sausage Crumbles",
@@ -168,7 +168,7 @@
 	{
 		"ingredient": "Cheddar Cheese",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/shredded_cheese.png"
 	},
 	{
 		"ingredient": "Cilantro",
@@ -183,7 +183,7 @@
 	{
 		"ingredient": "Iceberg Lettuce",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/shredded_lettuce.png"
 	},
 	{
 		"ingredient": "Jalapeños",
@@ -193,12 +193,12 @@
 	{
 		"ingredient": "Onions",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/taco_ingredient_placeholder_onion.png"
 	},
 	{
 		"ingredient": "Pico de Gallo",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/pico_de_gallo.png"
 	},
 	{
 		"ingredient": "Premium Guacamole",
@@ -228,7 +228,7 @@
 	{
 		"ingredient": "Tomatoes",
 		"type": "topping",
-		"address": "images/taco_ingredient_placeholder_lettuce.png"
+		"address": "images/taco_ingredient_placeholder_tomatoes.png"
 	},
 
 	{
@@ -254,7 +254,7 @@
 	{
 		"ingredient": "Refried Beans",
 		"type": "filling",
-		"address": "images/taco_ingredient_placeholder_eggs.png"
+		"address": "images/taco_ingredient_placeholder_refriedbeans.png"
 	},
 	{
 		"ingredient": "Black Beans",
