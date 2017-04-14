@@ -26,7 +26,7 @@ var app = {
 		{item:"filling", 	chance:.2},
 	],
 
-	ingredientAnimateInterval: 100,
+	ingredientAnimateInterval: 300,
 	
 //........... global variables .................
 	//meal ingredients 
@@ -48,6 +48,11 @@ var app = {
 		this.fetchIngredientsFromJSON()
 		//set handlers for 
 		this.armRecombinateButton()
+
+		//play intro sound
+		var snd = new Audio("sounds/chalupa.mp3"); // buffers automatically when created
+		snd.play();
+
 	},
 
 	armRecombinateButton: function() {
@@ -274,9 +279,16 @@ var app = {
 
 				$currentIngredient.transition({
 					y:0
-				})
+				},self.ingredientAnimateInterval)
 
 			}, delay)
+
+			//play squish for each ingredient
+			setTimeout(function() {
+				var snd = new Audio("sounds/squish1.mp3"); // buffers automatically when created
+				snd.play();
+
+			}, delay+100)
 
 		})
 		self.displayNameBanner()
@@ -290,13 +302,22 @@ var app = {
 		},0)
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
+		//animate name banner
 		setTimeout(function() {
-console.log('dong')
-console.log($banner)
+
 			$banner.transition({
 				"clip-path":"inset(0 0 0 0)"
 			},1000)
+
 		}, delay)
+		//play bong sound
+		setTimeout(function() {
+
+			var snd = new Audio("sounds/tacobell_bong.mp3"); // buffers automatically when created
+			snd.play();
+
+		}, delay+200)
+
 	},
 
 }
