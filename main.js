@@ -17,15 +17,16 @@ var app = {
 		{item:10, chance: 1}
 	],
 
+	//chances have to add up to 1.0
 	weightedArray_IngredientTypeChances: [
-		{item:"meat", 		chance:.4},
+		{item:"meat", 		chance:.2},
 		{item:"sauce", 		chance:.2},
 		{item:"exterior", 	chance:.1},
 		{item:"topping", 	chance:.3},
 		{item:"filling", 	chance:.2},
 	],
 
-	ingredientAnimateInterval: 300,
+	ingredientAnimateInterval: 100,
 	
 //........... global variables .................
 	//meal ingredients 
@@ -35,6 +36,8 @@ var app = {
 	ingredientsArray:[], 
 		sauceArray: [], exteriorArray: [], meatArray: [], toppingArray: [], fillingArray: [],
 
+	//
+	ingredientContainerIDs:[],
 	// item name
 	mealName: "",
 
@@ -45,10 +48,6 @@ var app = {
 		this.fetchIngredientsFromJSON()
 		//set handlers for 
 		this.armRecombinateButton()
-
-		$('div#meal_title_banner').transition({
-			"clip-path":"inset(0 0 0 0)"
-		},500)
 	},
 
 	armRecombinateButton: function() {
@@ -57,7 +56,8 @@ var app = {
 			
 			$('div#recombinator').html("")	//clear previous meal view
 
-			self.recombinate()					//start new meal			
+			self.recombinate()					//start new meal
+			self.displayMealDivs();	
 		})
 	},
 
@@ -189,7 +189,6 @@ var app = {
 			self.mealName+=prefix + signifier + base + suffix
 			console.log("You got a: " + self.mealName)
 
-		self.displayMealDivs();
 	},
 
 		pickRandomFromArray : function(array) {
@@ -222,12 +221,12 @@ var app = {
 //................................... display meal model in html ...................................
 	displayMealDivs: function() {
 
-		var 
-			//pass to animateMealDivs()
-			mealContainerIDs = [],
-
-			currentPictureDiv, currentLabelDiv, currentIngredientContainerID, currentIngredientContainerStyle, currentIngredientHTML,
+		var currentPictureDiv, currentLabelDiv, currentIngredientContainerID, currentIngredientContainerStyle, currentIngredientHTML,
 			z=1;
+		
+		//reset ingredient DOM identifier array
+		self.ingredientContainerIDs = [];
+
 		self.meal.forEach(function(ingredient, i) {
 
 			currentPictureDiv = "<div id='ingredient_picture"+i+"' class='ingredient_picture'><img class='ingredient_img' src=" + ingredient.address + "></div>"
@@ -250,20 +249,19 @@ var app = {
 
 			$('div#recombinator').prepend(currentIngredientHTML)
 			
-			//create mealContainerIDs array to pass to animateDivs()
-			mealContainerIDs.push(currentIngredientContainerID)
+			//cache IDs of each ingredient container div for DOM manipulation
+			self.ingredientContainerIDs.push(currentIngredientContainerID)
 		})
 
 		//animate each ingredient Div one by one
-		self.animateMealDivs(mealContainerIDs)
+		self.animateMealDivs()
 	},
-
-	animateMealDivs: function(mealContainerIDs) {
+	animateMealDivs: function() {
 
 		var mealContainerHeight = $(window).height() - $('#buttons').height();
 
 		//move each ingredient into view
-		mealContainerIDs.forEach(function(containerID, i) {
+		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
 			var $currentIngredient = $("div#"+containerID),
 				delay = self.ingredientAnimateInterval * i;
@@ -281,9 +279,25 @@ var app = {
 			}, delay)
 
 		})
+		self.displayNameBanner()
 	},
+	displayNameBanner: function() {
+		var delay = self.ingredientContainerIDs.length * self.ingredientAnimateInterval,
+			$banner = $('div#meal_title_banner')
 
+		$banner.transition({
+			"clip-path":"inset(0 100% 0 0)"
+		},0)
+		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
+		setTimeout(function() {
+console.log('dong')
+console.log($banner)
+			$banner.transition({
+				"clip-path":"inset(0 0 0 0)"
+			},1000)
+		}, delay)
+	},
 
 }
 app.init()
