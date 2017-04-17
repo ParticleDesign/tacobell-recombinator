@@ -101,6 +101,7 @@ var app = {
 			var numShells = 0
 			var numMeats = 0
 			var base = ""
+			//var meatArray = []
 
 			//clear previous meal model and add an exterior
 			self.meal = []
@@ -145,6 +146,7 @@ var app = {
 				if (item.type === "meat") {
 					var re = /Beef|Chicken|Sausage|Steak|Bacon/
 					signifier+=item.ingredient.match(re) + " "
+					//meatArray.push(item.ingredient.match(re))
 					numMeats++
 				}
 
@@ -152,6 +154,16 @@ var app = {
 					var isSupreme = /Sour Cream/
 					if (item.ingredient.match(isSupreme)) {
 						suffix+="Supreme "
+					}
+
+					var isAvo = /Guacamole/
+					if (item.ingredient.match(isAvo)) {
+						signifier+="Avocado "
+					}
+
+					var hasCheese = /Cheese/
+					if (item.ingredient.match(hasCheese)) {
+						fillings+="Cheese "
 					}
 				}
 
@@ -190,13 +202,16 @@ var app = {
 				}
 
 			})
-
 			
+			//console.log("meatArray = " + meatArray)
+			//console.log(Array.from(new Set(meatArray)))
+
 			if (numShells === 2)		prefix+="Double Decker "
 			if (numShells === 3)		prefix+="Triple Decker "
 			if (numShells > 3)			prefix+="Xtreme Decker "
-			if (numMeats == 0)	signifier+=fillings
-
+			if (numMeats === 0)	signifier+=fillings
+			if (fillings === "")	console.log("You don't have any fillings!")
+			console.log("fillings = " + fillings)
 			self.mealName+=prefix + signifier + base + suffix
 			console.log("You got a: " + self.mealName)
 
