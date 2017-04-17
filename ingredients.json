@@ -214,7 +214,7 @@
 	{
 		"ingredient": "Red Strips",
 		"type": "topping",
-		"address": "images/ingredient_pico.png"
+		"address": "images/ingredient_redstrips.png"
 	},
 	{
 		"ingredient": "Reduced-Fat Sour Cream",
@@ -229,7 +229,7 @@
 	{
 		"ingredient": "Three Cheese Blend",
 		"type": "topping",
-		"address": "images/ingredient_cheese.png"
+		"address": "images/ingredient_threecheese.png"
 	},
 	{
 		"ingredient": "Tomatoes",
@@ -241,7 +241,7 @@
 	{
 		"ingredient": "Chili",
 		"type": "filling",
-		"address": "images/ingredient_eggs.png"
+		"address": "images/ingredient_chili.png"
 	},
 	{
 		"ingredient": "Eggs",
@@ -251,21 +251,21 @@
 	{
 		"ingredient": "Potato Bites",
 		"type": "filling",
-		"address": "images/ingredient_eggs.png"
+		"address": "images/ingredient_potatoes.png"
 	},
 	{
 		"ingredient": "Premium Latin Rice",
 		"type": "filling",
-		"address": "images/ingredient_eggs.png"
+		"address": "images/ingredient_rice.png"
 	},
 	{
 		"ingredient": "Refried Beans",
 		"type": "filling",
-		"address": "images/ingredient_eggs.png"
+		"address": "images/ingredient_refriedbeans.png"
 	},
 	{
 		"ingredient": "Black Beans",
 		"type": "filling",
-		"address": "images/ingredient_eggs.png"
+		"address": "images/ingredient_blackbeans.png"
 	}
 ]	
