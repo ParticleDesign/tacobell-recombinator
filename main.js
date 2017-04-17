@@ -5,16 +5,18 @@ var app = {
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_NumberOfIngredientChances: [
-		// {item:3, chance: .2},
-		// {item:4, chance: .3},
-		// {item:5, chance: .2},
-		// {item:6, chance: .15},
-		// {item:7, chance: .05},
-		// {item:8, chance: .05},
-		// {item:9, chance: .03},
-		// {item:10, chance: .02}
+		{item:1, chance: .02},
+		{item:2, chance: .03},
+		{item:3, chance: .1},
+		{item:4, chance: .2},
+		{item:5, chance: .25},
+		{item:6, chance: .2},
+		{item:7, chance: .1},
+		{item:8, chance: .05},
+		{item:9, chance: .03},
+		{item:10, chance: .02}
 
-		{item:10, chance: 1}
+		// {item:10, chance: 1}
 	],
 
 	//chances have to add up to 1.0
@@ -26,8 +28,10 @@ var app = {
 		{item:"filling", 	chance:.2},
 	],
 
-	ingredientAnimateInterval: 300,
-	
+	animationInterval_ingredients: 250,
+	animationInterval_banner: 300,
+	animationInterval_bannerText: 400,
+	animationInterval_bannerTextExpandedPause:150,
 //........... global variables .................
 	//meal ingredients 
 	meal:[],
@@ -286,7 +290,7 @@ var app = {
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
 			var $currentIngredient = $("div#"+containerID),
-				delay = self.ingredientAnimateInterval * i;
+				delay = self.animationInterval_ingredients * i;
 
 			//push all ingredients offscreen above window
 			$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
@@ -296,7 +300,7 @@ var app = {
 
 				$currentIngredient.transition({
 					y:0
-				},self.ingredientAnimateInterval)
+				},self.animationInterval_ingredients)
 
 			}, delay)
 
@@ -311,36 +315,68 @@ var app = {
 		self.displayNameBanner()
 	},
 	displayNameBanner: function() {
-		var delay = self.ingredientContainerIDs.length * self.ingredientAnimateInterval,
-			$banner = $('div#meal_title_banner')
-
+		//banner background animation
+		var ingredientsDuration = self.ingredientContainerIDs.length * self.animationInterval_ingredients,
+			$banner = $('div#meal_title_banner');
+	
+		//hide and reset banner on recombinate! button press
 		$banner.transition({
 			"clip-path":"inset(0 100% 0 0)"
 		},0)
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
-		//animate name banner
+		//banner reveal animation
 		setTimeout(function() {
-
 			$banner.transition({
 				"clip-path":"inset(0 0 0 0)"
-			},1000)
+			}, self.animationInterval_banner)
+		}, ingredientsDuration)
 
-		}, delay)
+	var banner_title_expand = function() {
+
+	}
+
+		//banner title animations
+		var $banner_title = $('div#meal_title'),
+			bannerTitleDelay = ingredientsDuration+self.animationInterval_banner;
+
+		//banner title hidden on recombinate! button press
+		$banner_title.transition({
+			"opacity":"0"
+		})
+		//banner title reveal animation
+		setTimeout(function() {
+			$banner_title.transition({
+				"opacity":"1"
+			}, self.animationInterval_bannerText)
+		}, bannerTitleDelay)
+
+		//banner title expand animation
+		setTimeout(function() {
+			$banner_title.transition({
+				"font-size":"7vh",
+				"width":"126%",
+				"left":"-13%"
+			}, self.animationInterval_bannerText)
+		}, bannerTitleDelay+self.animationInterval_bannerText)
+		// banner title contract animation
+		setTimeout(function(){
+			$banner_title.transition({
+				"font-size":"5vh",
+				"width":"90%",
+				"left":"5%"
+			}, self.animationInterval_bannerText)
+		}, bannerTitleDelay+self.animationInterval_bannerText*2+self.animationInterval_bannerTextExpandedPause)
+
 		//play bong sound
 		setTimeout(function() {
-
 			var snd = new Audio("sounds/tacobell_bong.mp3"); // buffers automatically when created
 			snd.play();
-
-		}, delay+200)
-
+		}, bannerTitleDelay+self.animationInterval_bannerText)
 	},
 
 }
 app.init()
-
-
 
 //comment
 

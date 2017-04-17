@@ -2,7 +2,7 @@
 <style>
 @font-face {
     font-family: "Franchise";
-    src: url(http://localhost:8080/Franchise.ttf) format("truetype");
+    src: url(Franchise.ttf) format("truetype");
 }
 
 * {
@@ -179,18 +179,22 @@ div#meal_title_banner {
 	left:-1%;
 	z-index:2;
 
+
 	background-color:black;
 	transform: rotate(-5deg);
 	clip-path:inset(0 100% 0 0);
 }
 div#meal_title {
 	position:relative;
-	left:10vw;
-	width: 80%;
+
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translateY(-50%); 
+	left:5%;
+	width:90%;
+
 
 	text-align: center;
+
 	font-size: 5vh;
 	line-height: 5vh;
 	color:rgb(255, 102, 255);
