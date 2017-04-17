@@ -192,7 +192,9 @@ var app = {
 			})
 
 			
-			if (numShells > 1)		prefix+="Double Decker "
+			if (numShells === 2)		prefix+="Double Decker "
+			if (numShells === 3)		prefix+="Triple Decker "
+			if (numShells > 3)			prefix+="Xtreme Decker "
 			if (numMeats == 0)	signifier+=fillings
 
 			self.mealName+=prefix + signifier + base + suffix
