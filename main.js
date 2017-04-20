@@ -304,14 +304,15 @@ var app = {
 
 			}, delay)
 
+
 			//play squish for each ingredient
+			var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
 			setTimeout(function() {
-				var snd = new Audio("sounds/squish1.mp3"); // buffers automatically when created
-				snd.play();
-
+				squish.play()
 			}, delay+100)
-
 		})
+
+
 		self.displayNameBanner()
 	},
 	displayNameBanner: function() {
@@ -332,13 +333,15 @@ var app = {
 			}, self.animationInterval_banner)
 		}, ingredientsDuration)
 
-	var banner_title_expand = function() {
-
-	}
 
 		//banner title animations
-		var $banner_title = $('div#meal_title'),
-			bannerTitleDelay = ingredientsDuration+self.animationInterval_banner;
+		var $banner_title = $('div#meal_title')
+		var	bannerTitleDelay = ingredientsDuration+self.animationInterval_banner
+		var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created			
+			
+		//hack for phone that allows bong to play during banner animation
+		bong.play()
+		bong.pause()
 
 		//banner title hidden on recombinate! button press
 		$banner_title.transition({
@@ -370,8 +373,7 @@ var app = {
 
 		//play bong sound
 		setTimeout(function() {
-			var snd = new Audio("sounds/tacobell_bong.mp3"); // buffers automatically when created
-			snd.play();
+			bong.play();
 		}, bannerTitleDelay+self.animationInterval_bannerText)
 	},
 
