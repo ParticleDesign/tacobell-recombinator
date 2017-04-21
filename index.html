@@ -96,9 +96,15 @@ div#header {
 	background-color: purple;
 	transform: rotate(-5deg);
 }
-	#header_text {
+	img#header_image {
+		position:relative;
+		left:-1vw;
+		top:.25vh;
+		width: 3vh;
+	}
+	div#header_text {
 		position: absolute;
-		left:15vw;
+		left:8vw;
 		top:35%;
 
 		font-size: 3vh;
@@ -255,7 +261,9 @@ div#meal_title {
 <script src='http://ricostacruz.com/jquery.transit/jquery.transit.min.js'></script>
 
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320 -->
- <!-- <meta name="mobile-web-app-capable" content="yes"> -->
+ <meta name="mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+
 </head>
 
 <body>
@@ -270,8 +278,12 @@ div#meal_title {
 
 <div id="recombinator_page">
 	<div id="background"></div>
-	<div id="header"> 
-		<div id='header_text'>RECOMBINATOR!</div>
+	<div id="header">
+		<div id='header_text'>
+		<img id='header_image' src="images/bell.png"></img> 
+		
+		RECOMBINATOR!
+		</div>
 	</div>
 	<div id="meal_title_banner">
 		<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>

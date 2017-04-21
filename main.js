@@ -72,6 +72,9 @@ var app = {
 			},500)
 			$recombinator_page.transition({
 				'transform':"translate(0%)"
+			},500, function(){
+				self.recombinate()
+				self.displayMealDivs()
 			})
 		})
 
@@ -246,11 +249,8 @@ var app = {
 			if (numShells === 3)		prefix+="Triple Decker "
 			if (numShells > 3)			prefix+="Xtreme Decker "
 			if (numMeats === 0)	signifier+=fillings
-			if (fillings === "")	console.log("You don't have any fillings!")
-			console.log("fillings = " + fillings)
-			self.mealName+=prefix + signifier + base + suffix
-			console.log("You got a: " + self.mealName)
 
+			self.mealName+=prefix + signifier + base + suffix
 	},
 
 		pickRandomFromArray : function(array) {
@@ -353,8 +353,7 @@ var app = {
 	},
 	displayNameBanner: function() {
 		//banner background animation
-		var ingredientsDuration = self.ingredientContainerIDs.length * self.animationInterval_ingredients,
-			$banner = $('div#meal_title_banner');
+		var $banner = $('div#meal_title_banner');
 	
 		//hide and reset banner on recombinate! button press
 		$banner.transition({
@@ -362,61 +361,53 @@ var app = {
 		},0)
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
-		//banner reveal animation
-		setTimeout(function() {
-			$banner.transition({
-				"clip-path":"inset(0 0 0 0)"
-			}, self.animationInterval_banner)
-		}, ingredientsDuration)
 
 
-		//banner title animations
+
+
+		//banner animation
+		var ingredientsDoneFalling = self.ingredientContainerIDs.length * self.animationInterval_ingredients;
 		var $banner_title = $('div#meal_title')
-		var	bannerTitleDelay = ingredientsDuration+self.animationInterval_banner
-		var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created			
-			
-		//hack for phone that allows bong to play during banner animation
-		bong.play()
-		bong.pause()
 
-		//banner title hidden on recombinate! button press
-		$banner_title.transition({
-			"opacity":"0"
-		})
-		//banner title reveal animation
-		setTimeout(function() {
-			$banner_title.transition({
-				"opacity":"1"
-			}, self.animationInterval_bannerText)
-		}, bannerTitleDelay)
+		var expandBannerText = function(callback) {
+			var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created			
+			bong.play();
 
-		//banner title expand animation
-		setTimeout(function() {
 			$banner_title.transition({
 				"font-size":"7vh",
 				"width":"126%",
 				"left":"-13%"
-			}, self.animationInterval_bannerText)
-		}, bannerTitleDelay+self.animationInterval_bannerText)
-		// banner title contract animation
-		setTimeout(function(){
-			$banner_title.transition({
-				"font-size":"5vh",
-				"width":"90%",
-				"left":"5%"
-			}, self.animationInterval_bannerText)
-		}, bannerTitleDelay+self.animationInterval_bannerText*2+self.animationInterval_bannerTextExpandedPause)
+			}, self.animationInterval_bannerText, function() {
+				callback()
+			})
+		}
+		var contractBannerText = function() {
+			setTimeout(function(){
 
-		//play bong sound
+				$banner_title.transition({
+					"font-size":"5vh",
+					"width":"90%",
+					"left":"5%"
+				}, self.animationInterval_bannerText)
+
+			},self.animationInterval_bannerTextExpandedPause)			
+		}
+		//reveal banner
 		setTimeout(function() {
-			bong.play();
-		}, bannerTitleDelay+self.animationInterval_bannerText)
-	},
+			$banner.transition({"clip-path":"inset(0 0 0 0)"}, self.animationInterval_banner, function() {
+			
+				$banner_title.transition({"opacity":"1"}, self.animationInterval_bannerText, function() {
+
+					expandBannerText(contractBannerText)
+				})
+			})
+		}, ingredientsDoneFalling)
+
+	}
 
 }
 app.init()
 
-//comment
 
 
 
