@@ -48,17 +48,53 @@ var app = {
 //..................................... application .............................................
 	init: function() {
 		self = this
+		
+		this.armStartButton()
+
 		//create Ingredient Arrays that can be pulled from with Recombinator  
 		this.fetchIngredientsFromJSON()
 		//set handlers for 
 		this.armRecombinateButton()
 
-		//play intro sound
-		var snd = new Audio("sounds/chalupa.mp3"); // buffers automatically when created
-		snd.play();
+		// //play intro sound
+		// var chalupa = new Audio("sounds/chalupa.mp3"); // buffers automatically when created
+		// chalupa.play();
 
 	},
+	armStartButton: function(){
+		var $landing_page = $('div#landing_page')
+		var $recombinator_page = $('div#recombinator_page')
 
+		$('div#start_button').click(function(){
+
+			$landing_page.transition({
+				'transform':"translate(-100%)"
+			},500)
+			$recombinator_page.transition({
+				'transform':"translate(0%)"
+			})
+		})
+
+		//arm "recombinator!" header home button
+		$('div#header_text').on('click', function() {
+			$landing_page.transition({
+				'transform':"translate(0%)"
+			})
+			$recombinator_page.transition({
+				'transform':"translate(100%)"
+			},500, function() {
+
+				//hide recombinator contents
+				$('div#recombinator').html('')
+				$('div#meal_title_banner').transition({
+					"clip-path":"inset(0 100% 0 0)"
+				},0)
+			})
+		})
+
+
+
+	},
 	armRecombinateButton: function() {
 		$('div#recombinate_button').on("click", function(){
 // console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
