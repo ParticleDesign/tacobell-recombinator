@@ -115,7 +115,7 @@
 	{
 		"ingredient": "Naked Chicken Chalupa Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_NCCshell.png"
 	},
 	{
 		"ingredient": "Taco Salad Shell",
@@ -142,7 +142,7 @@
 	{
 		"ingredient": "Fire Grilled Chicken",
 		"type": "meat",
-		"address": "images/ingredient_chicken.png"
+		"address": "images/ingredient_grilledchicken.png"
 	},
 	{
 		"ingredient": "Sausage Crumbles",
@@ -162,7 +162,7 @@
 	{
 		"ingredient": "Shredded Chicken",
 		"type": "meat",
-		"address": "images/ingredient_chicken.png"
+		"address": "images/ingredient_shreddedchicken.png"
 	},
 	{
 		"ingredient": "Marinated Grilled Steak",
@@ -184,7 +184,7 @@
 	{
 		"ingredient": "Fritos® Chips",
 		"type": "topping",
-		"address": "images/ingredient_pico.png"
+		"address": "images/ingredient_fritos.png"
 	},
 	{
 		"ingredient": "Iceberg Lettuce",
@@ -224,7 +224,7 @@
 	{
 		"ingredient": "Romaine Lettuce",
 		"type": "topping",
-		"address": "images/ingredient_lettuce.png"
+		"address": "images/ingredient_romainelettuce.png"
 	},
 	{
 		"ingredient": "Three Cheese Blend",
