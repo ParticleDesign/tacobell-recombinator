@@ -150,8 +150,14 @@ var app = {
 			self.meal.push(self.pickRandomFromArray(self.exteriorArray))
 
 			//add the name of the base to the mealName
-			var isBase = /Taco|Chalupa|Gordita|Pizza|Salad|Tortilla|Tostada/
-			base+=self.meal[0].ingredient.match(isBase) + " "
+			var isBase = /Taco Salad|Chalupa|Gordita|Pizza|Taco|Tortilla|Tostada/
+
+			if (self.meal[0].ingredient.match(isBase) == "Tortilla") {
+				base+="Burrito"
+			} else { 
+				base+=self.meal[0].ingredient.match(isBase) + " " 
+			}
+			
 
 
 			//determine number of ingredients
@@ -192,7 +198,9 @@ var app = {
 				else if (item.type === "topping") {
 					var isSupreme = /Sour Cream/
 					if (item.ingredient.match(isSupreme)) {
-						suffix+="Supreme "
+						if(!suffix.match("Supreme")){
+							suffix+="Supreme "
+						}
 					}
 
 					var isAvo = /Guacamole/
@@ -214,7 +222,9 @@ var app = {
 
 					var isBreakfast = /Eggs/
 					if (item.ingredient.match(isBreakfast)) {
-						prefix+="Breakfast" + " "
+						if (!prefix.match("Breakfast")) {
+							prefix+="Breakfast" + " "
+						}
 					}
 
 					var fill = /Bean|Rice|Potato|Cheese/

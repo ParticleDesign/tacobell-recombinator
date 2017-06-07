@@ -3,7 +3,7 @@
 	{
 		"ingredient": "Avocado Ranch Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_avocadoranch.png"
 	},
 	{
 		"ingredient": "Border Sauce - Fire",
@@ -23,12 +23,12 @@
 	{
 		"ingredient": "Creamy Chipotle Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_chipotle.png"
 	},
 	{
 		"ingredient": "Creamy Jalapeno Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_creamyjalapeno.png"
 	},
 	{
 		"ingredient": "Diablo Sauce",
@@ -38,7 +38,7 @@
 	{
 		"ingredient": "Fire Roasted Salsa",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_salsa.png"
 	},
 	{
 		"ingredient": "Green Chile Sauce",
@@ -58,7 +58,7 @@
 	{
 		"ingredient": "Nacho Cheese Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_nachocheese.png"
 	},
 	{
 		"ingredient": "Red Sauce",
@@ -73,7 +73,7 @@
 	{
 		"ingredient": "Spicy Ranch Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_spicyranch.png"
 	},
 
 
@@ -85,17 +85,17 @@
 	{
 		"ingredient": "Doritos® Locos Taco Cool Ranch® Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_tacoshellcooler.png"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Fiery Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_tacoshellFIRE.png"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Nacho Cheese Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_tacoshellNC.png"
 	},
 	{
 		"ingredient": "Flour Tortilla",
@@ -110,7 +110,7 @@
 	{
 		"ingredient": "Mexican Pizza Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_mexicanpizza.png"
 	},
 	{
 		"ingredient": "Naked Chicken Chalupa Shell",
@@ -120,7 +120,7 @@
 	{
 		"ingredient": "Taco Salad Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_tacosaladshell.png"
 	},
 	{
 		"ingredient": "Taco Shell",
@@ -130,7 +130,7 @@
 	{
 		"ingredient": "Tostada Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tortilla.png"
+		"address":"images/ingredient_tostadashell.png"
 	},
 
 
@@ -167,7 +167,7 @@
 	{
 		"ingredient": "Marinated Grilled Steak",
 		"type": "meat",
-		"address": "images/ingredient_steak.png"
+		"address": "images/ingredient_carneasada.png"
 	},
 
 
