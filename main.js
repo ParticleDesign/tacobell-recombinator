@@ -16,6 +16,16 @@ var app = {
 		{item:9, chance: .03},
 		{item:10, chance: .02}
 
+		/*{item:1, chance: 0},
+		{item:2, chance: 1},
+		{item:3, chance: 0},
+		{item:4, chance: 0},
+		{item:5, chance: 0},
+		{item:6, chance: 0},
+		{item:7, chance: 0},
+		{item:8, chance: 0},
+		{item:9, chance: 0},
+		{item:10, chance: 0} */
 		// {item:10, chance: 1}
 	],
 
@@ -26,6 +36,12 @@ var app = {
 		{item:"exterior", 	chance:.1},
 		{item:"topping", 	chance:.3},
 		{item:"filling", 	chance:.2},
+
+		/*{item:"meat", 		chance:.0},
+		{item:"sauce", 		chance:.0},
+		{item:"exterior", 	chance:.0},
+		{item:"topping", 	chance:1},
+		{item:"filling", 	chance:.0}, */
 	],
 
 	animationInterval_ingredients: 250,
@@ -138,6 +154,7 @@ var app = {
 			var fillings = ""
 			var suffix = ""
 			var numShells = 0
+			var numTortillas = 0
 			var numMeats = 0
 			var base = ""
 			//var meatArray = []
@@ -150,10 +167,10 @@ var app = {
 			self.meal.push(self.pickRandomFromArray(self.exteriorArray))
 
 			//add the name of the base to the mealName
-			var isBase = /Taco Salad|Chalupa|Gordita|Pizza|Taco|Tortilla|Tostada/
+			var isBase = /Taco Salad|Naked Chicken Chalupa|Chalupa|Gordita|Pizza|Taco|Tortilla|Tostada/
 
 			if (self.meal[0].ingredient.match(isBase) == "Tortilla") {
-				base+="Burrito"
+				base+="Burrito "
 			} else { 
 				base+=self.meal[0].ingredient.match(isBase) + " " 
 			}
@@ -212,6 +229,7 @@ var app = {
 					if (item.ingredient.match(hasCheese)) {
 						fillings+="Cheese "
 					}
+
 				}
 
 				else if (item.type === "filling") {
@@ -246,19 +264,35 @@ var app = {
 				}
 
 				else if (item.type === "exterior") {
-					numShells++ 
+					numShells++
+					if (item.ingredient.match("Tortilla")) {
+						numTortillas++
+						//console.log("Found a tortilla!")
+					} 
 
 				}
 
 			})
-			
-			//console.log("meatArray = " + meatArray)
-			//console.log(Array.from(new Set(meatArray)))
-
+		
 			if (numShells === 2)		prefix+="Double Decker "
 			if (numShells === 3)		prefix+="Triple Decker "
 			if (numShells > 3)			prefix+="Xtreme Decker "
 			if (numMeats === 0)	signifier+=fillings
+
+			if (numTortillas == 2 && numShells == 2) {
+				base = "Quesadilla"
+				prefix.replace(/Double Decker/, "")
+			}
+
+			if (self.numberOfIngredients == 2) {
+				self.meal.forEach(function(item) {
+					if (item.ingredient.match("Lettuce")) {
+						prefix+="Lite "
+					}
+				})
+			}
+
+			//if (self.numberOfIngredients == 1)	prefix = "Fresco "
 
 			self.mealName+=prefix + signifier + base + suffix
 	},
