@@ -8,17 +8,17 @@
 	{
 		"ingredient": "Border Sauce - Fire",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_hotsauce_FIRE.png"
 	},
 	{
 		"ingredient": "Border Sauce - Hot",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_hotsauce_hot.png"
 	},
 	{
 		"ingredient": "Border Sauce - Mild",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_hotsauce_mild.png"
 	},
 	{
 		"ingredient": "Creamy Chipotle Sauce",
@@ -33,7 +33,7 @@
 	{
 		"ingredient": "Diablo Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_diablosauce.png"
 	},
 	{
 		"ingredient": "Fire Roasted Salsa",
@@ -41,19 +41,9 @@
 		"address": "images/ingredient_salsa.png"
 	},
 	{
-		"ingredient": "Green Chile Sauce",
-		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
-	},
-	{
-		"ingredient": "Green Tomatillo Sauce",
-		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
-	},
-	{
 		"ingredient": "Mexican Pizza Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_pizzasauce.png"
 	},
 	{
 		"ingredient": "Nacho Cheese Sauce",
@@ -63,12 +53,12 @@
 	{
 		"ingredient": "Red Sauce",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_redsauce.png"
 	},
 	{
 		"ingredient": "Salsa Del Sol",
 		"type": "sauce",
-		"address": "images/taco_ingredient_placeholder_sauce.png"
+		"address": "images/ingredient_delsolsauce.png"
 	},
 	{
 		"ingredient": "Spicy Ranch Sauce",
@@ -80,7 +70,7 @@
 	{
 		"ingredient": "Chalupa Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_chalupa.png"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Cool Ranch® Shell",
@@ -105,7 +95,7 @@
 	{
 		"ingredient": "Gordita Flatbread",
 		"type": "exterior",
-		"address":"images/ingredient_tortilla.png"
+		"address":"images/ingredient_gordita.png"
 	},
 	{
 		"ingredient": "Mexican Pizza Shell",
@@ -234,7 +224,7 @@
 	{
 		"ingredient": "Tomatoes",
 		"type": "topping",
-		"address": "images/ingredient_pico.png"
+		"address": "images/ingredient_tomatoes.png"
 	},
 
 

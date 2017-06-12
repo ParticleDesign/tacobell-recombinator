@@ -22,29 +22,135 @@ body {
 
 div#landing_page {
 	position: absolute;
+	color: #FFFFFF;
 	width:100%;
 	height:100%;
-	background-color: purple;
-
+	background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
 	z-index:10;
 }
+
 img#landing_page_image {
 	position:absolute;
-
 	top:10%;
 	left:10%;
 	width:80%;
-
 }
+
+div#title_container {
+	margin: 0 auto;
+	width: 50%;
+	top: 100;
+	position: relative;
+}
+
+div#empty_box {
+	content: '';
+	/*position: relative;*/
+	height: 100px;
+	width: 90%;
+	margin: 0 auto;
+	top: 0;
+	/*transform-origin: left bottom;
+	transform: skewY(6deg);*/
+	background-image: inherit;
+} 
+
+div#recombinator_text {
+/*transform: rotate(-6deg); */
+font-family: Franchise;
+font-size: 105px;
+color: #FFFFFF;
+letter-spacing: 0;
+text-shadow: 6px 6px 0 #FF00CC;
+width: 100%;
+margin-left: 15%;
+padding: 0;
+line-height: 1;
+
+/*transform-origin: left bottom;
+transform: skewY(-6deg);
+	/*background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%); */
+}
+
+div#sound_on {
+	color: #FFFFFF;
+	width: 100%;
+	font-size: 35px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	margin-top: 10%;
+	/*position: relative; */
+}
+
 div#start_button {
 	position:relative;
 	width:80%;
 	height:10%;
 	left:10%;
-	top:85%;
-
+	top:20%;
 	background-color: green;
 }
+
+div#enter_the {
+	/*transform: rotate(-6deg); */
+	/*border: 7px solid #FFFFFF; */
+	position: relative;
+	font-size: 100px;
+	color: #FFFFFF;
+	width: 50%;
+	height: 15%;
+	border: 7px solid white;
+	z-index: -1;
+	padding: 10px;
+	line-height: 1;
+	/*clip-path: inset(100px, 50px); /* top right bottom left */
+	/*top: 100;*/
+	transform-origin: left bottom;
+	transform: skewY(-6deg);
+}
+/*
+div#enter_the::before {
+	content:'';
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	background-color: inherit;
+	border: 7px solid white;
+	z-index: -1;
+	transform-origin: left bottom;
+	transform: skewY(-3deg);
+} */
+
+/*div#enter_the::after {
+	content:'';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: inherit;
+	border: 7px solid white;
+	z-index: -1;
+	top: 100;
+	transform-origin: left bottom;
+	transform: skewY(-3deg);
+} */
+
+div#disclaimer {
+	color: #FFFFFF;
+	font-family: Roboto;
+	font-size: 16px;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 20%;
+	position: relative;
+}
+
+div#disclaimer a {
+	color: inherit;
+	font-family: inherit;
+}
+
 div#start_button_text {
 	text-align: center;
 	vertical-align: middle;	
@@ -70,31 +176,47 @@ div#background {
 	height:100%;
 	
 	z-index: 0;
-	background-color:purple;
+	/*background-color:purple; */
+	background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
 }
 div#container { 
 	position: relative;
-	width: 90%;
+	max-width: 560px;
+	min-width: 327px;
 	height: 100%;
-	left: 5%;
+	/*left: 5%;*/
+	margin: 0 auto;
 	z-index:1;
 
-    box-shadow: -1px 0px 20px #333;
+   /* box-shadow: -1px 0px 20px #333;*/
+	background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
+}
+
+div#container::after{
+	content:'';
+	width: 100%;
+	height: 100%;
+	position: absolute;
 	background-color: white;
+	z-index: -1;
+	top: 100;
+	transform-origin: left top;
+	transform: skewY(-3deg);
 }
 
 
 div#header {
 	position: absolute;
 	top:-3%;
-	left:-1%;
+	/*left:-1%;*/
+	margin: 0 auto;
 	width:100%;
 	height:8%;
 	z-index: 2;
 
-    box-shadow: -1px 0px 20px #333;
+    /*box-shadow: -1px 0px 20px #333;
 	background-color: purple;
-	transform: rotate(-5deg);
+	transform: rotate(-5deg);*/
 }
 	img#header_image {
 		position:relative;
@@ -106,6 +228,8 @@ div#header {
 		position: absolute;
 		left:8vw;
 		top:35%;
+
+		font-family: Roboto-Black;
 
 		font-size: 3vh;
 		color:white;
@@ -200,7 +324,7 @@ div#buttons {
 	width:100%;
 	height:10%;
 
-	z-index: 1;
+	z-index: 100;
 }
 	div#recombinate_button {
 		position:absolute;
@@ -268,10 +392,24 @@ div#meal_title {
 
 <body>
 <div id="landing_page">
-	<img 	id="landing_page_image" src="images/bell.png"></img>
-	<div id="start_button">
-		<div id="start_button_text">Start!</div>
-	</div>
+	<!--<img 	id="landing_page_image" src="images/bell.png"></img>-->
+	
+		<div id="title_container">
+			<div id="enter_the">ENTER THE
+				<div id="empty_box">
+					<div id="recombinator_text">RECOMBINATOR!</div>
+				</div> 
+			</div>
+					<div id="sound_on">SOUND ON FOR BEST EXPERIENCE</div>
+							<div id="disclaimer">We are not affiliated with Taco Bell. </br> This experience is brought to you by <a href="http://www.particledesign.com">Particle Design</a></div>
+
+		</div>
+
+
+
+		<div id="start_button">
+			<div id="start_button_text">Start!</div>
+		</div>
 
 </div>
 
@@ -280,24 +418,26 @@ div#meal_title {
 	<div id="background"></div>
 	<div id="header">
 		<div id='header_text'>
-		<img id='header_image' src="images/bell.png"></img> 
+		<!--<img id='header_image' src="images/bell.png"></img> -->
 		
 		RECOMBINATOR!
 		</div>
 	</div>
-	<div id="meal_title_banner">
+
+	<div id="container">
+			<div id="meal_title_banner">
 		<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>
 	</div>
-	<div id="container">
 		<div id="recombinator_container">
 			<div id="recombinator"></div>
 		</div>
-	</div>
-	<div id="buttons">
+			<div id="buttons">
 		<div id="recombinate_button"> 
 			<div id="recombinate_button_text">RECOMBINATE!</div>
 		</div>
 	</div>
+	</div>
+
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
 <script type="text/javascript" src="main.js"></script>

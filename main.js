@@ -167,12 +167,16 @@ var app = {
 			self.meal.push(self.pickRandomFromArray(self.exteriorArray))
 
 			//add the name of the base to the mealName
-			var isBase = /Taco Salad|Naked Chicken Chalupa|Chalupa|Gordita|Pizza|Taco|Tortilla|Tostada/
+			var isBase = /Taco Salad|Naked Chicken Chalupa|Locos|Chalupa|Gordita|Pizza|Taco|Tortilla|Tostada/
 
 			if (self.meal[0].ingredient.match(isBase) == "Tortilla") {
 				base+="Burrito "
-			} else { 
-				base+=self.meal[0].ingredient.match(isBase) + " " 
+			} else if (self.meal[0].ingredient.match(isBase) == "Locos") {
+				//console.log("It's loco!")
+				var isLocos = /Cool Ranch|Nacho Cheese|Fiery/
+				base+=self.meal[0].ingredient.match(isLocos) + " Taco "
+			} else { base+=self.meal[0].ingredient.match(isBase) + " " 
+			
 			}
 			
 
@@ -290,6 +294,10 @@ var app = {
 						prefix+="Lite "
 					}
 				})
+			}
+
+			if (self.numberOfIngredients > 1 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
+				signifier+="Fresco "
 			}
 
 			//if (self.numberOfIngredients == 1)	prefix = "Fresco "
