@@ -5,6 +5,11 @@
     src: url('Franchise.ttf') format("truetype");
 }
 
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url('Roboto-Regular.ttf') format("truetype");
+}
+
 * {
 	padding	:0;
 	margin 	:0;
@@ -13,11 +18,43 @@
 	font-family	: "Franchise",'Open Sans', helvetica; 
 	color 		: rgb(105,105,100);
 }
+
+@media screen and (min-width: 50em) {
+	html {
+		font-size: 2vw;
+	}
+}
+
+@media screen and (min-width: 75em) {
+	html { 
+		font-size: 1.5em;
+	}
+}
+
 html, body {
   overflow: hidden;
+ /* font-size: 2vw; */
 }
+
 body {
   position: relative
+}
+
+div#bottom_taco{
+	width: 955px;
+	margin: auto;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -5;
+	position: absolute;
+}
+
+@media (max-width: 1023px) {
+	div#bottom_taco {
+		display: none;
+	}
+
 }
 
 div#landing_page {
@@ -38,26 +75,35 @@ img#landing_page_image {
 
 div#title_container {
 	margin: 0 auto;
-	width: 50%;
+	/*width: 46.8%; */
+	max-width: 640px;
 	top: 100;
 	position: relative;
+	cursor:pointer;
+
 }
 
-div#empty_box {
+#title_container img {
+	width: 90%;
+	display: block;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;	
+}
+
+/*div#empty_box {
 	content: '';
-	/*position: relative;*/
 	height: 100px;
 	width: 90%;
 	margin: 0 auto;
 	top: 0;
-	/*transform-origin: left bottom;
-	transform: skewY(6deg);*/
 	background-image: inherit;
-} 
+} */
 
-div#recombinator_text {
+/*div#recombinator_text {
 /*transform: rotate(-6deg); */
-font-family: Franchise;
+/*font-family: Franchise;
 font-size: 105px;
 color: #FFFFFF;
 letter-spacing: 0;
@@ -69,13 +115,13 @@ line-height: 1;
 
 /*transform-origin: left bottom;
 transform: skewY(-6deg);
-	/*background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%); */
-}
+	/*background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%); 
+} */
 
 div#sound_on {
 	color: #FFFFFF;
 	width: 100%;
-	font-size: 35px;
+	font-size: 1.5em; /*35px;*/
 	margin: 0 auto;
 	text-align: center;
 	position: relative;
@@ -83,18 +129,27 @@ div#sound_on {
 	/*position: relative; */
 }
 
-div#start_button {
+div#sound_on img{
+	width: 5%;
+	max-width: 34px;
+	left: 0;
+	display: inline;
+	vertical-align: middle;
+	padding-right: 10px;
+}
+
+/*div#start_button {
 	position:relative;
 	width:80%;
 	height:10%;
 	left:10%;
 	top:20%;
 	background-color: green;
-}
+} */
 
-div#enter_the {
+/*div#enter_the {
 	/*transform: rotate(-6deg); */
-	/*border: 7px solid #FFFFFF; */
+	/*border: 7px solid #FFFFFF; 
 	position: relative;
 	font-size: 100px;
 	color: #FFFFFF;
@@ -104,11 +159,12 @@ div#enter_the {
 	z-index: -1;
 	padding: 10px;
 	line-height: 1;
-	/*clip-path: inset(100px, 50px); /* top right bottom left */
-	/*top: 100;*/
+	text-align: center;
+	/*clip-path: inset(100px, 50px); /* top right bottom left 
+	/*top: 100;
 	transform-origin: left bottom;
 	transform: skewY(-6deg);
-}
+} */
 /*
 div#enter_the::before {
 	content:'';
@@ -137,12 +193,12 @@ div#enter_the::before {
 
 div#disclaimer {
 	color: #FFFFFF;
-	font-family: Roboto;
-	font-size: 16px;
+	font-family: Roboto-Regular;
+	font-size: 0.75em;
 	width: 100%;
 	text-align: center;
 	margin: 0 auto;
-	margin-top: 20%;
+	margin-top: 10%;
 	position: relative;
 }
 
@@ -196,10 +252,15 @@ div#container::after{
 	content:'';
 	width: 100%;
 	height: 100%;
+
+	/*max-width: 560px;
+	min-width: 327px;
+	left: 16.5;
+	right: 16.5; */
 	position: absolute;
 	background-color: white;
 	z-index: -1;
-	top: 100;
+	top: 7%;
 	transform-origin: left top;
 	transform: skewY(-3deg);
 }
@@ -229,7 +290,7 @@ div#header {
 		left:8vw;
 		top:35%;
 
-		font-family: Roboto-Black;
+		font-family: Roboto-Regular;
 
 		font-size: 3vh;
 		color:white;
@@ -243,8 +304,10 @@ div#header {
 div#recombinator_container {
 	position: absolute;
 	top:18%;
-	width:100%;
+	max-width:560px;
+	min-width: 327px;
 	height:70%;
+	/*-webkit-transform: translateZ(0);*/
 
 }
 div#recombinator {
@@ -323,6 +386,7 @@ div#buttons {
 	top:90%;
 	width:100%;
 	height:10%;
+	padding-top: 10%;
 
 	z-index: 100;
 }
@@ -331,19 +395,27 @@ div#buttons {
 	  	right: 3%;
 	  	top:10%;
 	  	height:80%;
-	  	width:50%;
-
-		background-color:rgb(255, 102, 255);
+	  	width:45%;
+		background-color: #000000;
+		
 	    text-align: center;
+	}
 
+	div#recombinate_button:hover {
+	    box-shadow: 5px 5px #FF00CC;
+	}
+	div#recombinate_button:active {
+		-webkit-transform: translate(5px, 5px);
+		transform: translate(5px, 5px);
+		box-shadow: none;
 	}
 	div#recombinate_button_text {
 		text-align: center;
 		vertical-align: middle;	
 		line-height: 150%;
-
+		/*letter-spacing: 0.26px;*/
 		font-size: 6vh;
-		color:white;
+		color: #FF00CC;
 		cursor:pointer;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
@@ -351,19 +423,69 @@ div#buttons {
 		-o-user-select: none;
 		user-select: none;		
 	}
+
+	div#share_button {
+		position:absolute;
+	  	left: 3%;
+	  	top:10%;
+	  	height:80%;
+	  	width:45%;
+		background-color: #000000;
+		
+	    text-align: center;
+	}
+
+	div#share_button:hover {
+	    box-shadow: 5px 5px #3AD3AA;
+	}
+	div#share_button_text {
+		text-align: center;
+		vertical-align: middle;	
+		/*line-height: 150%;*/
+		/*letter-spacing: 0.26px;*/
+		font-size: 5vh;
+		color: #3AD3AA;
+		cursor:pointer;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-o-user-select: none;
+		user-select: none;		
+	}
+
+
 div#meal_title_banner {
 	position:absolute;
 	width:100%;
 	height:12vh;
-	top:5%;
-	left:-1%;
+	top:7%;
+	/*left:-1%;*/
 	z-index:2;
-
-
-	background-color:black;
-	transform: rotate(-5deg);
+	background-color: black;
+	/*transform: rotate(-3deg);*/
+	transform-origin: left top;
+	transform: skewY(-3deg);
 	clip-path:inset(0 100% 0 0);
 }
+
+div#meal_title_banner:after {
+    content:" ";
+    position:absolute;
+    /*display:block;*/
+    top:0;
+    right:0;
+    width:100%;
+    height:101%;
+    background:#FFFFFF;
+    z-index:2;
+}
+
+div#meal_title_banner.show:after {
+    width:0%;
+        transition: width .3s ease;
+
+}
+
 div#meal_title {
 	position:relative;
 
@@ -378,6 +500,50 @@ div#meal_title {
 	font-size: 5vh;
 	line-height: 5vh;
 	color:rgb(255, 102, 255);
+}
+
+.pulsate-fwd {
+	-webkit-animation: pulsate-fwd 1.5s ease-in-out infinite both;
+	        animation: pulsate-fwd 1.5s ease-in-out infinite both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2017-6-12 9:8:4
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation pulsate-fwd
+ * ----------------------------------------
+ */
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 </style>
@@ -395,21 +561,25 @@ div#meal_title {
 	<!--<img 	id="landing_page_image" src="images/bell.png"></img>-->
 	
 		<div id="title_container">
-			<div id="enter_the">ENTER THE
-				<div id="empty_box">
-					<div id="recombinator_text">RECOMBINATOR!</div>
-				</div> 
+			<div class="pulsate-fwd">
+				<!--<div id="enter_the">ENTER THE
+					<div id="empty_box">
+						<div id="recombinator_text">RECOMBINATOR!</div>
+					</div>  -->
+					<img src="/images/entertherecombinator_outlined.svg" />
 			</div>
-					<div id="sound_on">SOUND ON FOR BEST EXPERIENCE</div>
-							<div id="disclaimer">We are not affiliated with Taco Bell. </br> This experience is brought to you by <a href="http://www.particledesign.com">Particle Design</a></div>
+		<!--</div> -->
+			
+			<div id="sound_on"><img class="inline-img" src="images/headphones.png" />SOUND ON FOR BEST EXPERIENCE</div>
+			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a> </br> We are not affiliated with Taco Bell.</div>
 
 		</div>
 
+		<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
 
-
-		<div id="start_button">
+		<!--<div id="start_button">
 			<div id="start_button_text">Start!</div>
-		</div>
+		</div> -->
 
 </div>
 
@@ -431,11 +601,19 @@ div#meal_title {
 		<div id="recombinator_container">
 			<div id="recombinator"></div>
 		</div>
+
 			<div id="buttons">
-		<div id="recombinate_button"> 
-			<div id="recombinate_button_text">RECOMBINATE!</div>
-		</div>
-	</div>
+
+				<div id="recombinate_button"> 
+					<div id="recombinate_button_text">RECOMBINATE!</div>
+				</div>
+
+				<div id="share_button"> 
+					<div id="share_button_text">SHARE THIS COMBO</div>
+				</div>
+
+
+			</div>
 	</div>
 
 </div>

@@ -81,7 +81,8 @@ var app = {
 		var $landing_page = $('div#landing_page')
 		var $recombinator_page = $('div#recombinator_page')
 
-		$('div#start_button').click(function(){
+		$('div#title_container').click(function(){
+			console.log("Title clicked!");
 
 			$landing_page.transition({
 				'transform':"translate(-100%)"
@@ -406,10 +407,11 @@ var app = {
 	displayNameBanner: function() {
 		//banner background animation
 		var $banner = $('div#meal_title_banner');
+		$banner.removeClass("show")
 	
 		//hide and reset banner on recombinate! button press
 		$banner.transition({
-			"clip-path":"inset(0 100% 0 0)"
+			"clip-path":"inset(0 100% 0 0)" // clip-path is experimental, only supported in Chrome
 		},0)
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
@@ -453,6 +455,8 @@ var app = {
 					expandBannerText(contractBannerText)
 				})
 			})
+
+			$banner.addClass("show")
 		}, ingredientsDoneFalling)
 
 	}

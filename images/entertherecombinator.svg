@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg width="564px" height="216px" viewBox="0 0 564 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <style type="text/css">
+   <![CDATA[
+    @font-face {
+        font-family: Franchise;
+        src: url('Franchise.ttf');
+    }
+   ]]>
+ </style>
+</defs>
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <text id="text-1" font-family="Franchise-Bold, Franchise" font-size="105" font-weight="bold" fill="#FFFFFF">
+            <tspan x="116.019707" y="219.516441">RECOMBINATOR!</tspan>
+        </text>
+        <filter x="-0.5%" y="-2.9%" width="102.1%" height="111.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="6" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0   0 0 0 0 0.8  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-3" points="0.0634765625 50.6575169 18.0400391 234.779688 105.204102 226.089253 95.9199219 158.502851 384.746094 127.497867 377.735352 11.3260346 310.416992 0.748416385 76.6132812 26.1006546"></polygon>
+    </defs>
+    <g id="If-Responsive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1366x768_LP" transform="translate(-393.000000, -133.000000)">
+            <g id="Group-2" transform="translate(363.000000, 100.000000)">
+                <g id="Recombinator!" transform="translate(353.267207, 193.016441) rotate(-6.000000) translate(-353.267207, -193.016441) " fill-opacity="1" fill="#FFFFFF">
+                    <use filter="url(#filter-2)" xlink:href="#text-1"></use>
+                    <use xlink:href="#text-1"></use>
+                </g>
+                <text id="Enter-the" transform="translate(179.637992, 120.333165) rotate(-6.000000) translate(-179.637992, -120.333165) " font-family="Franchise-Bold, Franchise" font-size="82.5" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="57.1254922" y="140.833165">ENTER THE</tspan>
+                </text>
+                <g id="box">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Path-2"></g>
+                    <polygon id="Rectangle-7" stroke="#FFFFFF" stroke-width="7.5" mask="url(#mask-4)" transform="translate(180.788990, 112.953276) rotate(-6.000000) translate(-180.788990, -112.953276) " points="39.4876736 53.4539085 334.575081 53.4539085 322.090305 172.452643 27.0028977 172.452643"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
