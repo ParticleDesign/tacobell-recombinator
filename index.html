@@ -13,7 +13,7 @@
 * {
 	padding	:0;
 	margin 	:0;
-	line-height	: 1.7; 
+	/*line-height	: 1.7; */
 	vertical-align: baseline;
 	font-family	: "Franchise",'Open Sans', helvetica; 
 	color 		: rgb(105,105,100);
@@ -28,6 +28,26 @@
 @media screen and (min-width: 75em) {
 	html { 
 		font-size: 1.5em;
+	}
+}
+
+@media screen and (min-height: 1080px) {
+	div#recombinate_button_text {
+		font-size: 42px;
+	}
+
+	div#share_button_text {
+		font-size: 32px;
+	}
+}
+
+@media screen and (max-height: 1080px) {
+	div#recombinate_button_text {
+		font-size: 4vh;
+	}
+
+	div#share_button_text {
+		font-size: 3vh;
 	}
 }
 
@@ -46,7 +66,7 @@ div#bottom_taco{
 	bottom: 0;
 	right: 0;
 	left: 0;
-	z-index: -5;
+	z-index: -1;
 	position: absolute;
 }
 
@@ -207,7 +227,7 @@ div#disclaimer a {
 	font-family: inherit;
 }
 
-div#start_button_text {
+/*div#start_button_text {
 	text-align: center;
 	vertical-align: middle;	
 	line-height: 180%;
@@ -220,26 +240,27 @@ div#start_button_text {
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;		
-}
+} */
 
 div#recombinator_page {
-	transform:translate(100%)
-
+	transform:translate(100%);
+	background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
 }
-div#background {
+
+/*div#background {
 	position:absolute;
 	width:100%;
 	height:100%;
 	
 	z-index: 0;
-	/*background-color:purple; */
 	background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
-}
+}*/
 div#container { 
 	position: relative;
 	max-width: 560px;
 	min-width: 327px;
 	height: 100%;
+	/*min-height: 640px;*/
 	/*left: 5%;*/
 	margin: 0 auto;
 	z-index:1;
@@ -250,8 +271,13 @@ div#container {
 
 div#container::after{
 	content:'';
-	width: 100%;
+	/*width: 100%;*/
 	height: 100%;
+	margin: 0 auto;
+	left: 16.5;
+	right: 16.5;
+
+	min-width: 327px;
 
 	/*max-width: 560px;
 	min-width: 327px;
@@ -271,7 +297,11 @@ div#header {
 	top:-3%;
 	/*left:-1%;*/
 	margin: 0 auto;
+	left: 0;
+	right: 0;
 	width:100%;
+	max-width: 560px;
+	min-width: 327px;
 	height:8%;
 	z-index: 2;
 
@@ -279,15 +309,15 @@ div#header {
 	background-color: purple;
 	transform: rotate(-5deg);*/
 }
-	img#header_image {
+	/*img#header_image {
 		position:relative;
 		left:-1vw;
 		top:.25vh;
 		width: 3vh;
-	}
+	}*/
 	div#header_text {
 		position: absolute;
-		left:8vw;
+		/*left:8vw;*/
 		top:35%;
 
 		font-family: Roboto-Regular;
@@ -301,11 +331,34 @@ div#header {
 		-o-user-select: none;
 		user-select: none;		
 	}
+	div#header_text_flipped {
+		position: absolute;
+		left:1%;
+		top:55%;
+
+		font-family: Roboto-Regular;
+
+		font-size: 3vh;
+		color:white;
+		cursor:pointer;
+		opacity: 0.6;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+
+		-moz-transform: scaleY(-1);
+		-o-transform: scaleY(-1);
+		-webkit-transform: scaleY(-1);
+		transform: scaleY(-1);
+	}
 div#recombinator_container {
 	position: absolute;
 	top:18%;
-	max-width:560px;
-	min-width: 327px;
+	width: 100%;
+	/*max-width:560px;
+	min-width: 327px;*/
 	height:70%;
 	/*-webkit-transform: translateZ(0);*/
 
@@ -314,7 +367,7 @@ div#recombinator {
 	display: table-cell;
 	vertical-align: bottom;
 	position: absolute;
-	bottom: 0;
+	bottom: 10%;
 	width:100%;
 }
 
@@ -322,6 +375,7 @@ div#recombinator {
 		position:relative;
 		width: 100%;
 		height: 7vh;
+		max-height: 529px;
 /*			background-color: gray;
 			border-style:solid;
 			border-color:red;
@@ -385,19 +439,17 @@ div#buttons {
 	position: absolute;
 	top:90%;
 	width:100%;
-	height:10%;
-	padding-top: 10%;
-
+	height:7%;
 	z-index: 100;
+	border: 1px solid red;
 }
 	div#recombinate_button {
 		position:absolute;
-	  	right: 3%;
-	  	top:10%;
-	  	height:80%;
-	  	width:45%;
+	  	right: 12%;
+	  	top:0%;
+	  	height:100%;
+	  	width:35%;
 		background-color: #000000;
-		
 	    text-align: center;
 	}
 
@@ -410,11 +462,19 @@ div#buttons {
 		box-shadow: none;
 	}
 	div#recombinate_button_text {
+		position: absolute;
+		margin: 0 auto;
+		top: 25%;
+		bottom: 25%;
+		left: 0;
+		right: 0;
+		height: 50%;
 		text-align: center;
-		vertical-align: middle;	
-		line-height: 150%;
+		vertical-align: middle;
+		/*font-size: 4vh; */
+		/*height: 100%; */
 		/*letter-spacing: 0.26px;*/
-		font-size: 6vh;
+		/*font-size: 6vh;*/
 		color: #FF00CC;
 		cursor:pointer;
 		-webkit-user-select: none;
@@ -426,12 +486,11 @@ div#buttons {
 
 	div#share_button {
 		position:absolute;
-	  	left: 3%;
-	  	top:10%;
-	  	height:80%;
-	  	width:45%;
+	  	left: 12%;
+	  	top:0%;
+	  	height:100%;
+	  	width:35%;
 		background-color: #000000;
-		
 	    text-align: center;
 	}
 
@@ -439,11 +498,20 @@ div#buttons {
 	    box-shadow: 5px 5px #3AD3AA;
 	}
 	div#share_button_text {
+		position: absolute;
+		margin: 0 auto;
+		top: 30%;
+		bottom: 30%;
+		left: 0;
+		right: 0;
+		height: 40%;
 		text-align: center;
-		vertical-align: middle;	
+		vertical-align: middle;
+
 		/*line-height: 150%;*/
 		/*letter-spacing: 0.26px;*/
-		font-size: 5vh;
+		/*font-size: 5vh;*/
+		/*font-size: 3vh;*/
 		color: #3AD3AA;
 		cursor:pointer;
 		-webkit-user-select: none;
@@ -500,6 +568,23 @@ div#meal_title {
 	font-size: 5vh;
 	line-height: 5vh;
 	color:rgb(255, 102, 255);
+}
+
+div#recombinator_disclaimer {
+	font-family: Roboto-Regular;
+	font-size: 0.5em;
+	color: #4A4A4A;
+	position: absolute;
+	width: 100%;
+	display: block;
+	bottom: 0;
+	text-align: center;
+}
+
+div#recombinator_disclaimer a {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
 }
 
 .pulsate-fwd {
@@ -571,7 +656,7 @@ div#meal_title {
 		<!--</div> -->
 			
 			<div id="sound_on"><img class="inline-img" src="images/headphones.png" />SOUND ON FOR BEST EXPERIENCE</div>
-			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a> </br> We are not affiliated with Taco Bell.</div>
+			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a> </br> We have an affinity for, but are not affiliated with, Taco Bell.</div>
 
 		</div>
 
@@ -585,36 +670,34 @@ div#meal_title {
 
 
 <div id="recombinator_page">
-	<div id="background"></div>
+	<!--<div id="background"></div> -->
 	<div id="header">
-		<div id='header_text'>
+		<div id='header_text'>RECOMBINATOR!</div>
 		<!--<img id='header_image' src="images/bell.png"></img> -->
-		
-		RECOMBINATOR!
-		</div>
+		<div id="header_text_flipped">RECOMBINATOR!</div>
 	</div>
 
+
 	<div id="container">
-			<div id="meal_title_banner">
-		<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>
-	</div>
+		<div id="meal_title_banner">
+			<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>
+		</div>
 		<div id="recombinator_container">
 			<div id="recombinator"></div>
 		</div>
 
-			<div id="buttons">
-
-				<div id="recombinate_button"> 
-					<div id="recombinate_button_text">RECOMBINATE!</div>
-				</div>
-
-				<div id="share_button"> 
-					<div id="share_button_text">SHARE THIS COMBO</div>
-				</div>
-
-
+		<div id="buttons">
+			<div id="recombinate_button"> 
+				<div id="recombinate_button_text">RECOMBINATE!</div>
 			</div>
+			<div id="share_button"> 
+				<div id="share_button_text">SHARE THIS COMBO</div>
+			</div>
+		</div>
+		<div id="recombinator_disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a>. We are not affiliated with Taco Bell.</div>
 	</div>
+
+	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
 
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
