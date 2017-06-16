@@ -72,6 +72,8 @@ var app = {
 		//set handlers for 
 		this.armRecombinateButton()
 
+		this.armShareButton()
+
 		// //play intro sound
 		// var chalupa = new Audio("sounds/chalupa.mp3"); // buffers automatically when created
 		// chalupa.play();
@@ -124,6 +126,16 @@ var app = {
 			self.recombinate()					//start new meal
 			self.displayMealDivs();	
 		})
+	},
+
+	armShareButton: function() {
+		//var share_menu = document.getElementByID("#share_menu");
+		$('div#share_button').on("click", function() {
+			//$('div#share_menu').addClass('open');
+			$('div#share_menu').toggleClass('open');
+		//	share_menu.classList.toggle("open");
+		})
+
 	},
 
 	//seperates Ingredient objects from JSON Array into a seperate array for each ingredient Type 
@@ -227,7 +239,9 @@ var app = {
 
 					var isAvo = /Guacamole/
 					if (item.ingredient.match(isAvo)) {
-						signifier+="Avocado "
+						if (!signifier.match("Avocado")) {
+							signifier+="Avocado "
+						}
 					}
 
 					var hasCheese = /Cheese/
@@ -259,7 +273,9 @@ var app = {
 				else if (item.type === "sauce") {
 					var isNacho = /Nacho/
 					if (item.ingredient.match(isNacho)) {
-						prefix+="Nacho "
+						if(!prefix.match("Nacho")) {
+							prefix+="Nacho "
+						}
 					}
 
 					var isVolcano = /Spicy|- Fire|- Hot|Diablo/
@@ -297,7 +313,7 @@ var app = {
 				})
 			}
 
-			if (self.numberOfIngredients > 1 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
+			if (self.numberOfIngredients > 1 && self.numberOfIngredients <= 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
 				signifier+="Fresco "
 			}
 
@@ -414,10 +430,6 @@ var app = {
 			"clip-path":"inset(0 100% 0 0)" // clip-path is experimental, only supported in Chrome
 		},0)
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
-
-
-
-
 
 		//banner animation
 		var ingredientsDoneFalling = self.ingredientContainerIDs.length * self.animationInterval_ingredients;

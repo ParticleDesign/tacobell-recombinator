@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="If-Responsive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1366x768_shareselected" transform="translate(-571.000000, -541.000000)" stroke="#000000" stroke-width="2">
+            <g id="sharepopup" transform="translate(503.000000, 436.000000)">
+                <g id="Facebook" transform="translate(68.000000, 105.000000)">
+                    <path d="M26,1 L6,1 C3.31925754,1 1,2.9127559 1,5 L1,25 C1,27.110656 3.30271943,29 6,29 L26,29 C27.6457534,29 29,27.2812625 29,25 L29,5 C29,2.74233157 27.6342272,1 26,1 Z" id="Path-copy"></path>
+                    <path d="M21.0078125,9.27978515 C21.0078125,9.27978515 20.2279053,9.24633789 18.6640625,9.02758789 C17.1002197,8.80883768 15.0000004,8.96891035 15.0000001,11.1161774 C14.9999999,13.2634445 15.0000001,28.8009049 15.0000001,28.8009049" id="Path-26"></path>
+                    <path d="M12.0050049,16 L19.0050049,16" id="Line" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
