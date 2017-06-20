@@ -398,14 +398,15 @@ var app = {
 				delay = self.animationInterval_ingredients * i;
 
 			//push all ingredients offscreen above window
-			$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
+			//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
 
 			//animate each ingredient into place one at a time
 			setTimeout(function() {
 
-				$currentIngredient.transition({
+				/*$currentIngredient.transition({
 					y:0
-				},self.animationInterval_ingredients)
+				},self.animationInterval_ingredients)*/
+			$currentIngredient.addClass("drop");
 
 			}, delay)
 
