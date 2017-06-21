@@ -74,6 +74,8 @@ var app = {
 
 		this.armShareButton()
 
+		this.armSoundToggle()
+
 		// //play intro sound
 		// var chalupa = new Audio("sounds/chalupa.mp3"); // buffers automatically when created
 		// chalupa.play();
@@ -133,9 +135,42 @@ var app = {
 		$('div#share_button').on("click", function() {
 			//$('div#share_menu').addClass('open');
 			$('div#share_menu').toggleClass('open');
+			//screenshotPage();
 		//	share_menu.classList.toggle("open");
 		})
 
+		/*function screenshotPage() {
+			  // 1. Rewrite current doc's imgs, css, and script URLs to be absolute before
+			  // we duplicate. This ensures no broken links when viewing the duplicate.
+			  //urlsToAbsolute(document.images);
+			  //urlsToAbsolute(document.querySelectorAll("link[rel='stylesheet']"));
+			  //urlsToAbsolute(document.scripts);
+
+			  // 2. Duplicate entire document tree.
+			  var screenshot = document.documentElement.cloneNode(true);
+
+			  // 3. Screenshot should be readyonly, no scrolling, and no selections.
+			  //screenshot.style.pointerEvents = 'none';
+			  //screenshot.style.overflow = 'hidden';
+			  //screenshot.style.userSelect = 'none'; // Note: need vendor prefixes
+
+			  // 4. ... read on ...
+
+			  // 5. Create a new .html file from the cloned content.
+			  var blob = new Blob([screenshot.outerHTML], {type: 'text/html'});
+
+			  // Open a popup to new file by creating a blob URL.
+			  //window.open(window.URL.createObjectURL(blob));
+			  var myURL = window.URL.createObjectURL(blob);
+			  console.log(myURL);
+			}*/
+
+	},
+
+	armSoundToggle: function() {
+		$('div#sound_control').on("click", function() {
+			alert("Sound off!");
+		})
 	},
 
 	//seperates Ingredient objects from JSON Array into a seperate array for each ingredient Type 
@@ -143,7 +178,6 @@ var app = {
 	fetchIngredientsFromJSON : function(){
 
 		$.getJSON('ingredients.json', function( JSONarray ){ 
-
 			JSONarray.forEach(function(item) {
 				var currentIngredientType = item.type;
 
@@ -156,6 +190,7 @@ var app = {
 				self.ingredientsArray.push(item)
 			})
 		})
+
 	},
 
 //.......................... create meal model from random ingredients .............................
@@ -395,7 +430,7 @@ var app = {
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
 			var $currentIngredient = $("div#"+containerID),
-				delay = self.animationInterval_ingredients * i;
+				delay = self.animationInterval_ingredients * i * 1.2;
 
 			//push all ingredients offscreen above window
 			//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)

@@ -335,6 +335,12 @@ div#recombinator_page {
 	    transition: width .3s ease;
 	}
 
+	div#sound_control {
+		position: absolute;
+		top: 20%;
+		right: 0;
+	}
+
 }
 
 @media screen and (min-width: 721px) {
@@ -399,6 +405,13 @@ div#recombinator_page {
 	    width:0%;
 	        transition: width .3s ease;
 
+	}
+
+	div#sound_control {
+		position: absolute;
+		top: 20%;
+		right: -20px;
+		z-index: 5;
 	}
 }
 
@@ -493,7 +506,7 @@ div#recombinator {
 		width: 100%;
 		height: 7vh;
 		max-height: 529px;
-		transition: top .4s ease;
+		transition: top .25s ease;
 /*			background-color: gray;
 			border-style:solid;
 			border-color:red;
@@ -678,7 +691,7 @@ div#share_menu li {
 }
 
 div#share_menu li img {
-	height: 60%;
+	height: 50%;
 }
 
 
@@ -813,6 +826,7 @@ div#recombinator_disclaimer a {
 		<div id="meal_title_banner">
 			<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>
 		</div>
+		<div id="sound_control"><img src="/images/soundcontrol.svg" /></div>
 		<div id="recombinator_container">
 			<div id="recombinator"></div>
 		</div>
