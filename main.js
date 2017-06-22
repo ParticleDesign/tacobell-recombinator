@@ -61,6 +61,8 @@ var app = {
 	// item name
 	mealName: "",
 
+	soundOn: false,
+
 //..................................... application .............................................
 	init: function() {
 		self = this
@@ -169,7 +171,12 @@ var app = {
 
 	armSoundToggle: function() {
 		$('div#sound_control').on("click", function() {
-			alert("Sound off!");
+			//alert("Sound off!");
+			if (self.soundOn == false) {
+				self.soundOn = true;
+			} else { self.soundOn = false; }
+
+			console.log("soundOn = " + self.soundOn)
 		})
 	},
 
@@ -348,8 +355,16 @@ var app = {
 				})
 			}
 
-			if (self.numberOfIngredients > 1 && self.numberOfIngredients <= 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
-				signifier+="Fresco "
+			/*if (self.numberOfIngredients > 1 && self.numberOfIngredients <= 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
+				signifier+="Veggie "
+			}*/
+
+			if (self.numberOfIngredients == 1) {
+				prefix+="Veggie "
+			}
+
+			if (self.numberOfIngredients > 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite " && numShells == 1) {
+				signifier+="Loaded "
 			}
 
 			//if (self.numberOfIngredients == 1)	prefix = "Fresco "
@@ -445,12 +460,14 @@ var app = {
 
 			}, delay)
 
-
+			console.log("soundOn = " + self.soundOn)
 			//play squish for each ingredient
-			var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
-			setTimeout(function() {
-				squish.play()
-			}, delay+100)
+			if (self.soundOn == true) {
+				var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
+				setTimeout(function() {
+					squish.play()
+				}, delay+100)
+			}
 		})
 
 
@@ -472,8 +489,10 @@ var app = {
 		var $banner_title = $('div#meal_title')
 
 		var expandBannerText = function(callback) {
-			var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created			
-			bong.play();
+			if (self.soundOn == true) {
+				var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created			
+				bong.play();
+			}
 
 			$banner_title.transition({
 				"font-size":"7vh",
