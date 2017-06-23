@@ -61,7 +61,7 @@ var app = {
 	// item name
 	mealName: "",
 
-	soundOn: false,
+	soundOn: true,
 
 //..................................... application .............................................
 	init: function() {
@@ -87,7 +87,7 @@ var app = {
 		var $landing_page = $('div#landing_page')
 		var $recombinator_page = $('div#recombinator_page')
 
-		$('div#title_container').click(function(){
+		$('div#title').click(function(){
 			console.log("Title clicked!");
 
 			$landing_page.transition({
@@ -100,6 +100,16 @@ var app = {
 				self.displayMealDivs()
 			})
 		})
+
+		/*$('div#sound_on').click(function() {
+			if (self.soundOn == false) {
+				$('div#sound_on').html("SOUND ON FOR PARTY")
+				self.soundOn = true;
+			} else {
+				$('div#sound_on').html("SOUND OFF FOR PRIVACY")
+				self.soundOn = false;
+			}
+		})*/
 
 		//arm "recombinator!" header home button
 		$('div#header_text').on('click', function() {
@@ -359,12 +369,12 @@ var app = {
 				signifier+="Veggie "
 			}*/
 
-			if (self.numberOfIngredients == 1) {
+			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa") {
 				prefix+="Veggie "
 			}
 
 			if (self.numberOfIngredients > 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite " && numShells == 1) {
-				signifier+="Loaded "
+				prefix+="Loaded "
 			}
 
 			//if (self.numberOfIngredients == 1)	prefix = "Fresco "
@@ -441,6 +451,112 @@ var app = {
 
 		var mealContainerHeight = $(window).height() - $('#buttons').height();
 
+		// Prep audio file - should this go somewhere else?
+		//var audioSprite = new Audio("sounds/squish_sprite.mp3");
+		// store stopping times for each ingredient amount
+		/*var spriteData = {
+			    ing1: {
+			        start: 0,
+			        length: 0.43
+			    },
+			    ing2: {
+			        start: 0,
+			        length: 0.86
+			    },
+			    ing3: {
+			        start: 0,
+			        length: 1.29
+			    },
+			    ing4: {
+			        start: 0,
+			        length: 1.72
+			    },
+			    ing5: {
+			        start: 0,
+			        length: 2.15
+			    },
+			    ing6: {
+			        start: 0,
+			        length: 2.58
+			    },
+			    ing7: {
+			        start: 0,
+			        length: 3.01
+			    },
+			    ing8: {
+			        start: 0,
+			        length: 3.44
+			    },
+			    ing9: {
+			        start: 0,
+			        length: 3.87
+			    }
+			};*/
+		// create a handler to stop the sound at the right time 
+		/*var handler = function() {
+			console.log(this.currentTime);
+			switch (self.numberOfIngredients) {
+				case 1:
+					console.log("one ingredient");
+					if (this.currentTime >= spriteData.ing1.length) {
+						this.pause();	
+					}
+					break;
+				case 2:
+					console.log("two ingredients");
+					if (this.currentTime >= spriteData.ing2.length) {
+						this.pause();	
+					}
+					break;
+				case 3:
+					console.log("three ingredients");
+					if (this.currentTime >= spriteData.ing3.length) {
+						this.pause();	
+					}
+					break;
+				case 4:
+					if (this.currentTime >= spriteData.ing4.length) {
+						this.pause();	
+					}
+					console.log("four ingredients");
+					break;
+				case 5:
+					console.log("five ingredients");
+					if (this.currentTime >= spriteData.ing5.length) {
+						this.pause();	
+					}
+					break;
+				case 6:
+					console.log("six ingredients");
+					if (this.currentTime >= spriteData.ing6.length) {
+						this.pause();	
+					}
+					break;
+				case 7:
+					console.log("seven ingredients");
+					if (this.currentTime >= spriteData.ing7.length) {
+						this.pause();	
+					}
+					console.log(spriteData.ing7.length)
+					break;
+				case 8:
+					console.log("eight ingredients");
+					if (this.currentTime >= spriteData.ing8.length) {
+						this.pause();	
+					}
+					break;
+				case 9:
+					console.log("nine ingredients");
+					if (this.currentTime == spriteData.ing9.length) {
+						this.pause();	
+					}
+					break;
+
+			
+		}}*/
+		// Add event listener to the audio sprite
+		//audioSprite.addEventListener('timeupdate', handler, false);
+
 		//move each ingredient into view
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
@@ -452,24 +568,26 @@ var app = {
 
 			//animate each ingredient into place one at a time
 			setTimeout(function() {
-
+				$currentIngredient.addClass("drop");
 				/*$currentIngredient.transition({
 					y:0
 				},self.animationInterval_ingredients)*/
-			$currentIngredient.addClass("drop");
-
 			}, delay)
 
 			console.log("soundOn = " + self.soundOn)
+
+
 			//play squish for each ingredient
 			if (self.soundOn == true) {
-				var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
+
+				//audioSprite.play()
+
 				setTimeout(function() {
+					squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
 					squish.play()
-				}, delay+100)
+				}, delay+100) 
 			}
 		})
-
 
 		self.displayNameBanner()
 	},
