@@ -164,7 +164,7 @@
 	{
 		"ingredient": "Cheddar Cheese",
 		"type": "topping",
-		"address": "images/ingredient_cheese.png"
+		"address": "images/ingredient_cheddar_cheese.png"
 	},
 	{
 		"ingredient": "Cilantro",
@@ -179,7 +179,7 @@
 	{
 		"ingredient": "Iceberg Lettuce",
 		"type": "topping",
-		"address": "images/ingredient_lettuce.png"
+		"address": "images/ingredient_shredded_lettuce.png"
 	},
 	{
 		"ingredient": "Jalapeños",
@@ -194,7 +194,7 @@
 	{
 		"ingredient": "Pico de Gallo",
 		"type": "topping",
-		"address": "images/ingredient_pico.png"
+		"address": "images/ingredient_pico-de-gallo.png"
 	},
 	{
 		"ingredient": "Premium Guacamole",
