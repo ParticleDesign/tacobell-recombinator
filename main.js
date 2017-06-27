@@ -61,7 +61,7 @@ var app = {
 	// item name
 	mealName: "",
 
-	soundOn: true,
+	soundOn: false,
 
 //..................................... application .............................................
 	init: function() {
@@ -87,7 +87,7 @@ var app = {
 		var $landing_page = $('div#landing_page')
 		var $recombinator_page = $('div#recombinator_page')
 
-		$('div#title').click(function(){
+		$('div#title').on('click', function(){
 			console.log("Title clicked!");
 
 			$landing_page.transition({
@@ -99,17 +99,28 @@ var app = {
 				self.recombinate()
 				self.displayMealDivs()
 			})
+			
+			// load sounds here for iOS
+			var audioSprite = new Audio("sounds/squish_250ms.mp3");
+
+			var squish = document.getElementById("squish")
+			squish.load()
+			console.log(squish)
+
 		})
 
-		/*$('div#sound_on').click(function() {
+		$('div#sound_on').on('click', function() {
+			console.log("sound on clicked!")
 			if (self.soundOn == false) {
-				$('div#sound_on').html("SOUND ON FOR PARTY")
+				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
 				self.soundOn = true;
+				$('img#sound_control_icon').attr('src', '/images/soundcontrol.svg')
 			} else {
-				$('div#sound_on').html("SOUND OFF FOR PRIVACY")
+				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
 				self.soundOn = false;
+				$('img#sound_control_icon').attr('src', '/images/soundcontrol_off.svg')
 			}
-		})*/
+		})
 
 		//arm "recombinator!" header home button
 		$('div#header_text').on('click', function() {
@@ -134,21 +145,62 @@ var app = {
 	armRecombinateButton: function() {
 		$('div#recombinate_button').on("click", function(){
 // console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-			
-			$('div#recombinator').html("")	//clear previous meal view
 
-			self.recombinate()					//start new meal
-			self.displayMealDivs();	
+			
+			self.clearCurrentMeal()
+
+			setTimeout(function() {
+				$('div#recombinator').html("");
+				self.recombinate();
+				self.displayMealDivs();
+			}, self.animationInterval_ingredients*(self.numberOfIngredients/2))
+
+			//self.clearCurrentMeal()
+
+			//$('div#recombinator').html("")	//clear previous meal view
+
+			//self.recombinate()					//start new meal
+			//self.displayMealDivs();
+
 		})
 	},
 
 	armShareButton: function() {
 		//var share_menu = document.getElementByID("#share_menu");
 		$('div#share_button').on("click", function() {
-			//$('div#share_menu').addClass('open');
-			$('div#share_menu').toggleClass('open');
+
+			//console.log("share open!");
+			//$('div#share_menu').toggleClass("open");
 			//screenshotPage();
-		//	share_menu.classList.toggle("open");
+			//share_menu.classList.toggle("open");
+
+			var shareItems = []
+			shareItems.push(document.getElementsByClassName("share_item"))
+			console.log("share clicked!")
+			//console.log(shareItems);
+			
+			if ($('.share_item').hasClass('show-cards')) {
+				console.log("checking for class...")
+				$('.share_item').each(function(i) {
+					setTimeout(function() {
+						document.getElementsByClassName("share_item")[2-i].classList.add('hide-cards');
+						document.getElementsByClassName("share_item")[2-i].classList.remove('show-cards')
+					}, 200 * (i*.40))
+				})
+			} else {
+				$('.share_item').each(function(i) {
+					console.log("showing cards");
+					//var item = $(this);
+					setTimeout(function() {
+						document.getElementsByClassName("share_item")[i].classList.remove('hide-cards')
+						document.getElementsByClassName("share_item")[i].classList.add('show-cards');
+					}, 200 * (i*.5))
+				})
+			}
+		
+
+
+
 		})
 
 		/*function screenshotPage() {
@@ -184,7 +236,11 @@ var app = {
 			//alert("Sound off!");
 			if (self.soundOn == false) {
 				self.soundOn = true;
-			} else { self.soundOn = false; }
+				$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
+			} else { 
+				self.soundOn = false; 
+				$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
+			}
 
 			console.log("soundOn = " + self.soundOn)
 		})
@@ -369,7 +425,7 @@ var app = {
 				signifier+="Veggie "
 			}*/
 
-			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa") {
+			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa ") {
 				prefix+="Veggie "
 			}
 
@@ -447,53 +503,69 @@ var app = {
 		//animate each ingredient Div one by one
 		self.animateMealDivs()
 	},
+	clearCurrentMeal: function() {
+		self.ingredientContainerIDs.forEach(function(containerID, i) {
+
+			var $currentIngredient = $("div#"+containerID),
+				delay = self.animationInterval_ingredients * (i / 2.5);
+
+		//push all ingredients offscreen above window
+		//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
+		//animate each ingredient into place one at a time
+			setTimeout(function() {
+				$currentIngredient.addClass("clear");
+				console.log("dropping!")
+			}, delay)
+		})
+		//$('div#recombinator').html("")
+	},
 	animateMealDivs: function() {
 
 		var mealContainerHeight = $(window).height() - $('#buttons').height();
 
-		// Prep audio file - should this go somewhere else?
-		//var audioSprite = new Audio("sounds/squish_sprite.mp3");
+		/*// Prep audio file - should this go somewhere else?
+		var audioSprite = new Audio("sounds/squish_250ms.mp3");
 		// store stopping times for each ingredient amount
-		/*var spriteData = {
+		var spriteData = {
 			    ing1: {
 			        start: 0,
-			        length: 0.43
+			        length: 0.455
 			    },
 			    ing2: {
 			        start: 0,
-			        length: 0.86
+			        length: 0.910
 			    },
 			    ing3: {
 			        start: 0,
-			        length: 1.29
+			        length: 1.32
 			    },
 			    ing4: {
 			        start: 0,
-			        length: 1.72
+			        length: 1.818
 			    },
 			    ing5: {
 			        start: 0,
-			        length: 2.15
+			        length: 2.272
 			    },
 			    ing6: {
 			        start: 0,
-			        length: 2.58
+			        length: 2.727
 			    },
 			    ing7: {
 			        start: 0,
-			        length: 3.01
+			        length: 3.182
 			    },
 			    ing8: {
 			        start: 0,
-			        length: 3.44
+			        length: 3.637
 			    },
 			    ing9: {
 			        start: 0,
-			        length: 3.87
+			        length: 4.09
 			    }
-			};*/
+			};
 		// create a handler to stop the sound at the right time 
-		/*var handler = function() {
+		var handler = function() {
 			console.log(this.currentTime);
 			switch (self.numberOfIngredients) {
 				case 1:
@@ -553,10 +625,13 @@ var app = {
 					break;
 
 			
-		}}*/
+		}}
 		// Add event listener to the audio sprite
-		//audioSprite.addEventListener('timeupdate', handler, false);
-
+		audioSprite.addEventListener('timeupdate', handler, false);*/
+		
+		//var squish = new Audio("/sounds/squish1.mp3"); // buffers automatically when created
+		//squish.addEventListener("ended", function() { squish.currentTime=0; console.log("squish over!")}, false);
+		
 		//move each ingredient into view
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
@@ -581,16 +656,19 @@ var app = {
 			if (self.soundOn == true) {
 
 				//audioSprite.play()
-
+				//squish.currentTime = 0
 				setTimeout(function() {
-					squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
-					squish.play()
-				}, delay+100) 
+					//var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
+					//squish.play()					
+					squish.cloneNode().play()
+					//document.getElementById("squish").cloneNode(true).play()
+				}, delay+100)
 			}
 		})
 
 		self.displayNameBanner()
 	},
+
 	displayNameBanner: function() {
 		//banner background animation
 		var $banner = $('div#meal_title_banner');

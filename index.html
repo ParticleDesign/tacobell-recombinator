@@ -66,19 +66,28 @@ body {
   position: relative
 }
 
+
 div#bottom_taco{
-	width: 955px;
-	margin: auto;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	z-index: -1;
-	position: absolute;
+		width: 955px;
+		margin: auto;
+		bottom: -125;
+		right: 0;
+		left: 0;
+		z-index: -1;
+		position: absolute;
+		-webkit-animation: bounce-in-bottom 0.5s both;
+		        animation: bounce-in-bottom 0.5s both;
+
+}
+
+div#bottom_taco img {
+	width: 100%;
 }
 
 @media (max-width: 1023px) {
 	div#bottom_taco {
-		display: none;
+		width: 100%;
+		bottom: 0;
 	}
 
 }
@@ -106,7 +115,6 @@ div#title_container {
 	top: 100;
 	position: relative;
 	cursor:pointer;
-
 }
 
 #title_container img {
@@ -116,6 +124,17 @@ div#title_container {
 	left: 0;
 	right: 0;
 	margin: auto;	
+}
+
+div#title{
+		-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both, pulsate-fwd 1.5s ease-in-out infinite both;
+			     -webkit-animation-delay: 0s, 0.5s;
+
+	     animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940), pulsate-fwd 1.5s ease-in-out infinite;
+	     animation-delay: 0s, 0.5s;
+
+	/*-webkit-animation: pulsate-fwd 1.5s ease-in-out infinite both;
+	    animation: pulsate-fwd 1.5s ease-in-out infinite both;*/
 }
 
 /*div#empty_box {
@@ -152,6 +171,13 @@ div#sound_on {
 	text-align: center;
 	position: relative;
 	margin-top: 10%;
+	z-index: 100;
+	/*letter-spacing: 1px;*/
+	-webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation-delay: 0.5s;
+
+        animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation-delay: 0.5s;
 	/*position: relative; */
 }
 
@@ -164,6 +190,10 @@ div#sound_on img{
 	padding-right: 10px;
 }
 
+span#headphone_toggle {
+	color: #FFFFFF;
+	/*text-shadow: 4px 4px #FF00CC;*/
+}
 /*div#start_button {
 	position:relative;
 	width:80%;
@@ -226,6 +256,12 @@ div#disclaimer {
 	margin: 0 auto;
 	margin-top: 10%;
 	position: relative;
+
+	-webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation-delay: 0.5s;
+
+    animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation-delay: 0.5s;
 }
 
 div#disclaimer a {
@@ -486,6 +522,7 @@ div#recombinator_container {
 	/*max-width:560px;
 	min-width: 327px;*/
 	height:70%;
+	overflow: hidden;
 	/*-webkit-transform: translateZ(0);*/
 
 }
@@ -498,6 +535,10 @@ div#recombinator {
 }
 	div.ingredient_container.drop {
 		top: 0;
+	}
+
+	div.ingredient_container.clear {
+		top: 1000;
 	}
 
 	div.ingredient_container {
@@ -580,15 +621,19 @@ div#buttons {
 	  	width:35%;
 		background-color: #000000;
 	    text-align: center;
-	}
+	-webkit-animation: shadow-pop-re 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: shadow-pop-re 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;	}
 
 	div#recombinate_button:hover {
-	    box-shadow: 5px 5px #FF00CC;
+	   /* box-shadow: 5px 5px #FF00CC; */
+ 
 	}
 	div#recombinate_button:active {
-		-webkit-transform: translate(5px, 5px);
-		transform: translate(5px, 5px);
-		box-shadow: none;
+		/*-webkit-transform: translate(-8px, -8px);
+		transform: translate(-8px, -8px);
+		box-shadow: none; */
+			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
 	}
 	div#recombinate_button_text {
 		position: absolute;
@@ -621,16 +666,23 @@ div#buttons {
 	  	width:35%;
 		background-color: #000000;
 	    text-align: center;
+	    	-webkit-animation: shadow-pop-sm 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: shadow-pop-sm 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
 	}
 
 	div#share_button:hover {
-	    box-shadow: 5px 5px #3AD3AA;
+	   /* box-shadow: 5px 5px #3AD3AA; */
+
+
 	}
 
 	div#share_button:active {
-		-webkit-transform: translate(5px, 5px);
+		/*-webkit-transform: translate(5px, 5px);
 		transform: translate(5px, 5px);
-		box-shadow: none;
+		box-shadow: none;*/
+
+			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
 	}
 	div#share_button_text {
 		position: absolute;
@@ -658,15 +710,17 @@ div#buttons {
 
 div#share_menu {
 	/*height: 270px;*/
-	height: 0;
+	height: 270px;
 	position: absolute;
 	left: 12%;
 	bottom: 100%;
 	width: 35%;
 	z-index: -100;
-	background-color: #3AD3AA;
+	/*border: 1px solid blue;*/
+	/*background-color: #3AD3AA;
 	opacity: 0.75;
-	vertical-align: middle;
+	vertical-align: middle;*/
+	overflow: hidden;
 	transition: height .3s ease;
 }
 
@@ -675,12 +729,17 @@ div#share_menu.open {
 	transition: height .3s ease;
 }
 
-div#share_menu ul {
+
+div#copy_link {
+	font-family: Franchise;
+	color: #000000;
+}
+
+/*div#share_menu ul {
 }
 
 div#share_menu li {
-	font-family: Franchise;
-	color: #000000;
+
 	list-style: none;
 	height: 33%;
 	text-align: center;
@@ -691,9 +750,17 @@ div#share_menu li {
 div#share_menu li img {
 	height: 50%;
 	vertical-align: middle;
+}*/
+
+.share_item {
+	background-color: #3AD3AA;
+	opacity: 0.85;
+	text-align: center;
+	height: 33%;
+	position: relative;
+	border: 2px solid white;
+	/*display: none;*/
 }
-
-
 
 
 
@@ -722,6 +789,8 @@ div#recombinator_disclaimer {
 	display: block;
 	bottom: 0;
 	text-align: center;
+	z-index: 100;
+	/*background-color: white;*/
 }
 
 div#recombinator_disclaimer a {
@@ -735,10 +804,21 @@ div#recombinator_disclaimer a {
 	        animation: pulsate-fwd 1.5s ease-in-out infinite both;
 }
 
-/* ----------------------------------------------
- * Generated by Animista on 2017-6-12 9:8:4
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
+.show-cards {
+	display: block;
+
+	/* top: 100;*/
+    -webkit-animation: show-cards 0.20s both;
+	        animation: show-cards 0.20s both;
+}
+
+.hide-cards {
+	 -webkit-animation: hide-cards 0.20s both;
+	     animation: hide-cards 0.20s both;
+	     /*display: none;*/
+}
+
+
 
 /**
  * ----------------------------------------
@@ -774,6 +854,212 @@ div#recombinator_disclaimer a {
   }
 }
 
+
+/**
+ * ----------------------------------------
+ * animation shadow-pop-tr
+ * ----------------------------------------
+ */
+@-webkit-keyframes shadow-pop-re {
+  0% {
+    -webkit-box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+            box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+            box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+    -webkit-transform: translateX(-4px) translateY(4px);
+            transform: translateX(-4px) translateY(4px);
+  }
+}
+@keyframes shadow-pop-re {
+  0% {
+    -webkit-box-shadow: 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC;
+            box-shadow: 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC, 0 0 #FF00CC;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #FF00CC, 2px 2px #FF00CC, 3px 3px #FF00CC, 4px 4px #FF00CC;
+            box-shadow: 1px 1px #FF00CC, 2px 2px #FF00CC, 3px 3px #FF00CC, 4px 4px #FF00CC;
+    -webkit-transform: translateX(-4px) translateY(-4px);
+            transform: translateX(-4px) translateY(-4px);
+  }
+}
+
+@-webkit-keyframes shadow-pop-sm {
+  0% {
+    -webkit-box-shadow: 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA;
+            box-shadow: 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px -1px #3AD3AA, 2px -2px #3AD3AA, 3px -3px #3AD3AA, 4px -4px #3AD3AA;
+            box-shadow: 1px -1px #3AD3AA, 2px -2px #3AD3AA, 3px -3px #3AD3AA, 4px -4px #3AD3AA;
+    -webkit-transform: translateX(-4px) translateY(4px);
+            transform: translateX(-4px) translateY(4px);
+  }
+}
+@keyframes shadow-pop-sm {
+  0% {
+    -webkit-box-shadow: 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA;
+            box-shadow: 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA, 0 0 #3AD3AA;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #3AD3AA, 2px 2px #3AD3AA, 3px 3px #3AD3AA, 4px 4px #3AD3AA;
+            box-shadow: 1px 1px #3AD3AA, 2px 2px #3AD3AA, 3px 3px #3AD3AA, 4px 4px #3AD3AA;
+    -webkit-transform: translateX(-4px) translateY(-4px);
+            transform: translateX(-4px) translateY(-4px);
+  }
+}
+
+
+
+
+@keyframes push-down {
+	0% {
+		-webkit-transform: translateX(0) translateY(0);
+		transform: translateX(0) translateY(0);
+	}
+
+	100% {
+		-webkit-transform: translateX(2px) translateY(2px);
+		transform: translateX(2px) translateY(2px);
+	}
+}
+
+
+@keyframes bounce-in-bottom {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  from {
+    /*opacity: 0;*/
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    /*opacity: 1;*/
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-cards {
+  from, 60%, 75%, 90%, to {
+   animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000));
+  }
+
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  60% {
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hide-cards {
+  20% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%, 45% {
+    /*opacity: 1;*/
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    /*opacity: 0;*/
+    transform: translate3d(0, 280px, 0);
+  }
+}
+
+
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation fade-in
+ * ----------------------------------------
+ */
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src='http://ricostacruz.com/jquery.transit/jquery.transit.min.js'></script>
@@ -798,7 +1084,7 @@ div#recombinator_disclaimer a {
 			</div>
 		<!--</div> -->
 			
-			<div id="sound_on"><img class="inline-img" src="images/headphones.png" />SOUND ON TO HEAR THE FLAVOR</div>
+			<div id="sound_on"><img class="inline-img" src="images/headphones.png" />SOUND <span id="headphone_toggle">OFF</span> TO KEEP IT MELLOW</div>
 			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a> </br> We have an affinity for, but are not affiliated with, Taco Bell.</div>
 
 		</div>
@@ -825,7 +1111,7 @@ div#recombinator_disclaimer a {
 		<div id="meal_title_banner">
 			<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>
 		</div>
-		<div id="sound_control"><img src="/images/soundcontrol.svg" /></div>
+		<div id="sound_control"><img id="sound_control_icon" src="/images/soundcontrol_off.svg" /></div>
 		<div id="recombinator_container">
 			<div id="recombinator"></div>
 		</div>
@@ -838,11 +1124,14 @@ div#recombinator_disclaimer a {
 				<div id="share_button_text">SHARE THIS COMBO</div>
 			</div>
 				<div id="share_menu">
-					<ul>
+					<!--<ul>
 					<a onClick="alert('Share on Twitter!');">	<li><img src="/images/twitter.svg" /></li></a>
 						<li><img src="/images/facebook.svg" /></li>
 						<li>COPY LINK</li>
-					</ul>
+					</ul> -->
+					<div id="share1" class="share_item hide-cards"><img src="/images/twitter.svg" /></div>
+					<div id="share2" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
+					<div id="share3" class="share_item hide-cards">COPY LINK</div>
 				</div>
 		</div>
 
@@ -850,7 +1139,7 @@ div#recombinator_disclaimer a {
 	</div>
 
 	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
-
+	<audio src="/sounds/squish1.mp3" id="squish" preload></audio>
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
 <script type="text/javascript" src="main.js"></script>
