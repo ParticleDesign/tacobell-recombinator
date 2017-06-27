@@ -3,259 +3,309 @@
 	{
 		"ingredient": "Avocado Ranch Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_avocadoranch.png"
+		"address": "images/ingredient_avocadoranch.png",
+		"code":"a1"
 	},
 	{
 		"ingredient": "Border Sauce - Fire",
 		"type": "sauce",
-		"address": "images/ingredient_hotsauce_FIRE.png"
+		"address": "images/ingredient_hotsauce_FIRE.png",
+		"code":"a2"
 	},
 	{
 		"ingredient": "Border Sauce - Hot",
 		"type": "sauce",
-		"address": "images/ingredient_hotsauce_hot.png"
+		"address": "images/ingredient_hotsauce_hot.png",
+		"code":"a3"
 	},
 	{
 		"ingredient": "Border Sauce - Mild",
 		"type": "sauce",
-		"address": "images/ingredient_hotsauce_mild.png"
+		"address": "images/ingredient_hotsauce_mild.png",
+		"code":"a4"
 	},
 	{
 		"ingredient": "Creamy Chipotle Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_chipotle.png"
+		"address": "images/ingredient_chipotle.png",
+		"code":"a5"
 	},
 	{
 		"ingredient": "Creamy Jalapeno Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_creamyjalapeno.png"
+		"address": "images/ingredient_creamyjalapeno.png",
+		"code":"a6"
 	},
 	{
 		"ingredient": "Diablo Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_diablosauce.png"
+		"address": "images/ingredient_diablosauce.png",
+		"code":"a7"
 	},
 	{
 		"ingredient": "Fire Roasted Salsa",
 		"type": "sauce",
-		"address": "images/ingredient_salsa.png"
+		"address": "images/ingredient_salsa.png",
+		"code":"a8"
 	},
 	{
 		"ingredient": "Mexican Pizza Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_pizzasauce.png"
+		"address": "images/ingredient_pizzasauce.png",
+		"code":"a9"
 	},
 	{
 		"ingredient": "Nacho Cheese Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_nachocheese.png"
+		"address": "images/ingredient_nachocheese.png",
+		"code":"aa"
 	},
 	{
 		"ingredient": "Red Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_redsauce.png"
+		"address": "images/ingredient_redsauce.png",
+		"code":"ab"
 	},
 	{
 		"ingredient": "Salsa Del Sol",
 		"type": "sauce",
-		"address": "images/ingredient_delsolsauce.png"
+		"address": "images/ingredient_delsolsauce.png",
+		"code":"ac"
 	},
 	{
 		"ingredient": "Spicy Ranch Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_spicyranch.png"
+		"address": "images/ingredient_spicyranch.png",
+		"code":"ad"
 	},
 
 
 	{
 		"ingredient": "Chalupa Shell",
 		"type": "exterior",
-		"address":"images/ingredient_chalupa.png"
+		"address":"images/ingredient_chalupa.png",
+		"code":"b1"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Cool Ranch® Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshellcooler.png"
+		"address":"images/ingredient_tacoshellcooler.png",
+		"code":"b2"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Fiery Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshellFIRE.png"
+		"address":"images/ingredient_tacoshellFIRE.png",
+		"code":"b3"
 	},
 	{
 		"ingredient": "Doritos® Locos Taco Nacho Cheese Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshellNC.png"
+		"address":"images/ingredient_tacoshellNC.png",
+		"code":"b4"
 	},
 	{
 		"ingredient": "Flour Tortilla",
 		"type": "exterior",
-		"address":"images/ingredient_tortilla.png"
+		"address":"images/ingredient_tortilla.png",
+		"code":"b5"
 	},
 	{
 		"ingredient": "Gordita Flatbread",
 		"type": "exterior",
-		"address":"images/ingredient_gordita.png"
+		"address":"images/ingredient_gordita.png",
+		"code":"b6"
 	},
 	{
 		"ingredient": "Mexican Pizza Shell",
 		"type": "exterior",
-		"address":"images/ingredient_mexicanpizza.png"
+		"address":"images/ingredient_mexicanpizza.png",
+		"code":"b7"
 	},
 	{
 		"ingredient": "Naked Chicken Chalupa Shell",
 		"type": "exterior",
-		"address":"images/ingredient_NCCshell.png"
+		"address":"images/ingredient_NCCshell.png",
+		"code":"b8"
 	},
 	{
 		"ingredient": "Taco Salad Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacosaladshell.png"
+		"address":"images/ingredient_tacosaladshell.png",
+		"code":"b9"
 	},
 	{
 		"ingredient": "Taco Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tacoshell.png"
+		"address":"images/ingredient_tacoshell.png",
+		"code":"ba"
 	},
 	{
 		"ingredient": "Tostada Shell",
 		"type": "exterior",
-		"address":"images/ingredient_tostadashell.png"
+		"address":"images/ingredient_tostadashell.png",
+		"code":"bb"
 	},
 
 
 	{
 		"ingredient": "Bacon",
 		"type": "meat",
-		"address": "images/ingredient_bacon.png"
+		"address": "images/ingredient_bacon.png",
+		"code":"c1"
 	},
 	{
 		"ingredient": "Fire Grilled Chicken",
 		"type": "meat",
-		"address": "images/ingredient_grilledchicken.png"
+		"address": "images/ingredient_grilledchicken.png",
+		"code":"c2"
 	},
 	{
 		"ingredient": "Sausage Crumbles",
 		"type": "meat",
-		"address": "images/ingredient_sausagecrumbles.png"
+		"address": "images/ingredient_sausagecrumbles.png",
+		"code":"c3"
 	},
 	{
 		"ingredient": "Sausage Patty",
 		"type": "meat",
-		"address": "images/ingredient_sausagepatty.png"
+		"address": "images/ingredient_sausagepatty.png",
+		"code":"c4"
 	},
 	{
 		"ingredient": "Seasoned Beef",
 		"type": "meat",
-		"address": "images/ingredient_groundbeef.png"
+		"address": "images/ingredient_groundbeef.png",
+		"code":"c5"
 	},
 	{
 		"ingredient": "Shredded Chicken",
 		"type": "meat",
-		"address": "images/ingredient_shreddedchicken.png"
+		"address": "images/ingredient_shreddedchicken.png",
+		"code":"c6"
 	},
 	{
 		"ingredient": "Marinated Grilled Steak",
 		"type": "meat",
-		"address": "images/ingredient_carneasada.png"
+		"address": "images/ingredient_carneasada.png",
+		"code":"c7"
 	},
 
 
 	{
 		"ingredient": "Cheddar Cheese",
 		"type": "topping",
-		"address": "images/ingredient_cheddar_cheese.png"
+		"address": "images/ingredient_cheddar_cheese.png",
+		"code":"d1"
 	},
 	{
 		"ingredient": "Cilantro",
 		"type": "topping",
-		"address": "images/ingredient_cilantro.png"
+		"address": "images/ingredient_cilantro.png",
+		"code":"d2"
 	},
 	{
 		"ingredient": "Fritos® Chips",
 		"type": "topping",
-		"address": "images/ingredient_fritos.png"
+		"address": "images/ingredient_fritos.png",
+		"code":"d3"
 	},
 	{
 		"ingredient": "Iceberg Lettuce",
 		"type": "topping",
-		"address": "images/ingredient_shredded_lettuce.png"
+		"address": "images/ingredient_shredded_lettuce.png",
+		"code":"d4"
 	},
 	{
 		"ingredient": "Jalapeños",
 		"type": "topping",
-		"address": "images/ingredient_jalapenos.png"
+		"address": "images/ingredient_jalapenos.png",
+		"code":"d5"
 	},
 	{
 		"ingredient": "Onions",
 		"type": "topping",
-		"address": "images/ingredient_onion.png"
+		"address": "images/ingredient_onion.png",
+		"code":"d6"
 	},
 	{
 		"ingredient": "Pico de Gallo",
 		"type": "topping",
-		"address": "images/ingredient_pico-de-gallo.png"
+		"address": "images/ingredient_pico-de-gallo.png",
+		"code":"d7"
 	},
 	{
 		"ingredient": "Premium Guacamole",
 		"type": "topping",
-		"address": "images/ingredient_guacamole.png"
+		"address": "images/ingredient_guacamole.png",
+		"code":"d8"
 	},
 	{
 		"ingredient": "Red Strips",
 		"type": "topping",
-		"address": "images/ingredient_redstrips.png"
+		"address": "images/ingredient_redstrips.png",
+		"code":"d9"
 	},
 	{
 		"ingredient": "Reduced-Fat Sour Cream",
 		"type": "topping",
-		"address": "images/ingredient_sourcream.png"
+		"address": "images/ingredient_sourcream.png",
+		"code":"da"
 	},
 	{
 		"ingredient": "Romaine Lettuce",
 		"type": "topping",
-		"address": "images/ingredient_romainelettuce.png"
+		"address": "images/ingredient_romainelettuce.png",
+		"code":"db"
 	},
 	{
 		"ingredient": "Three Cheese Blend",
 		"type": "topping",
-		"address": "images/ingredient_threecheese.png"
+		"address": "images/ingredient_threecheese.png",
+		"code":"dc"
 	},
 	{
 		"ingredient": "Tomatoes",
 		"type": "topping",
-		"address": "images/ingredient_tomatoes.png"
+		"address": "images/ingredient_tomatoes.png",
+		"code":"dd"
 	},
 
 
 	{
 		"ingredient": "Chili",
 		"type": "filling",
-		"address": "images/ingredient_chili.png"
+		"address": "images/ingredient_chili.png",
+		"code":"e1"
 	},
 	{
 		"ingredient": "Eggs",
 		"type": "filling",
-		"address": "images/ingredient_eggs.png"
+		"address": "images/ingredient_eggs.png",
+		"code":"e2"
 	},
 	{
 		"ingredient": "Potato Bites",
 		"type": "filling",
-		"address": "images/ingredient_potatoes.png"
+		"address": "images/ingredient_potatoes.png",
+		"code":"e3"
 	},
 	{
 		"ingredient": "Premium Latin Rice",
 		"type": "filling",
-		"address": "images/ingredient_rice.png"
+		"address": "images/ingredient_rice.png",
+		"code":"e4"
 	},
 	{
 		"ingredient": "Refried Beans",
 		"type": "filling",
-		"address": "images/ingredient_refriedbeans.png"
+		"address": "images/ingredient_refriedbeans.png",
+		"code":"e5"
 	},
 	{
 		"ingredient": "Black Beans",
 		"type": "filling",
-		"address": "images/ingredient_blackbeans.png"
+		"address": "images/ingredient_blackbeans.png",
+		"code":"e6"
 	}
 ]	
