@@ -337,7 +337,7 @@ div#recombinator_page {
 
 	div#meal_title_banner {
 		position:absolute;
-		overflow: hidden;
+		overflow: visible;
 		width:97%;
 		height:12vh;
 		top:7%;
@@ -721,6 +721,8 @@ div#share_menu {
 	opacity: 0.75;
 	vertical-align: middle;*/
 	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
 	transition: height .3s ease;
 }
 
@@ -754,12 +756,26 @@ div#share_menu li img {
 
 .share_item {
 	background-color: #3AD3AA;
-	opacity: 0.85;
+	opacity: 0.95;
 	text-align: center;
+	vertical-align: middle;
 	height: 33%;
 	position: relative;
-	border: 2px solid white;
+	border: 1px solid white;
 	/*display: none;*/
+}
+
+.share_item img {
+	height: 40%;
+	width: 100%;
+	vertical-align: middle;
+	top: 23;
+	bottom: 23;
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+
 }
 
 
@@ -808,8 +824,8 @@ div#recombinator_disclaimer a {
 	display: block;
 
 	/* top: 100;*/
-    -webkit-animation: show-cards 0.20s both;
-	        animation: show-cards 0.20s both;
+    -webkit-animation: show-cards 0.30s;
+	        animation: show-cards 0.30s;
 }
 
 .hide-cards {
@@ -1139,7 +1155,8 @@ div#recombinator_disclaimer a {
 	</div>
 
 	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
-	<audio src="/sounds/squish1.mp3" id="squish" preload></audio>
+	<audio src="/sounds/squish_1sec.mp3" id="squish" preload></audio>
+	<audio src="/sounds/tacobell_bong.mp3" id="bell" preload></audio>
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
 <script type="text/javascript" src="main.js"></script>

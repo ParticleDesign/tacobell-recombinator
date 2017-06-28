@@ -3,7 +3,7 @@
 	{
 		"ingredient": "Avocado Ranch Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_avocadoranch.png",
+		"address": "images/ingredient_CreamySauce_avocadoranch.png",
 		"code":"a1"
 	},
 	{
@@ -27,13 +27,13 @@
 	{
 		"ingredient": "Creamy Chipotle Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_chipotle.png",
+		"address": "images/ingredient_CreamySauce_chipotle.png",
 		"code":"a5"
 	},
 	{
 		"ingredient": "Creamy Jalapeno Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_creamyjalapeno.png",
+		"address": "images/ingredient_CreamySauce_jalapeno.png",
 		"code":"a6"
 	},
 	{
@@ -75,7 +75,7 @@
 	{
 		"ingredient": "Spicy Ranch Sauce",
 		"type": "sauce",
-		"address": "images/ingredient_spicyranch.png",
+		"address": "images/ingredient_CreamySauce_spicyranch.png",
 		"code":"ad"
 	},
 

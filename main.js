@@ -5,7 +5,7 @@ var app = {
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_ingredientCountChances: [
-		{item:1, chance: .02},
+		/*{item:1, chance: .02},
 		{item:2, chance: .03},
 		{item:3, chance: .1},
 		{item:4, chance: .2},
@@ -14,18 +14,18 @@ var app = {
 		{item:7, chance: .1},
 		{item:8, chance: .05},
 		{item:9, chance: .03},
-		{item:10, chance: .02}
+		{item:10, chance: .02}*/
 
-		/*{item:1, chance: 0},
-		{item:2, chance: 1},
+		{item:1, chance: 0},
+		{item:2, chance: 0},
 		{item:3, chance: 0},
-		{item:4, chance: 0},
+		{item:4, chance: 1},
 		{item:5, chance: 0},
 		{item:6, chance: 0},
 		{item:7, chance: 0},
 		{item:8, chance: 0},
 		{item:9, chance: 0},
-		{item:10, chance: 0} */
+		{item:10, chance: 0} 
 		// {item:10, chance: 1}
 	],
 
@@ -110,11 +110,15 @@ var app = {
 			})
 			
 			// load sounds here for iOS
-			var audioSprite = new Audio("sounds/squish_250ms.mp3");
+			var audioSprite = document.getElementById("squish")
+			audioSprite.load()
 
-			var squish = document.getElementById("squish")
-			squish.load()
-			console.log(squish)
+			var bong = document.getElementById("bell")
+			bong.load()
+			//audioSprite.play()
+			//var squish = document.getElementById("squish")
+			//squish.load()
+			//console.log(squish)
 
 		})
 
@@ -465,11 +469,11 @@ var app = {
 			prefix.replace(/Double Decker/, "")
 		}
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa ") {
 				prefix+="Veggie "
 			}
-=======
+//=======
 		if (self.numberOfIngredients == 2) {
 			self.meal.forEach(function(item) {
 				if (item.ingredient.match("Lettuce")) {
@@ -477,7 +481,7 @@ var app = {
 				}
 			})
 		}
->>>>>>> 5a5fc4d1bfba24c7a1d247b5f16ac9b39ca41581
+//>>>>>>> 5a5fc4d1bfba24c7a1d247b5f16ac9b39ca41581
 
 		/*if (self.numberOfIngredients > 1 && self.numberOfIngredients <= 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
 			signifier+="Veggie "
@@ -557,113 +561,72 @@ var app = {
 		var mealContainerHeight = $(window).height() - $('#buttons').height();
 
 		/*// Prep audio file - should this go somewhere else?
-		var audioSprite = new Audio("sounds/squish_250ms.mp3");
+		var audioSprite = new Audio("sounds/squish_250ms.mp3");*/
+		//var audioSprite = new Audio("sounds/squish_1sec.mp3");
+		var audioSprite = document.getElementById("squish")
+
 		// store stopping times for each ingredient amount
-		var spriteData = {
-			    ing1: {
+		var spriteData = [ 
+			    {
 			        start: 0,
-			        length: 0.455
+			        length: 0.44
 			    },
-			    ing2: {
-			        start: 0,
-			        length: 0.910
+			    {
+			        start: 1.44,
+			        length: 2.29
 			    },
-			    ing3: {
-			        start: 0,
-			        length: 1.32
+			    {
+			        start: 3.29,
+			        length: 4.58
 			    },
-			    ing4: {
-			        start: 0,
-			        length: 1.818
+			    {
+			        start: 5.58,
+			        length: 7.3
 			    },
-			    ing5: {
+			    {
 			        start: 0,
 			        length: 2.272
 			    },
-			    ing6: {
+			    {
 			        start: 0,
 			        length: 2.727
 			    },
-			    ing7: {
+			    {
 			        start: 0,
 			        length: 3.182
 			    },
-			    ing8: {
+			    {
 			        start: 0,
 			        length: 3.637
 			    },
-			    ing9: {
+			    {
 			        start: 0,
 			        length: 4.09
 			    }
-			};
+			];
+
+			console.log(spriteData)
 		// create a handler to stop the sound at the right time 
 		var handler = function() {
 			console.log(this.currentTime);
-			switch (self.numberOfIngredients) {
-				case 1:
-					console.log("one ingredient");
-					if (this.currentTime >= spriteData.ing1.length) {
-						this.pause();	
-					}
-					break;
-				case 2:
-					console.log("two ingredients");
-					if (this.currentTime >= spriteData.ing2.length) {
-						this.pause();	
-					}
-					break;
-				case 3:
-					console.log("three ingredients");
-					if (this.currentTime >= spriteData.ing3.length) {
-						this.pause();	
-					}
-					break;
-				case 4:
-					if (this.currentTime >= spriteData.ing4.length) {
-						this.pause();	
-					}
-					console.log("four ingredients");
-					break;
-				case 5:
-					console.log("five ingredients");
-					if (this.currentTime >= spriteData.ing5.length) {
-						this.pause();	
-					}
-					break;
-				case 6:
-					console.log("six ingredients");
-					if (this.currentTime >= spriteData.ing6.length) {
-						this.pause();	
-					}
-					break;
-				case 7:
-					console.log("seven ingredients");
-					if (this.currentTime >= spriteData.ing7.length) {
-						this.pause();	
-					}
-					console.log(spriteData.ing7.length)
-					break;
-				case 8:
-					console.log("eight ingredients");
-					if (this.currentTime >= spriteData.ing8.length) {
-						this.pause();	
-					}
-					break;
-				case 9:
-					console.log("nine ingredients");
-					if (this.currentTime == spriteData.ing9.length) {
-						this.pause();	
-					}
-					break;
-
-			
-		}}
+			if (this.currentTime >= spriteData[self.numberOfIngredients-1].length) {
+				this.pause();
+			}
+		}
 		// Add event listener to the audio sprite
-		audioSprite.addEventListener('timeupdate', handler, false);*/
-		
-		//var squish = new Audio("/sounds/squish1.mp3"); // buffers automatically when created
-		//squish.addEventListener("ended", function() { squish.currentTime=0; console.log("squish over!")}, false);
+		audioSprite.addEventListener('timeupdate', handler, false);
+
+			//play squish for each ingredient
+			if (self.soundOn == true) {
+				//setTimeout(function() {
+					audioSprite.currentTime = spriteData[self.numberOfIngredients-1].start
+					audioSprite.play()
+					//var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
+					//squish.play()					
+					//squish.cloneNode().play()
+					//document.getElementById("squish").cloneNode(true).play()
+				//}, 50)
+			}
 		
 		//move each ingredient into view
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
@@ -685,19 +648,9 @@ var app = {
 			console.log("soundOn = " + self.soundOn)
 
 
-			//play squish for each ingredient
-			if (self.soundOn == true) {
-
-				//audioSprite.play()
-				//squish.currentTime = 0
-				setTimeout(function() {
-					//var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
-					//squish.play()					
-					squish.cloneNode().play()
-					//document.getElementById("squish").cloneNode(true).play()
-				}, delay+100)
-			}
 		})
+
+
 
 		self.displayNameBanner()
 	},
@@ -719,7 +672,8 @@ var app = {
 
 		var expandBannerText = function(callback) {
 			if (self.soundOn == true) {
-				var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created			
+				//var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created
+				var bong = document.getElementById("bell")			
 				bong.play();
 			}
 
