@@ -52,7 +52,7 @@ var app = {
 	//meal model
 	meal:[],
 	mealName: "",
-	mealCode: "",
+	mealHash: "",
 	
 	//JSON ingredients
 	ingredientsArray:[], 
@@ -69,6 +69,29 @@ var app = {
 
 		//create Ingredient Arrays that can be pulled from with Recombinator  
 		self.fetchIngredientsFromJSON()
+		$.getJSON('ingredients.json', function( JSONarray ){ 
+			self.cacheIngredientArrays(JSONarray)
+
+			var url 		= window.location.href
+			var mealPath 	= url.match(/\#[^\]]+/g) //get characters after ? in url
+
+			if (mealPath)	{ 
+
+				var $landing_page = $('div#landing_page')
+				var $recombinator_page = $('div#recombinator_page')
+
+				$landing_page.transition({
+					'transform':"translate(-100%)"
+				},0)
+				$recombinator_page.transition({
+					'transform':"translate(0%)"
+				},0)
+				self.meal = self.mealModelFromMealPath(mealPath)
+
+				self.createMealName()
+				self.displayMealDivs()
+			}
+		})
 
 		//checkUrl
 		// self.checkUrl()
@@ -84,6 +107,35 @@ var app = {
 		// chalupa.play();
 
 	},
+		cacheIngredientArrays: function(JSONarray) {
+			JSONarray.forEach(function(item) {
+				var currentIngredientType = item.type;
+
+				if 		(currentIngredientType === "sauce") 	self.sauceArray.push(item)
+				else if (currentIngredientType === "exterior") 	self.exteriorArray.push(item)
+				else if (currentIngredientType === "meat") 		self.meatArray.push(item)
+				else if (currentIngredientType === "topping") 	self.toppingArray.push(item)
+				else if (currentIngredientType === "filling") 	self.fillingArray.push(item)
+			
+				self.ingredientsArray.push(item)
+			})
+		},
+		mealModelFromMealPath: function(mealPath) {
+			var mealPath = mealPath.toString().substring(1)
+			var mealPathArray = mealPath.match(/.{1,2}/g)
+
+			var meal = []
+
+			mealPathArray.forEach(function(item) {
+				var currentIngredient = $.grep(self.ingredientsArray, function(e){ 
+					return e.hash == item
+				})[0]
+
+				meal.push(currentIngredient)
+			})
+
+			return meal
+		},		
 // 	checkUrl: function(){
 // 		var url 	= window.location.href
 // 		var origin 	= window.location.origin
@@ -150,6 +202,7 @@ var app = {
 					"clip-path":"inset(0 100% 0 0)"
 				},0)
 			})
+			window.location.hash = ""
 		})
 
 
@@ -271,19 +324,7 @@ var app = {
 	//self.sauceArray = [{ingredient, type, address},{etc.}], self.meatArray = [{etc.},{etc.}]
 	fetchIngredientsFromJSON : function(){
 
-		$.getJSON('ingredients.json', function( JSONarray ){ 
-			JSONarray.forEach(function(item) {
-				var currentIngredientType = item.type;
 
-				if 		(currentIngredientType === "sauce") 	self.sauceArray.push(item)
-				else if (currentIngredientType === "exterior") 	self.exteriorArray.push(item)
-				else if (currentIngredientType === "meat") 		self.meatArray.push(item)
-				else if (currentIngredientType === "topping") 	self.toppingArray.push(item)
-				else if (currentIngredientType === "filling") 	self.fillingArray.push(item)
-			
-				self.ingredientsArray.push(item)
-			})
-		})
 
 	},
 
@@ -292,13 +333,23 @@ var app = {
 		self.createMealModel()
 		// self.createMealUrl()
 		self.createMealName()
+		self.createMealHash()
 
+		// window.location.hash = 
+
+	},
+	createMealHash: function(){
+		var hash = ''
+		self.meal.forEach(function(item) {
+			hash += item.hash
+		})
+		location.hash = hash
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
 			self.meal = []
 			self.mealName = ""
-			self.mealCode = ""
+			self.mealHash = ""
 
 			//........................ base ingredient ....................
 			//add exterior to model			
@@ -356,7 +407,7 @@ var app = {
 	// createMealUrl: function() {
 	// 	var url = window.location.origin + '/?'
 	// 	self.meal.forEach(function(item) {
-	// 		url += item.code
+	// 		url += item.hash
 	// 	})
 
 	// 	window.location.href = url
@@ -629,7 +680,7 @@ var app = {
 			    }
 			];
 
-			console.log(spriteData)
+			// console.log(spriteData)
 		// create a handler to stop the sound at the right time 
 		var handler = function() {
 			console.log(this.currentTime);
@@ -669,7 +720,7 @@ var app = {
 				},self.animationInterval_ingredients)*/
 			}, delay)
 
-			console.log("soundOn = " + self.soundOn)
+			// console.log("soundOn = " + self.soundOn)
 
 
 		})
