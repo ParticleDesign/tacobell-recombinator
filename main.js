@@ -186,6 +186,8 @@ var app = {
 			//$('div#share_menu').toggleClass("open");
 			//screenshotPage();
 			//share_menu.classList.toggle("open");
+			//$('div#share_button_text').html("<img src='/images/close_share_menu.png' />")
+
 
 			var shareItems = []
 			shareItems.push(document.getElementsByClassName("share_item"))
@@ -193,6 +195,7 @@ var app = {
 			//console.log(shareItems);
 			
 			if ($('.share_item').hasClass('show-cards')) {
+				$('div#share_button_text').html("SHARE THIS COMBO");
 				console.log("checking for class...")
 				$('.share_item').each(function(i) {
 					setTimeout(function() {
@@ -200,8 +203,11 @@ var app = {
 						document.getElementsByClassName("share_item")[2-i].classList.remove('show-cards')
 					}, 200 * (i*.40))
 				})
+
+				console.log("we're at the bottom...")
 			} else {
 				$('.share_item').each(function(i) {
+					$('div#share_button_text').html("<img src='/images/close_share_menu.png' />");
 					console.log("showing cards");
 					//var item = $(this);
 					setTimeout(function() {
@@ -250,9 +256,11 @@ var app = {
 			if (self.soundOn == false) {
 				self.soundOn = true;
 				$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
+				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
 			} else { 
 				self.soundOn = false; 
 				$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
+				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
 			}
 
 			console.log("soundOn = " + self.soundOn)
@@ -567,41 +575,57 @@ var app = {
 
 		// store stopping times for each ingredient amount
 		var spriteData = [ 
-			    {
+			    /*{
 			        start: 0,
-			        length: 0.44
+			        length: 0.43
 			    },
 			    {
-			        start: 1.44,
-			        length: 2.29
+			        start: 1.43,
+			        length: 2.11
 			    },
 			    {
-			        start: 3.29,
-			        length: 4.58
+			        start: 3.11,
+			        length: 4.039
 			    },
 			    {
-			        start: 5.58,
-			        length: 7.3
+			        start: 5.039,
+			        length: 6.218
 			    },
 			    {
-			        start: 0,
-			        length: 2.272
+			        start: 7.218,
+			        length: 8.647
 			    },
 			    {
-			        start: 0,
-			        length: 2.727
+			        start: 9.647,
+			        length: 11.326
 			    },
 			    {
-			        start: 0,
-			        length: 3.182
+			        start: 12.326,
+			        length: 13.996
 			    },
 			    {
-			        start: 0,
-			        length: 3.637
+			        start: 14.996,
+			        length: 16.916
 			    },
 			    {
-			        start: 0,
-			        length: 4.09
+			        start: 17.916,
+			        length: 20.086
+			    }*/
+			    {
+			    	start: 0,
+			    	length: 0.43
+			    },
+			    {
+			    	start: 1.43,
+			    	length: 2.160
+			    },
+			    {
+			    	start: 3.160,
+			    	length: 4.189
+			    },
+			    {
+			    	start: 0,
+			    	length: 1.27
 			    }
 			];
 

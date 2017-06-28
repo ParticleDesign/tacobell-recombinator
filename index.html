@@ -298,7 +298,95 @@ div#recombinator_page {
 	background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
 }*/
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 320px) {
+	div#container { 
+		position: relative;
+		width: 90%;
+		max-width: 560px;
+		min-width: 300px;
+		height: 100%;
+		/*min-height: 640px;*/
+		/*left: 5%;*/
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		z-index:1;
+
+	   /* box-shadow: -1px 0px 20px #333;*/
+		background-image: linear-gradient(-180deg, #3BCEA8 0%, #108192 100%);
+	}
+
+		div#container::after{
+		content:'';
+		height: 100%;
+		width: 90%;
+
+		max-width: 560px;
+		min-width: 300px;
+
+		position: absolute;
+		background-color: white;
+		z-index: -1;
+		margin: auto;
+		top: 7%;
+		left: 0;
+		right: 0;
+		transform-origin: left top;
+		transform: skewY(-3deg);
+	}
+
+	div#meal_title_banner {
+		position:absolute;
+		overflow: visible;
+		width:100%;
+		height:12vh;
+		top:7%;
+		margin: auto;
+		left: 0;
+		right: 0;
+		/*left:-1%;*/
+		z-index:2;
+		background-color: black;
+		/*transform: rotate(-3deg);*/
+		transform-origin: left top;
+		transform: skewY(-3deg);
+		clip-path:inset(0 100% 0 0);
+	}
+
+	div#meal_title_banner:after {
+	    content:" ";
+	    position:absolute;
+	    overflow: visible;
+	    /*display:block;*/
+	    top:0;
+	    right:0;
+	    width:100%;
+	    height:101%;
+	    margin: auto;
+	    background:#FFFFFF;
+	    z-index:2;
+	}
+
+	div#meal_title_banner.show:after {
+	    width:0%;
+	    transition: width .3s ease;
+	}
+
+	div#sound_control {
+		position: absolute;
+		top: 20%;
+		right: -12px;
+	}
+
+	div#recombinator_page #bottom_taco {
+		display: none;
+	}
+
+}
+
+
+
+@media screen and (min-width: 375px) and (max-width: 720px) {
 	div#container { 
 		position: relative;
 		width: 90%;
@@ -375,6 +463,10 @@ div#recombinator_page {
 		position: absolute;
 		top: 20%;
 		right: -20px;
+	}
+
+	div#recombinator_page #bottom_taco {
+		display: none;
 	}
 
 }
@@ -778,6 +870,11 @@ div#share_menu li img {
 
 }
 
+div#copy_link {
+	color: #000000;
+	vertical-align: bottom;
+}
+
 
 
 div#meal_title {
@@ -822,7 +919,6 @@ div#recombinator_disclaimer a {
 
 .show-cards {
 	display: block;
-
 	/* top: 100;*/
     -webkit-animation: show-cards 0.30s;
 	        animation: show-cards 0.30s;
@@ -1145,9 +1241,9 @@ div#recombinator_disclaimer a {
 						<li><img src="/images/facebook.svg" /></li>
 						<li>COPY LINK</li>
 					</ul> -->
-					<div id="share1" class="share_item hide-cards"><img src="/images/twitter.svg" /></div>
-					<div id="share2" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
-					<div id="share3" class="share_item hide-cards">COPY LINK</div>
+					<div id="twitter" class="share_item hide-cards"><img src="/images/twitter.svg" /></div>
+					<div id="fb" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
+					<div id="copy_link" class="share_item hide-cards"><textbox id="meal_url" />COPY LINK</div>
 				</div>
 		</div>
 
