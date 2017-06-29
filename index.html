@@ -721,9 +721,6 @@ div#buttons {
  
 	}
 	div#recombinate_button:active {
-		/*-webkit-transform: translate(-8px, -8px);
-		transform: translate(-8px, -8px);
-		box-shadow: none; */
 			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
 	}
@@ -773,8 +770,8 @@ div#buttons {
 		transform: translate(5px, 5px);
 		box-shadow: none;*/
 
-			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
+		/*	-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; */
 	}
 	div#share_button_text {
 		position: absolute;
@@ -804,7 +801,7 @@ div#share_menu {
 	/*height: 270px;*/
 	height: 270px;
 	position: absolute;
-	left: 12%;
+	left: 11.25%;
 	bottom: 100%;
 	width: 35%;
 	z-index: -100;
@@ -824,9 +821,28 @@ div#share_menu.open {
 }
 
 
-div#copy_link {
+div#share_menu div#copy_link {
 	font-family: Franchise;
-	color: #000000;
+	color: black;
+	font-color: black;
+	font-size: 1.5em;
+}
+
+#meal_url {
+	width: 90%;
+	margin: 0 auto;
+}
+
+div#recombinate_button.disabled {
+	pointer-events: none;
+
+			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
+}
+
+div#recombinate_button.disabled div#recombinate_button_text {
+	font-color: #9B9B9B;
+	color: #9B9B9B;
 }
 
 /*div#share_menu ul {
@@ -869,12 +885,6 @@ div#share_menu li img {
 	right: 0;
 
 }
-
-div#copy_link {
-	color: #000000;
-	vertical-align: bottom;
-}
-
 
 
 div#meal_title {
@@ -1180,6 +1190,7 @@ div#recombinator_disclaimer a {
  <meta name="mobile-web-app-capable" content="yes">
  <meta name="apple-mobile-web-app-capable" content="yes">
 
+
 </head>
 
 <body>
@@ -1243,7 +1254,7 @@ div#recombinator_disclaimer a {
 					</ul> -->
 					<div id="twitter" class="share_item hide-cards"><img src="/images/twitter.svg" /></div>
 					<div id="fb" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
-					<div id="copy_link" class="share_item hide-cards"><textbox id="meal_url" />COPY LINK</div>
+					<div id="copy_link" class="share_item hide-cards"><input id="meal_url" type="text" readonly />COPY LINK</div>
 				</div>
 		</div>
 
@@ -1251,7 +1262,7 @@ div#recombinator_disclaimer a {
 	</div>
 
 	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
-	<audio src="/sounds/squish_1sec.mp3" id="squish" preload></audio>
+	<audio src="/sounds/squish_sprite.mp3" id="squish" preload></audio>
 	<audio src="/sounds/tacobell_bong.mp3" id="bell" preload></audio>
 </div>
 <script type="text/javascript" src="ingredients.json"></script>

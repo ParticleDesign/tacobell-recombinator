@@ -5,7 +5,7 @@ var app = {
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_ingredientCountChances: [
-		/*{item:1, chance: .02},
+		{item:1, chance: .02},
 		{item:2, chance: .03},
 		{item:3, chance: .1},
 		{item:4, chance: .2},
@@ -14,9 +14,9 @@ var app = {
 		{item:7, chance: .1},
 		{item:8, chance: .05},
 		{item:9, chance: .03},
-		{item:10, chance: .02}*/
+		{item:10, chance: .02}
 
-		{item:1, chance: 0},
+		/*{item:1, chance: 0},
 		{item:2, chance: 0},
 		{item:3, chance: 0},
 		{item:4, chance: 1},
@@ -25,7 +25,7 @@ var app = {
 		{item:7, chance: 0},
 		{item:8, chance: 0},
 		{item:9, chance: 0},
-		{item:10, chance: 0} 
+		{item:10, chance: 0} */
 		// {item:10, chance: 1}
 	],
 
@@ -211,7 +211,7 @@ var app = {
 	armRecombinateButton: function() {
 		$('div#recombinate_button').on("click", function(){
 // console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-
+			$('div#recombinate_button').addClass('disabled')
 			
 			self.clearCurrentMeal()
 
@@ -344,6 +344,8 @@ var app = {
 			hash += item.hash
 		})
 		location.hash = hash
+		console.log(hash)
+		document.getElementById("meal_url").value = "http://recombinateit.com/#" + hash; 
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
@@ -523,20 +525,20 @@ var app = {
 		if (numShells > 3)			prefix+="Xtreme Decker "
 		if (numMeats === 0)	signifier+=fillings
 
-		if (numTortillas == 2 && numShells == 2) {
+		if (numTortillas == 2 && numShells == 2 && fillings.match("Cheese")) {
 			base = "Quesadilla"
 			prefix.replace(/Double Decker/, "")
 		}
 
 //<<<<<<< HEAD
 			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa ") {
-				prefix+="Veggie "
+				prefix+="Lite "
 			}
 //=======
 		if (self.numberOfIngredients == 2) {
 			self.meal.forEach(function(item) {
 				if (item.ingredient.match("Lettuce")) {
-					prefix+="Lite "
+					prefix+="Veggie "
 				}
 			})
 		}
@@ -595,9 +597,19 @@ var app = {
 			//cache IDs of each ingredient container div for DOM manipulation
 			self.ingredientContainerIDs.push(currentIngredientContainerID)
 		})
+		
+		//make sure all images are loaded
+		var numImages = $('.ingredient_container').length
+		var loadCounter = 0
 
+		$('div#recombinator img').on('load', function() {
+			loadCounter++
+			if (numImages == loadCounter) {
+				self.animateMealDivs();
+			}
+		})
 		//animate each ingredient Div one by one
-		self.animateMealDivs()
+		//self.animateMealDivs()
 	},
 	clearCurrentMeal: function() {
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
@@ -668,15 +680,35 @@ var app = {
 			    },
 			    {
 			    	start: 1.43,
-			    	length: 2.160
+			    	length: 2.140
 			    },
 			    {
-			    	start: 3.160,
-			    	length: 4.189
+			    	start: 3.140,
+			    	length: 4.13
 			    },
 			    {
-			    	start: 0,
-			    	length: 1.27
+			    	start: 5.13,
+			    	length: 6.40
+			    },
+			    {
+			    	start: 7.4,
+			    	length: 8.92
+			    },
+			    {
+			    	start: 9.92,
+			    	length: 11.72
+			    },
+			    {
+			    	start: 12.72,
+			    	length: 14.80
+			    },
+			    {
+			    	start: 15.80,
+			    	length: 18.16
+			    },
+			    {
+			    	start: 19.16,
+			    	length: 21.8
 			    }
 			];
 
@@ -726,7 +758,6 @@ var app = {
 		})
 
 
-
 		self.displayNameBanner()
 	},
 
@@ -746,6 +777,7 @@ var app = {
 		var $banner_title = $('div#meal_title')
 
 		var expandBannerText = function(callback) {
+
 			if (self.soundOn == true) {
 				//var	bong = new Audio("sounds/tacobell_bong.mp3") // buffers automatically when created
 				var bong = document.getElementById("bell")			
@@ -759,6 +791,9 @@ var app = {
 			}, self.animationInterval_bannerText, function() {
 				callback()
 			})
+
+			$('div#recombinate_button').removeClass('disabled')
+
 		}
 		var contractBannerText = function() {
 			setTimeout(function(){
