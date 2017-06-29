@@ -5,7 +5,7 @@ var app = {
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_ingredientCountChances: [
-		/*{item:1, chance: .02},
+		{item:1, chance: .02},
 		{item:2, chance: .03},
 		{item:3, chance: .1},
 		{item:4, chance: .2},
@@ -14,18 +14,18 @@ var app = {
 		{item:7, chance: .1},
 		{item:8, chance: .05},
 		{item:9, chance: .03},
-		{item:10, chance: .02}*/
+		{item:10, chance: .02}
 
-		{item:1, chance: 0},
-		{item:2, chance: 0},
-		{item:3, chance: 0},
-		{item:4, chance: 1},
-		{item:5, chance: 0},
-		{item:6, chance: 0},
-		{item:7, chance: 0},
-		{item:8, chance: 0},
-		{item:9, chance: 0},
-		{item:10, chance: 0} 
+		// {item:1, chance: 0},
+		// {item:2, chance: 0},
+		// {item:3, chance: 0},
+		// {item:4, chance: 1},
+		// {item:5, chance: 0},
+		// {item:6, chance: 0},
+		// {item:7, chance: 0},
+		// {item:8, chance: 0},
+		// {item:9, chance: 0},
+		// {item:10, chance: 0} 
 		// {item:10, chance: 1}
 	],
 
@@ -335,7 +335,7 @@ var app = {
 		self.createMealName()
 		self.createMealHash()
 
-		// window.location.hash = 
+		self.setSocialMediaLinks()
 
 	},
 	createMealHash: function(){
@@ -344,6 +344,8 @@ var app = {
 			hash += item.hash
 		})
 		location.hash = hash
+
+		self.mealHash = hash
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
@@ -558,7 +560,19 @@ var app = {
 
 		self.mealName+=prefix + signifier + base + suffix
 	},
+	setSocialMediaLinks: function(){
+		var mealName = self.mealName.split(' ')
+		console.log(mealName)
 
+		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
+				+ self.mealName
+				+ "?url=https:/www.recombinator.zone/%23"
+				+ self.mealHash
+				+ "&hashtags=recombinator,recombinate";
+		console.log(href)
+
+		// $('#twitter-share-button').attr('href', href)
+	},
 
 
 //................................... display meal model in html ...................................
