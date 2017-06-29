@@ -84,9 +84,11 @@ div#bottom_taco img {
 	width: 100%;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 720px) {
 	div#bottom_taco {
 		width: 100%;
+		bottom: -125;
+		position: absolute;
 		bottom: 0;
 	}
 
@@ -721,9 +723,6 @@ div#buttons {
  
 	}
 	div#recombinate_button:active {
-		/*-webkit-transform: translate(-8px, -8px);
-		transform: translate(-8px, -8px);
-		box-shadow: none; */
 			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
 	}
@@ -773,8 +772,8 @@ div#buttons {
 		transform: translate(5px, 5px);
 		box-shadow: none;*/
 
-			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
+		/*	-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; */
 	}
 	div#share_button_text {
 		position: absolute;
@@ -804,7 +803,7 @@ div#share_menu {
 	/*height: 270px;*/
 	height: 270px;
 	position: absolute;
-	left: 12%;
+	left: 11.25%;
 	bottom: 100%;
 	width: 35%;
 	z-index: -100;
@@ -824,9 +823,47 @@ div#share_menu.open {
 }
 
 
-div#copy_link {
+div#share_menu div#copy_link {
+	/*font-family: Franchise;
+	color: black;
+	font-color: black;
+	font-size: 1.5em;
+	vertical-align: middle;*/
+}
+
+#meal_url {
+	width: 100%;
+	height: 50%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	/*margin-top: 20px;*/
+}
+
+div#copy_group {
+	position: absolute;
+	top: 20;
+	bottom: 20;
 	font-family: Franchise;
-	color: #000000;
+	color: black;
+	font-color: black;
+	font-size: 1.5em;
+	vertical-align: middle;
+	width: 80%;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+
+div#recombinate_button.disabled {
+	pointer-events: none;
+
+			-webkit-animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: push-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both; 
+}
+
+div#recombinate_button.disabled div#recombinate_button_text {
+	font-color: #9B9B9B;
+	color: #9B9B9B;
 }
 
 /*div#share_menu ul {
@@ -869,12 +906,6 @@ div#share_menu li img {
 	right: 0;
 
 }
-
-div#copy_link {
-	color: #000000;
-	vertical-align: bottom;
-}
-
 
 
 div#meal_title {
@@ -1076,7 +1107,7 @@ div#recombinator_disclaimer a {
 
 @keyframes show-cards {
   from, 60%, 75%, 90%, to {
-   animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000));
+   animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
 
   from {
@@ -1180,6 +1211,7 @@ div#recombinator_disclaimer a {
  <meta name="mobile-web-app-capable" content="yes">
  <meta name="apple-mobile-web-app-capable" content="yes">
 
+
 </head>
 
 <body>
@@ -1247,7 +1279,7 @@ div#recombinator_disclaimer a {
 						</a>
 					</div>
 					<div id="fb" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
-					<div id="copy_link" class="share_item hide-cards"><textbox id="meal_url" />COPY LINK</div>
+					<div id="copy_link" class="share_item hide-cards"><div id="copy_group"><input id="meal_url" type="text" readonly />COPY LINK</div></div>
 				</div>
 		</div>
 
@@ -1255,7 +1287,7 @@ div#recombinator_disclaimer a {
 	</div>
 
 	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
-	<audio src="/sounds/squish_1sec.mp3" id="squish" preload></audio>
+	<audio src="/sounds/squish_sprite.mp3" id="squish" preload></audio>
 	<audio src="/sounds/tacobell_bong.mp3" id="bell" preload></audio>
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
