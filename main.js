@@ -16,7 +16,6 @@ var app = {
 		{item:9, chance: .03},
 		{item:10, chance: .02}
 
-<<<<<<< HEAD
 		// {item:1, chance: 0},
 		// {item:2, chance: 0},
 		// {item:3, chance: 0},
@@ -27,19 +26,7 @@ var app = {
 		// {item:8, chance: 0},
 		// {item:9, chance: 0},
 		// {item:10, chance: 0} 
-=======
-		/*{item:1, chance: 0},
-		{item:2, chance: 0},
-		{item:3, chance: 0},
-		{item:4, chance: 1},
-		{item:5, chance: 0},
-		{item:6, chance: 0},
-		{item:7, chance: 0},
-		{item:8, chance: 0},
-		{item:9, chance: 0},
-		{item:10, chance: 0} */
->>>>>>> 2b702074436a41e5d604daa8af18715ea99d85bd
-		// {item:10, chance: 1}
+
 	],
 
 	//chances have to add up to 1.0
@@ -135,7 +122,7 @@ var app = {
 		},
 		mealModelFromMealPath: function(mealPath) {
 			var mealPath = mealPath.toString().substring(1)
-			var mealPathArray = mealPath.match(/.{1,2}/g)
+			var mealPathArray = mealPath.match(/.{1,1}/g)
 
 			var meal = []
 
@@ -368,14 +355,13 @@ var app = {
 		self.meal.forEach(function(item) {
 			hash += item.hash
 		})
+
 		location.hash = hash
-<<<<<<< HEAD
 
 		self.mealHash = hash
-=======
-		console.log(hash)
+
 		document.getElementById("meal_url").value = window.location.hostname + "/#" + hash; 
->>>>>>> 2b702074436a41e5d604daa8af18715ea99d85bd
+
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
@@ -560,11 +546,11 @@ var app = {
 			prefix.replace(/Double Decker/, "")
 		}
 
-//<<<<<<< HEAD
+
 			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa ") {
 				prefix+="Lite "
 			}
-//=======
+
 		if (self.numberOfIngredients == 2) {
 			self.meal.forEach(function(item) {
 				if (item.ingredient.match("Lettuce")) {
@@ -572,7 +558,7 @@ var app = {
 				}
 			})
 		}
-//>>>>>>> 5a5fc4d1bfba24c7a1d247b5f16ac9b39ca41581
+
 
 		/*if (self.numberOfIngredients > 1 && self.numberOfIngredients <= 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
 			signifier+="Veggie "
@@ -591,17 +577,21 @@ var app = {
 		self.mealName+=prefix + signifier + base + suffix
 	},
 	setSocialMediaLinks: function(){
-		var mealName = self.mealName.split(' ')
-		console.log(mealName)
+		var mealNameArray = self.mealName.split(' ').slice(0,-1)
+		var mealName = ""
+		mealNameArray.forEach(function(item,i,arr) {
+			mealName+=item
+
+			if (i!==arr.length-1) mealName += "%20"
+		})
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
-				+ self.mealName
-				+ "?url=https:/www.recombinator.zone/%23"
+				+ mealName
+				+ "?&url=https%3A%2F%2Fwww.recombinator.zone%2F%23"
 				+ self.mealHash
 				+ "&hashtags=recombinator,recombinate";
-		console.log(href)
 
-		// $('#twitter-share-button').attr('href', href)
+		$('.twitter-share-button').attr('href', href)
 	},
 
 
