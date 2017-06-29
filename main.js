@@ -162,11 +162,11 @@ var app = {
 			})
 			
 			// load sounds here for iOS
-			var audioSprite = document.getElementById("squish")
-			audioSprite.load()
+			//var audioSprite = document.getElementById("squish")
+			//audioSprite.load()
 
-			var bong = document.getElementById("bell")
-			bong.load()
+			//var bong = document.getElementById("bell")
+			//bong.load()
 			//audioSprite.play()
 			//var squish = document.getElementById("squish")
 			//squish.load()
@@ -184,6 +184,12 @@ var app = {
 				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
 				self.soundOn = false;
 				$('img#sound_control_icon').attr('src', '/images/soundcontrol_off.svg')
+
+			var audioSprite = document.getElementById("squish")
+			audioSprite.load()
+
+			var bong = document.getElementById("bell")
+			bong.load()
 			}
 		})
 
@@ -310,6 +316,12 @@ var app = {
 				self.soundOn = true;
 				$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
 				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
+						var audioSprite = document.getElementById("squish")
+			audioSprite.load()
+
+			var bong = document.getElementById("bell")
+			bong.load()
+
 			} else { 
 				self.soundOn = false; 
 				$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
@@ -345,7 +357,7 @@ var app = {
 		})
 		location.hash = hash
 		console.log(hash)
-		document.getElementById("meal_url").value = "http://recombinateit.com/#" + hash; 
+		document.getElementById("meal_url").value = window.location.hostname + "/#" + hash; 
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
