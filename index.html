@@ -68,11 +68,12 @@ body {
 
 
 div#bottom_taco{
-		width: 955px;
+		/*width: 955px;
 		margin: auto;
-		bottom: -125;
+		/*bottom: -125;*/
 		right: 0;
 		left: 0;
+		bottom: 0;
 		z-index: -1;
 		position: absolute;
 		-webkit-animation: bounce-in-bottom 0.5s both;
@@ -84,15 +85,6 @@ div#bottom_taco img {
 	width: 100%;
 }
 
-@media (max-width: 720px) {
-	div#bottom_taco {
-		width: 100%;
-		bottom: -125;
-		position: absolute;
-		bottom: 0;
-	}
-
-}
 
 div#landing_page {
 	position: absolute;
@@ -181,16 +173,57 @@ div#sound_on {
         animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         animation-delay: 0.5s;
 	/*position: relative; */
+	height: 7.5%;
 }
 
-div#sound_on img{
+div#sound_on img {
+	width: 75%;
+}
+
+/*div#sound_on img{
 	width: 5%;
 	max-width: 34px;
 	left: 0;
 	display: inline;
 	vertical-align: middle;
 	padding-right: 10px;
+}*/
+
+div#sound_toggle {
+	width: 100%;
+	background-color: #FFFFFF;
 }
+
+/*div#sound_toggle svg {
+	background-color: #FFFFFF;
+}*/
+
+/*div#circle_container {
+	width: 15%;
+	height: 100%;
+	border: 1px solid green;
+}
+
+div#circle {
+	    
+      width: 100%;
+      height: 100%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+}
+
+div#rect {
+	background-color: #FFFFFF;
+	display: inline;
+	width: 90%;
+	height: 70%;
+	position: absolute;
+	left: 10%;
+	top: 15%;
+	bottom: %;
+} */
 
 span#headphone_toggle {
 	color: #FFFFFF;
@@ -384,11 +417,35 @@ div#recombinator_page {
 		display: none;
 	}
 
+	div#bottom_taco {
+		width: 100%;
+	}
+
+	/*div#sound_control {
+		position: absolute;
+		top: 20%;
+		right: -20px;
+		z-index: 5;
+		background-image: url("/images/sound_icons.svg");
+		width: 44px;
+		height: 48px;
+		display: inline-block;
+	}
+
+	div#sound_control.on {
+		background-position: -2px 0px;
+	}
+
+	div#sound_control.off {
+		background-position: -46px 0px;
+	}*/
+
+
 }
 
 
 
-@media screen and (min-width: 375px) and (max-width: 720px) {
+@media screen and (min-width: 321px) and (max-width: 719px) {
 	div#container { 
 		position: relative;
 		width: 90%;
@@ -461,19 +518,42 @@ div#recombinator_page {
 	    transition: width .3s ease;
 	}
 
-	div#sound_control {
+	/*div#sound_control {
 		position: absolute;
 		top: 20%;
 		right: -20px;
-	}
+	}*/
 
 	div#recombinator_page #bottom_taco {
 		display: none;
 	}
 
+	div#bottom_taco {
+		width: 100%;
+		position: absolute;
+	}
+
+	/*div#sound_control {
+		position: absolute;
+		top: 20%;
+		right: -20px;
+		z-index: 5;
+		background-image: url("/images/sound_icons.svg");
+		width: 44px;
+		height: 48px;
+		display: inline-block;
+	}
+
+	div#sound_control.on {
+		background-position: -2px 0px;
+	}
+
+	div#sound_control.off {
+		background-position: -46px 0px;
+	}*/
 }
 
-@media screen and (min-width: 721px) {
+@media screen and (min-width: 720px) {
 	div#container { 
 		position: relative;
 		max-width: 560px;
@@ -519,29 +599,59 @@ div#recombinator_page {
 		/*clip-path:inset(0 100% 0 0);*/
 	}
 
-	div#meal_title_banner:after {
+	/*div#meal_title_banner:after {
 	    content:" ";
 	    position:absolute;
 	    /*display:block;*/
-	    top:0;
+	 /*   top:0;
 	    right:0;
 	    width:100%;
 	    height:101%;
 	    background:#FFFFFF;
 	    z-index:2;
-	}
+	}*/
 
-	div#meal_title_banner.show:after {
+	/*div#meal_title_banner.show:after {
 	    width:0%;
 	        transition: width .3s ease;
 
-	}
+	}*/
 
-	div#sound_control {
+	/*div#sound_control {
 		position: absolute;
 		top: 20%;
 		right: -20px;
 		z-index: 5;
+		background-image: url("/images/sound_icons.svg");
+		width: 44px;
+		height: 48px;
+		display: inline-block;
+	}
+
+	div#sound_control.on {
+		background-position: -2px 0px;
+	}
+
+	div#sound_control.off {
+		background-position: -46px 0px;
+	}*/
+
+	/*div#bottom_taco {
+		bottom: -125;
+	}*/
+
+	div#bottom_taco{
+		max-width: 955px;
+		min-width: 720px;
+		margin: auto;
+		/*bottom: -125;*/
+		right: 0;
+		left: 0;
+		bottom: 0;
+		z-index: -1;
+		position: absolute;
+		/*-webkit-animation: bounce-in-bottom 0.5s both;
+		        animation: bounce-in-bottom 0.5s both;*/
 	}
 }
 
@@ -833,16 +943,17 @@ div#share_menu div#copy_link {
 
 #meal_url {
 	width: 100%;
-	height: 50%;
+	height: 40%;
 	margin: 0 auto;
 	margin-bottom: 10px;
+	font-family: Roboto-Regular;
 	/*margin-top: 20px;*/
 }
 
 div#copy_group {
 	position: absolute;
-	top: 20;
-	bottom: 20;
+	top: 10;
+	bottom: 10;
 	font-family: Franchise;
 	color: black;
 	font-color: black;
@@ -942,6 +1053,26 @@ div#recombinator_disclaimer a {
 	font-size: inherit;
 	color: inherit;
 }
+
+div#sound_control {
+	position: absolute;
+	top: 20%;
+	right: -20px;
+	z-index: 5;
+	background-image: url("/images/sound_icons.svg");
+	width: 44px;
+	height: 48px;
+	display: inline-block;
+}
+
+div#sound_control.on {
+	background-position: -2px 0px;
+}
+
+div#sound_control.off {
+	background-position: -46px 0px;
+}
+
 
 .pulsate-fwd {
 	-webkit-animation: pulsate-fwd 1.5s ease-in-out infinite both;
@@ -1228,8 +1359,9 @@ div#recombinator_disclaimer a {
 			</div>
 		<!--</div> -->
 			
-			<div id="sound_on"><img class="inline-img" src="images/headphones.png" />SOUND <span id="headphone_toggle">OFF</span> TO KEEP IT MELLOW</div>
-			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a> </br> We have an affinity for, but are not affiliated with, Taco Bell.</div>
+			<div id="sound_on"> <img id="sound_toggle" class="sound_toggle_off" src="/images/sound_off_button.svg" /> </div>
+
+			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a>. </br> We have an affinity for, but are not affiliated with, Taco Bell.</div>
 
 		</div>
 
@@ -1255,7 +1387,7 @@ div#recombinator_disclaimer a {
 		<div id="meal_title_banner">
 			<div id="meal_title">Double Decker Chicken Bacon Beef Tortilla Supreme</div>
 		</div>
-		<div id="sound_control"><img id="sound_control_icon" src="/images/soundcontrol_off.svg" /></div>
+		<div id="sound_control" class="off"><!--<img id="sound_control_icon" src="/images/soundcontrol_off.svg" />--></div>
 		<div id="recombinator_container">
 			<div id="recombinator"></div>
 		</div>
@@ -1275,7 +1407,11 @@ div#recombinator_disclaimer a {
 					</ul> -->
 					<div id="twitter" class="share_item hide-cards"><img src="/images/twitter.svg" /></div>
 					<div id="fb" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
-					<div id="copy_link" class="share_item hide-cards"><div id="copy_group"><input id="meal_url" type="text" readonly />COPY LINK</div></div>
+					<div id="copy_link" class="share_item hide-cards">
+						<div id="copy_group">
+							<input id="meal_url" type="text" readonly />COPY LINK
+						</div>
+					</div>
 				</div>
 		</div>
 
@@ -1283,8 +1419,8 @@ div#recombinator_disclaimer a {
 	</div>
 
 	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
-	<audio src="/sounds/squish_sprite.mp3" id="squish" preload></audio>
-	<audio src="/sounds/tacobell_bong.mp3" id="bell" preload></audio>
+	<audio src="/sounds/squish_sprite.mp3" id="squish" preload="auto"></audio>
+	<audio src="/sounds/tacobell_bong.mp3" id="bell" preload="auto"></audio>
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
 <script type="text/javascript" src="main.js"></script>

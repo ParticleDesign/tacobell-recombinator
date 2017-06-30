@@ -160,6 +160,12 @@ var app = {
 				self.recombinate()
 				self.displayMealDivs()
 			})
+
+			var audioSprite = document.getElementById("squish")
+			audioSprite.load()
+
+			var bong = document.getElementById("bell")
+			bong.load()
 			
 			// load sounds here for iOS
 			//var audioSprite = document.getElementById("squish")
@@ -177,19 +183,24 @@ var app = {
 		$('div#sound_on').on('click', function() {
 			console.log("sound on clicked!")
 			if (self.soundOn == false) {
-				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
+				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
+				$('div#sound_on').html("<img src='images/sound_on_button.svg' />")
+				
 				self.soundOn = true;
-				$('img#sound_control_icon').attr('src', '/images/soundcontrol.svg')
+				$('div#sound_control').css('background-position', '-2px 0px')
+
+				var audioSprite = document.getElementById("squish")
+				audioSprite.load()
+
+				var bong = document.getElementById("bell")
+				bong.load()
+
 			} else {
-				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
+				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
+				$('div#sound_on').html("<img src='images/sound_off_button.svg' />")
+				
 				self.soundOn = false;
-				$('img#sound_control_icon').attr('src', '/images/soundcontrol_off.svg')
-
-			var audioSprite = document.getElementById("squish")
-			audioSprite.load()
-
-			var bong = document.getElementById("bell")
-			bong.load()
+				$('div#sound_control').css('background-position', '-46px 0px')
 			}
 		})
 
@@ -275,38 +286,28 @@ var app = {
 					}, 200 * (i*.5))
 				})
 			}
-		
 
+			var copyTextareaBtn = document.querySelector('div#copy_link');
 
+			copyTextareaBtn.addEventListener('click', function(event) {
+  				var copyTextarea = document.querySelector('#meal_url');
+  				copyTextarea.select();
 
+  				try {
+    				var successful = document.execCommand('copy');
+   	 				var msg = successful ? 'successful' : 'unsuccessful';
+    				console.log('Copying text command was ' + msg);
+  				} catch (err) {
+    				console.log('Oops, unable to copy');
+  				}
+  			});
+
+  			$('#meal_url').on('click', function() {
+  				this.setSelectionRange(0, this.value.length)
+  				this.select()
+  				console.log(this.value.length)
+  			})
 		})
-
-		/*function screenshotPage() {
-			  // 1. Rewrite current doc's imgs, css, and script URLs to be absolute before
-			  // we duplicate. This ensures no broken links when viewing the duplicate.
-			  //urlsToAbsolute(document.images);
-			  //urlsToAbsolute(document.querySelectorAll("link[rel='stylesheet']"));
-			  //urlsToAbsolute(document.scripts);
-
-			  // 2. Duplicate entire document tree.
-			  var screenshot = document.documentElement.cloneNode(true);
-
-			  // 3. Screenshot should be readyonly, no scrolling, and no selections.
-			  //screenshot.style.pointerEvents = 'none';
-			  //screenshot.style.overflow = 'hidden';
-			  //screenshot.style.userSelect = 'none'; // Note: need vendor prefixes
-
-			  // 4. ... read on ...
-
-			  // 5. Create a new .html file from the cloned content.
-			  var blob = new Blob([screenshot.outerHTML], {type: 'text/html'});
-
-			  // Open a popup to new file by creating a blob URL.
-			  //window.open(window.URL.createObjectURL(blob));
-			  var myURL = window.URL.createObjectURL(blob);
-			  console.log(myURL);
-			}*/
-
 	},
 
 	armSoundToggle: function() {
@@ -314,18 +315,22 @@ var app = {
 			//alert("Sound off!");
 			if (self.soundOn == false) {
 				self.soundOn = true;
-				$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
-				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
-						var audioSprite = document.getElementById("squish")
-			audioSprite.load()
+				//$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
+				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
+				$('div#sound_control').css('background-position', '-2px 0px')
 
-			var bong = document.getElementById("bell")
-			bong.load()
+				/*var audioSprite = document.getElementById("squish")
+				audioSprite.load()
+
+				var bong = document.getElementById("bell")
+				bong.load()*/
 
 			} else { 
 				self.soundOn = false; 
-				$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
-				$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
+				//$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
+				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
+				$('div#sound_control').css('background-position', '-46px 0px')
+
 			}
 
 			console.log("soundOn = " + self.soundOn)
@@ -357,7 +362,7 @@ var app = {
 		})
 		location.hash = hash
 		console.log(hash)
-		document.getElementById("meal_url").value = window.location.hostname + "/#" + hash; 
+		document.getElementById("meal_url").value = "http://" + window.location.hostname + "/#" + hash; 
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
@@ -560,9 +565,9 @@ var app = {
 			signifier+="Veggie "
 		}*/
 
-		if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa") {
+		/*if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa") {
 			prefix+="Veggie "
-		}
+		}*/
 
 		if (self.numberOfIngredients > 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite " && numShells == 1) {
 			prefix+="Loaded "
@@ -650,42 +655,6 @@ var app = {
 
 		// store stopping times for each ingredient amount
 		var spriteData = [ 
-			    /*{
-			        start: 0,
-			        length: 0.43
-			    },
-			    {
-			        start: 1.43,
-			        length: 2.11
-			    },
-			    {
-			        start: 3.11,
-			        length: 4.039
-			    },
-			    {
-			        start: 5.039,
-			        length: 6.218
-			    },
-			    {
-			        start: 7.218,
-			        length: 8.647
-			    },
-			    {
-			        start: 9.647,
-			        length: 11.326
-			    },
-			    {
-			        start: 12.326,
-			        length: 13.996
-			    },
-			    {
-			        start: 14.996,
-			        length: 16.916
-			    },
-			    {
-			        start: 17.916,
-			        length: 20.086
-			    }*/
 			    {
 			    	start: 0,
 			    	length: 0.43
@@ -751,7 +720,7 @@ var app = {
 		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
 			var $currentIngredient = $("div#"+containerID),
-				delay = self.animationInterval_ingredients * i * 1.2;
+				delay = self.animationInterval_ingredients * i;
 
 			//push all ingredients offscreen above window
 			//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
