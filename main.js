@@ -189,11 +189,11 @@ var app = {
 				self.soundOn = true;
 				$('div#sound_control').css('background-position', '-2px 0px')
 
-				var audioSprite = document.getElementById("squish")
+				/*var audioSprite = document.getElementById("squish")
 				audioSprite.load()
 
 				var bong = document.getElementById("bell")
-				bong.load()
+				bong.load()*/
 
 			} else {
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
@@ -244,7 +244,6 @@ var app = {
 
 			//self.recombinate()					//start new meal
 			//self.displayMealDivs();
-
 		})
 	},
 
@@ -290,16 +289,20 @@ var app = {
 			var copyTextareaBtn = document.querySelector('div#copy_link');
 
 			copyTextareaBtn.addEventListener('click', function(event) {
+
   				var copyTextarea = document.querySelector('#meal_url');
   				copyTextarea.select();
+				   	
 
   				try {
     				var successful = document.execCommand('copy');
    	 				var msg = successful ? 'successful' : 'unsuccessful';
     				console.log('Copying text command was ' + msg);
+				   	$('div#link_copied_modal').show().fadeOut(2000);
   				} catch (err) {
     				console.log('Oops, unable to copy');
   				}
+
   			});
 
   			$('#meal_url').on('click', function() {
@@ -307,6 +310,8 @@ var app = {
   				this.select()
   				console.log(this.value.length)
   			})
+
+
 		})
 	},
 
@@ -362,16 +367,14 @@ var app = {
 		})
 
 		location.hash = hash
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		console.log(hash)
 		document.getElementById("meal_url").value = "http://" + window.location.hostname + "/#" + hash; 
-=======
+//=======
 
 		self.mealHash = hash
 
-		document.getElementById("meal_url").value = window.location.hostname + "/#" + hash; 
-
->>>>>>> 6d096cd1e71fd9a5e4c820f13812c5cb0549e9f1
+//>>>>>>> 6d096cd1e71fd9a5e4c820f13812c5cb0549e9f1
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
@@ -654,19 +657,29 @@ var app = {
 		//self.animateMealDivs()
 	},
 	clearCurrentMeal: function() {
-		self.ingredientContainerIDs.forEach(function(containerID, i) {
 
-			var $currentIngredient = $("div#"+containerID),
-				delay = self.animationInterval_ingredients * (i / 2.5);
+		if (self.soundOn == true) {
+				crunch.play()
+		}
 
-		//push all ingredients offscreen above window
-		//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
-		//animate each ingredient into place one at a time
-			setTimeout(function() {
-				$currentIngredient.addClass("clear");
-				console.log("dropping!")
-			}, delay)
-		})
+		//setTimeout(function() {
+
+			self.ingredientContainerIDs.forEach(function(containerID, i) {
+
+				var $currentIngredient = $("div#"+containerID),
+					delay = self.animationInterval_ingredients * (i / 2.5);
+
+			//push all ingredients offscreen above window
+			//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
+			//animate each ingredient into place one at a time
+				setTimeout(function() {
+					$currentIngredient.addClass("clear");
+					console.log("dropping!")
+				}, delay)
+			})
+		//}, 200)
+
+
 		//$('div#recombinator').html("")
 	},
 	animateMealDivs: function() {
@@ -724,6 +737,7 @@ var app = {
 			console.log(this.currentTime);
 			if (this.currentTime >= spriteData[self.numberOfIngredients-1].length) {
 				this.pause();
+				console.log("Stopping squish...");
 			}
 		}
 		// Add event listener to the audio sprite
@@ -770,12 +784,12 @@ var app = {
 	displayNameBanner: function() {
 		//banner background animation
 		var $banner = $('div#meal_title_banner');
-		$banner.removeClass("show")
+		//$banner.removeClass("show")
 	
 		//hide and reset banner on recombinate! button press
-		$banner.transition({
+		/*$banner.transition({
 			"clip-path":"inset(0 100% 0 0)" // clip-path is experimental, only supported in Chrome
-		},0)
+		},0)*/
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
 		//banner animation
@@ -791,6 +805,7 @@ var app = {
 			}
 
 			$banner_title.transition({
+				"opacity":"1",
 				"font-size":"7vh",
 				"width":"126%",
 				"left":"-13%"
@@ -814,15 +829,16 @@ var app = {
 		}
 		//reveal banner
 		setTimeout(function() {
-			$banner.transition({"clip-path":"inset(0 0 0 0)"}, self.animationInterval_banner, function() {
+			//$banner.transition({"clip-path":"inset(0 0 0 0)"}, self.animationInterval_banner, function() {
 			
-				$banner_title.transition({"opacity":"1"}, self.animationInterval_bannerText, function() {
+				/*$banner_title.transition({"opacity":"1"}, self.animationInterval_bannerText, function() {
 
 					expandBannerText(contractBannerText)
-				})
-			})
+				})*/
+			expandBannerText(contractBannerText)
+			//})
 
-			$banner.addClass("show")
+			//$banner.addClass("show")
 		}, ingredientsDoneFalling)
 
 	}

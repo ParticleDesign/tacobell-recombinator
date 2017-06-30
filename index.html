@@ -385,14 +385,13 @@ div#recombinator_page {
 		/*transform: rotate(-3deg);*/
 		transform-origin: left top;
 		transform: skewY(-3deg);
-		clip-path:inset(0 100% 0 0);
+		/*clip-path:inset(0 100% 0 0);*/
 	}
 
-	div#meal_title_banner:after {
+	/*div#meal_title_banner:after {
 	    content:" ";
 	    position:absolute;
 	    overflow: visible;
-	    /*display:block;*/
 	    top:0;
 	    right:0;
 	    width:100%;
@@ -405,7 +404,7 @@ div#recombinator_page {
 	div#meal_title_banner.show:after {
 	    width:0%;
 	    transition: width .3s ease;
-	}
+	}*/
 
 	div#sound_control {
 		position: absolute;
@@ -497,13 +496,12 @@ div#recombinator_page {
 		/*transform: rotate(-3deg);*/
 		transform-origin: left top;
 		transform: skewY(-3deg);
-		clip-path:inset(0 100% 0 0);
+		/*clip-path:inset(0 100% 0 0);*/
 	}
 
-	div#meal_title_banner:after {
+	/*div#meal_title_banner:after {
 	    content:" ";
 	    position:absolute;
-	    /*display:block;*/
 	    top:0;
 	    right:0;
 	    width:100%;
@@ -516,7 +514,7 @@ div#recombinator_page {
 	div#meal_title_banner.show:after {
 	    width:0%;
 	    transition: width .3s ease;
-	}
+	}*/
 
 	/*div#sound_control {
 		position: absolute;
@@ -602,8 +600,7 @@ div#recombinator_page {
 	/*div#meal_title_banner:after {
 	    content:" ";
 	    position:absolute;
-	    /*display:block;*/
-	 /*   top:0;
+	    top:0;
 	    right:0;
 	    width:100%;
 	    height:101%;
@@ -614,7 +611,6 @@ div#recombinator_page {
 	/*div#meal_title_banner.show:after {
 	    width:0%;
 	        transition: width .3s ease;
-
 	}*/
 
 	/*div#sound_control {
@@ -655,7 +651,9 @@ div#recombinator_page {
 	}
 }
 
-
+div#meal_title {
+		opacity: 0;
+}
 
 
 div#header {
@@ -1016,6 +1014,17 @@ div#share_menu li img {
 	left: 0;
 	right: 0;
 
+}
+
+div#link_copied_modal {
+	border: 1px solid green;
+	width: 34%;
+	left: 11.5%;
+	position: absolute;
+	top: -300px;
+	font-family: Roboto-Regular;
+	font-size: 0.75em;
+	display: none;
 }
 
 
@@ -1396,9 +1405,11 @@ div#sound_control.off {
 			<div id="recombinate_button"> 
 				<div id="recombinate_button_text">RECOMBINATE!</div>
 			</div>
+
 			<div id="share_button"> 
 				<div id="share_button_text">SHARE THIS COMBO</div>
 			</div>
+
 				<div id="share_menu">
 					<!--<ul>
 					<a onClick="alert('Share on Twitter!');">	<li><img src="/images/twitter.svg" /></li></a>
@@ -1406,7 +1417,7 @@ div#sound_control.off {
 						<li>COPY LINK</li>
 					</ul> -->
 					<div id="twitter" class="share_item hide-cards">
-						<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Have you ever seen a Volcano?&url=https://www.recombinator.zone/%23badabababababa&hashtags=recombinator">
+						<a class="twitter-share-button" >
 							<img src="/images/twitter.svg" />
 						</a>
 					</div>
@@ -1417,6 +1428,7 @@ div#sound_control.off {
 						</div>
 					</div>
 				</div>
+				<div id="link_copied_modal">Link copied!</div>
 		</div>
 
 		<div id="recombinator_disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a>. We are not affiliated with Taco Bell.</div>
@@ -1424,7 +1436,9 @@ div#sound_control.off {
 
 	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
 	<audio src="/sounds/squish_sprite.mp3" id="squish" preload="auto"></audio>
-	<audio src="/sounds/tacobell_bong.mp3" id="bell" preload="auto"></audio>
+	<audio src="/sounds/bong.mp3" id="bell" preload="auto"></audio>
+	<audio src="/sounds/crunch.mp3" id="crunch" preload="auto"></audio>
+
 </div>
 <script type="text/javascript" src="ingredients.json"></script>
 <script type="text/javascript" src="main.js"></script>
