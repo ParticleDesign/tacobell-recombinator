@@ -307,6 +307,7 @@ var app = {
   				this.select()
   				console.log(this.value.length)
   			})
+
 		})
 	},
 
@@ -556,11 +557,11 @@ var app = {
 			prefix.replace(/Double Decker/, "")
 		}
 
-
+//<<<<<<< HEAD
 			if (self.numberOfIngredients == 1 && base != "Naked Chicken Chalupa ") {
 				prefix+="Lite "
 			}
-
+//=======
 		if (self.numberOfIngredients == 2) {
 			self.meal.forEach(function(item) {
 				if (item.ingredient.match("Lettuce")) {
@@ -568,7 +569,7 @@ var app = {
 				}
 			})
 		}
-
+//>>>>>>> 5a5fc4d1bfba24c7a1d247b5f16ac9b39ca41581
 
 		/*if (self.numberOfIngredients > 1 && self.numberOfIngredients <= 3 && numMeats == 0 && fillings == "" && signifier == "" && prefix != "Lite ") {
 			signifier+="Veggie "
