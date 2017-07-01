@@ -159,7 +159,7 @@ transform: skewY(-6deg);
 
 div#sound_on {
 	color: #FFFFFF;
-	width: 100%;
+	width: 80%;
 	font-size: 1.5em; /*35px;*/
 	margin: 0 auto;
 	text-align: center;
@@ -167,13 +167,17 @@ div#sound_on {
 	margin-top: 10%;
 	z-index: 100;
 	/*letter-spacing: 1px;*/
-	-webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    -webkit-animation-delay: 0.5s;
 
-        animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-        animation-delay: 0.5s;
 	/*position: relative; */
-	height: 7.5%;
+	/*height: 7.5%;*/
+	height: 14vw;
+	max-height: 90px;
+	/*max-height: 85px;
+	min-height: 45px;
+	overflow: hidden;*/
+	background-image: url("/images/sound_on_buttons.svg");
+	background-repeat: no-repeat;
+	background-size: 100% auto;
 }
 
 div#sound_on img {
@@ -189,10 +193,10 @@ div#sound_on img {
 	padding-right: 10px;
 }*/
 
-div#sound_toggle {
+/*div#sound_toggle {
 	width: 100%;
 	background-color: #FFFFFF;
-}
+}*/
 
 /*div#sound_toggle svg {
 	background-color: #FFFFFF;
@@ -225,10 +229,10 @@ div#rect {
 	bottom: %;
 } */
 
-span#headphone_toggle {
+/*span#headphone_toggle {
 	color: #FFFFFF;
-	/*text-shadow: 4px 4px #FF00CC;*/
-}
+	/*text-shadow: 4px 4px #FF00CC;
+}*/
 /*div#start_button {
 	position:relative;
 	width:80%;
@@ -606,9 +610,9 @@ div#recombinator_page {
 	    height:101%;
 	    background:#FFFFFF;
 	    z-index:2;
-	}*/
+	}
 
-	/*div#meal_title_banner.show:after {
+	div#meal_title_banner.show:after {
 	    width:0%;
 	        transition: width .3s ease;
 	}*/
@@ -652,7 +656,7 @@ div#recombinator_page {
 }
 
 div#meal_title {
-		opacity: 0;
+	opacity: 0;
 }
 
 
@@ -1017,14 +1021,19 @@ div#share_menu li img {
 }
 
 div#link_copied_modal {
-	border: 1px solid green;
+	/*border: 1px solid green;*/
+	background-color: #3AD3AA;
 	width: 34%;
+	height: 20px;
 	left: 11.5%;
 	position: absolute;
 	top: -300px;
 	font-family: Roboto-Regular;
 	font-size: 0.75em;
 	display: none;
+	background-image: url("images/link_copied.svg");
+	background-repeat: no-repeat;
+	color: #000000;
 }
 
 
@@ -1351,6 +1360,16 @@ div#sound_control.off {
  <meta name="mobile-web-app-capable" content="yes">
  <meta name="apple-mobile-web-app-capable" content="yes">
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101849887-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 </head>
 
@@ -1368,7 +1387,7 @@ div#sound_control.off {
 			</div>
 		<!--</div> -->
 			
-			<div id="sound_on"> <img id="sound_toggle" class="sound_toggle_off" src="/images/sound_off_button.svg" /> </div>
+			<div id="sound_on"> <!--<img id="sound_toggle" class="sound_toggle_off" src="/images/sound_off_button.svg" />--></div>
 
 			<div id="disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a>. </br> We have an affinity for, but are not affiliated with, Taco Bell.</div>
 
@@ -1424,7 +1443,7 @@ div#sound_control.off {
 					<div id="fb" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
 					<div id="copy_link" class="share_item hide-cards">
 						<div id="copy_group">
-							<input id="meal_url" type="text" readonly />COPY LINK
+							<input id="meal_url" type="text" readonly/>COPY LINK
 						</div>
 					</div>
 				</div>
@@ -1434,7 +1453,7 @@ div#sound_control.off {
 		<div id="recombinator_disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a>. We are not affiliated with Taco Bell.</div>
 	</div>
 
-	<div id="bottom_taco"><img src="images/steak_taco.png" /></div>
+	<div id="bottom_taco"><img src="images/steak_taco.gif" /></div>
 	<audio src="/sounds/squish_sprite.mp3" id="squish" preload="auto"></audio>
 	<audio src="/sounds/bong.mp3" id="bell" preload="auto"></audio>
 	<audio src="/sounds/crunch.mp3" id="crunch" preload="auto"></audio>

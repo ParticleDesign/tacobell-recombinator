@@ -184,10 +184,12 @@ var app = {
 			console.log("sound on clicked!")
 			if (self.soundOn == false) {
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
-				$('div#sound_on').html("<img src='images/sound_on_button.svg' />")
+				//$('div#sound_on').html("<img src='images/sound_on_button.svg' />")
+				$('div#sound_on').css('background-position', '0px 100%')
+
 				
-				self.soundOn = true;
 				$('div#sound_control').css('background-position', '-2px 0px')
+				self.soundOn = true;
 
 				/*var audioSprite = document.getElementById("squish")
 				audioSprite.load()
@@ -197,10 +199,13 @@ var app = {
 
 			} else {
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
-				$('div#sound_on').html("<img src='images/sound_off_button.svg' />")
+				//$('div#sound_on').html("<img src='images/sound_off_button.svg' />")
+				$('div#sound_on').css('background-position', '0px 0px')
+
 				
-				self.soundOn = false;
 				$('div#sound_control').css('background-position', '-46px 0px')
+				self.soundOn = false;
+
 			}
 		})
 
@@ -244,7 +249,20 @@ var app = {
 
 			//self.recombinate()					//start new meal
 			//self.displayMealDivs();
+			if ($('.share_item').hasClass('show-cards')) {
+					$('div#share_button_text').html("SHARE THIS COMBO");
+					console.log("checking for class...")
+					$('.share_item').each(function(i) {
+						setTimeout(function() {
+							document.getElementsByClassName("share_item")[2-i].classList.add('hide-cards');
+							document.getElementsByClassName("share_item")[2-i].classList.remove('show-cards')
+						}, 200 * (i*.40))
+					})
+			}
+
+
 		})
+
 	},
 
 	armShareButton: function() {
@@ -311,7 +329,6 @@ var app = {
   				console.log(this.value.length)
   			})
 
-
 		})
 	},
 
@@ -322,18 +339,21 @@ var app = {
 				self.soundOn = true;
 				//$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
+				$('div#sound_on').css('background-position', '0px 100%')
 				$('div#sound_control').css('background-position', '-2px 0px')
 
-				/*var audioSprite = document.getElementById("squish")
+				var audioSprite = document.getElementById("squish")
 				audioSprite.load()
 
 				var bong = document.getElementById("bell")
-				bong.load()*/
+				bong.load()
 
 			} else { 
 				self.soundOn = false; 
 				//$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
+				$('div#sound_on').css('background-position', '0px 0px')
+
 				$('div#sound_control').css('background-position', '-46px 0px')
 
 			}
@@ -805,7 +825,7 @@ var app = {
 			}
 
 			$banner_title.transition({
-				"opacity":"1",
+				"opacity": "1",
 				"font-size":"7vh",
 				"width":"126%",
 				"left":"-13%"
@@ -831,11 +851,10 @@ var app = {
 		setTimeout(function() {
 			//$banner.transition({"clip-path":"inset(0 0 0 0)"}, self.animationInterval_banner, function() {
 			
-				/*$banner_title.transition({"opacity":"1"}, self.animationInterval_bannerText, function() {
+				//$banner_title.transition({"opacity":"1"}, self.animationInterval_bannerText, function() {
 
 					expandBannerText(contractBannerText)
-				})*/
-			expandBannerText(contractBannerText)
+				//})
 			//})
 
 			//$banner.addClass("show")
