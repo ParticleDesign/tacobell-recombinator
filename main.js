@@ -9,12 +9,12 @@ var app = {
 		{item:2, chance: .03},
 		{item:3, chance: .1},
 		{item:4, chance: .2},
-		{item:5, chance: .25},
-		{item:6, chance: .2},
+		{item:5, chance: .26},
+		{item:6, chance: .21},
 		{item:7, chance: .1},
 		{item:8, chance: .05},
-		{item:9, chance: .03},
-		{item:10, chance: .02}
+		{item:9, chance: .03}
+		//{item:10, chance: .02}
 
 		// {item:1, chance: 0},
 		// {item:2, chance: 0},
@@ -166,6 +166,9 @@ var app = {
 
 			var bong = document.getElementById("bell")
 			bong.load()
+
+			ga('send', 'event', 'Enter', 'enter_the_recombinator'); // log click in Analytics
+
 			
 			// load sounds here for iOS
 			//var audioSprite = document.getElementById("squish")
@@ -177,7 +180,6 @@ var app = {
 			//var squish = document.getElementById("squish")
 			//squish.load()
 			//console.log(squish)
-
 		})
 
 		$('div#sound_on').on('click', function() {
@@ -185,11 +187,13 @@ var app = {
 			if (self.soundOn == false) {
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
 				//$('div#sound_on').html("<img src='images/sound_on_button.svg' />")
-				$('div#sound_on').css('background-position', '0px 100%')
+				$('div#sound_on').css('background-position', '0px 99%')
 
 				
 				$('div#sound_control').css('background-position', '-2px 0px')
 				self.soundOn = true;
+				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
+
 
 				/*var audioSprite = document.getElementById("squish")
 				audioSprite.load()
@@ -205,7 +209,7 @@ var app = {
 				
 				$('div#sound_control').css('background-position', '-46px 0px')
 				self.soundOn = false;
-
+				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 			}
 		})
 
@@ -220,9 +224,7 @@ var app = {
 
 				//hide recombinator contents
 				$('div#recombinator').html('')
-				$('div#meal_title_banner').transition({
-					"clip-path":"inset(0 100% 0 0)"
-				},0)
+				$('div#meal_title').css('opacity', '0')
 			})
 			window.location.hash = ""
 		})
@@ -260,6 +262,7 @@ var app = {
 					})
 			}
 
+			ga('send', 'event', 'Recombinator', 'recombinate'); // log click in Analytics
 
 		})
 
@@ -304,30 +307,70 @@ var app = {
 				})
 			}
 
-			var copyTextareaBtn = document.querySelector('div#copy_link');
+			$('div#twitter').on('click', function() {
+				ga('send', 'event', 'Share', 'twitter'); // log click in Analytics
+				console.log('twitter clicked');
+			})
+
+			$('div#fb').on('click', function() {
+				ga('send', 'event', 'Share', 'facebook'); // log click in Analytics
+			})
+
+			/*var copyTextareaBtn = document.querySelector('div#copy_link');
+			console.log(copyTextareaBtn)
 
 			copyTextareaBtn.addEventListener('click', function(event) {
 
-  				var copyTextarea = document.querySelector('#meal_url');
+  				var copyTextarea = document.querySelector('div#meal_url');
   				copyTextarea.select();
-				   	
 
   				try {
     				var successful = document.execCommand('copy');
    	 				var msg = successful ? 'successful' : 'unsuccessful';
     				console.log('Copying text command was ' + msg);
-				   	$('div#link_copied_modal').show().fadeOut(2000);
+				   	$('div#link_copied_modal').show().fadeOut(3000);
   				} catch (err) {
     				console.log('Oops, unable to copy');
   				}
 
-  			});
 
-  			$('#meal_url').on('click', function() {
-  				this.setSelectionRange(0, this.value.length)
-  				this.select()
-  				console.log(this.value.length)
-  			})
+  			});*/
+
+  			$('div#meal_url').on('click', function() {
+  				//this.setSelectionRange(0, this.value.length)
+  				//console.log("meal url = " + this.length)
+  				//this.selectionStart=0;
+				//this.selectionEnd=this.value.length;
+				//this.select();
+
+				if ( document.selection ) {
+           			var range = document.body.createTextRange();
+            		range.moveToElementText( this  );
+            		range.select();
+        		} else if ( window.getSelection ) {
+            		var range = document.createRange();
+            		range.selectNodeContents( this );
+            		window.getSelection().removeAllRanges();
+            		window.getSelection().addRange( range );
+        		}
+
+        		try {
+    				var successful = document.execCommand('copy');
+   	 				var msg = successful ? 'successful' : 'unsuccessful';
+    				console.log('Copying text command was ' + msg);
+				   	$('div#link_copied_modal').show().fadeOut(3000);
+   	  				ga('send', 'event', 'Share', 'link_copied'); // log click in Analytics
+
+  				} catch (err) {
+    				console.log('Oops, unable to copy');
+  				}
+
+
+
+        	});
+  				//this.select()
+  				//console.log(this.value.length)
+  			//})
 
 		})
 	},
@@ -347,6 +390,7 @@ var app = {
 
 				var bong = document.getElementById("bell")
 				bong.load()
+				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
 
 			} else { 
 				self.soundOn = false; 
@@ -355,10 +399,14 @@ var app = {
 				$('div#sound_on').css('background-position', '0px 0px')
 
 				$('div#sound_control').css('background-position', '-46px 0px')
+				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
+
 
 			}
 
 			console.log("soundOn = " + self.soundOn)
+
+
 		})
 	},
 
@@ -389,7 +437,7 @@ var app = {
 		location.hash = hash
 //<<<<<<< HEAD
 		console.log(hash)
-		document.getElementById("meal_url").value = "http://" + window.location.hostname + "/#" + hash; 
+		$("div#meal_url").html("http://"+ window.location.hostname + "/#" + hash); 
 //=======
 
 		self.mealHash = hash
@@ -813,7 +861,7 @@ var app = {
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
 		//banner animation
-		var ingredientsDoneFalling = self.ingredientContainerIDs.length * self.animationInterval_ingredients;
+		var ingredientsDoneFalling = self.ingredientContainerIDs.length * self.animationInterval_ingredients + 200; // added +200 to prevent overlap with bong 7/2
 		var $banner_title = $('div#meal_title')
 
 		var expandBannerText = function(callback) {
@@ -825,10 +873,14 @@ var app = {
 			}
 
 			$banner_title.transition({
-				"opacity": "1",
-				"font-size":"7vh",
 				"width":"126%",
-				"left":"-13%"
+				//"height":"200%",
+				"opacity": "1",
+				"left":"-13%",
+				//"top": "0",
+				//"bottom":"0",
+				"font-size":"2.5rem",
+				//"font-size":"7vh"
 			}, self.animationInterval_bannerText, function() {
 				callback()
 			})
@@ -840,7 +892,8 @@ var app = {
 			setTimeout(function(){
 
 				$banner_title.transition({
-					"font-size":"5vh",
+					"font-size":"1.8rem",
+					//"font-size":"5vh",
 					"width":"90%",
 					"left":"5%"
 				}, self.animationInterval_bannerText)

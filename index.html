@@ -657,6 +657,7 @@ div#recombinator_page {
 
 div#meal_title {
 	opacity: 0;
+	font-size: 1.8rem;
 }
 
 
@@ -949,6 +950,12 @@ div#share_menu div#copy_link {
 	margin: 0 auto;
 	margin-bottom: 10px;
 	font-family: Roboto-Regular;
+	font-size: 1.5vh;
+	background-color: white;
+	color: #000000;
+	overflow: hidden;
+	line-height: 4vh;
+	vertical-align: middle;
 	/*margin-top: 20px;*/
 }
 
@@ -1004,6 +1011,7 @@ div#share_menu li img {
 	height: 33%;
 	position: relative;
 	border: 1px solid white;
+	z-index: 200;
 	/*display: none;*/
 }
 
@@ -1021,19 +1029,23 @@ div#share_menu li img {
 }
 
 div#link_copied_modal {
-	/*border: 1px solid green;*/
-	background-color: #3AD3AA;
+	/*background-color: #3AD3AA;
 	width: 34%;
 	height: 20px;
-	left: 11.5%;
-	position: absolute;
 	top: -300px;
-	font-family: Roboto-Regular;
 	font-size: 0.75em;
+	left: 11.5%;*/
+	height: 20%;
+	width: 15%;
+	right:2;
+	bottom: 25%;
+	position: absolute;
+	font-family: Roboto-Regular;
 	display: none;
 	background-image: url("images/link_copied.svg");
 	background-repeat: no-repeat;
 	color: #000000;
+	z-index: 100;
 }
 
 
@@ -1443,11 +1455,11 @@ div#sound_control.off {
 					<div id="fb" class="share_item hide-cards"><img src="/images/facebook.svg" /></div>
 					<div id="copy_link" class="share_item hide-cards">
 						<div id="copy_group">
-							<input id="meal_url" type="text" readonly/>COPY LINK
+							<!--<input id="meal_url" type="text" readonly/>--><div id="meal_url"></div>COPY LINK
 						</div>
+							<div id="link_copied_modal"></div>
 					</div>
 				</div>
-				<div id="link_copied_modal">Link copied!</div>
 		</div>
 
 		<div id="recombinator_disclaimer">Brought to you by <a href="http://www.particledesign.com">Particle Design</a>. We are not affiliated with Taco Bell.</div>
