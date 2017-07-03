@@ -641,11 +641,23 @@ var app = {
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
 				+ mealName
-				+ "?&url=https%3A%2F%2Fwww.recombinator.zone%2F%23"
+				+ "?&url=http%3A%2F%2Fwww.recombinator.zone%2F%23"
 				+ self.mealHash
 				+ "&hashtags=recombinator,recombinate";
 
 		$('.twitter-share-button').attr('href', href)
+		console.log(href)
+
+
+		$('#fb img').on('click', function(){
+			FB.ui({
+			  method: 'feed',
+			  link: 'http://www.recominator.zone',
+			  caption: 'An example caption',
+			}, function(response){});
+		})
+
+
 	},
 
 
