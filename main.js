@@ -647,13 +647,21 @@ var app = {
 
 		$('.twitter-share-button').attr('href', href)
 		console.log(href)
+		
+		//facebook
+		var url = 'http://www.recominator.zone/#'+self.mealHash
+		
+		$('meta[name="og:url"]').attr('content', url)
+		$('meta[name="og:title"]').attr('content', mealName)
+
+
 
 
 		$('#fb img').on('click', function(){
 			FB.ui({
 			  method: 'feed',
-			  link: 'http://www.recominator.zone',
-			  caption: 'An example caption',
+			  link: 'http://www.recominator.zone/#'+self.mealHash,
+			  caption: mealName,
 			}, function(response){});
 		})
 
