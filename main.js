@@ -187,7 +187,7 @@ var app = {
 			if (self.soundOn == false) {
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
 				//$('div#sound_on').html("<img src='images/sound_on_button.svg' />")
-				$('div#sound_on').css('background-position', '0px 99%')
+				$('div#sound_on').css('background-position', '0px 99.6%')
 
 				
 				$('div#sound_control').css('background-position', '-2px 0px')
@@ -316,40 +316,16 @@ var app = {
 				ga('send', 'event', 'Share', 'facebook'); // log click in Analytics
 			})
 
-			/*var copyTextareaBtn = document.querySelector('div#copy_link');
-			console.log(copyTextareaBtn)
-
-			copyTextareaBtn.addEventListener('click', function(event) {
-
-  				var copyTextarea = document.querySelector('div#meal_url');
-  				copyTextarea.select();
-
-  				try {
-    				var successful = document.execCommand('copy');
-   	 				var msg = successful ? 'successful' : 'unsuccessful';
-    				console.log('Copying text command was ' + msg);
-				   	$('div#link_copied_modal').show().fadeOut(3000);
-  				} catch (err) {
-    				console.log('Oops, unable to copy');
-  				}
-
-
-  			});*/
-
-  			$('div#meal_url').on('click', function() {
-  				//this.setSelectionRange(0, this.value.length)
-  				//console.log("meal url = " + this.length)
-  				//this.selectionStart=0;
-				//this.selectionEnd=this.value.length;
-				//this.select();
+  			$('div#copy_group').on('click', function() {
+  				var meal_url = document.getElementById('meal_url')
 
 				if ( document.selection ) {
            			var range = document.body.createTextRange();
-            		range.moveToElementText( this  );
+            		range.moveToElementText( meal_url  );
             		range.select();
         		} else if ( window.getSelection ) {
             		var range = document.createRange();
-            		range.selectNodeContents( this );
+            		range.selectNodeContents( meal_url );
             		window.getSelection().removeAllRanges();
             		window.getSelection().addRange( range );
         		}
@@ -362,16 +338,12 @@ var app = {
    	  				ga('send', 'event', 'Share', 'link_copied'); // log click in Analytics
 
   				} catch (err) {
-    				console.log('Oops, unable to copy');
+    				console.log('Unable to copy');
   				}
 
 
 
         	});
-  				//this.select()
-  				//console.log(this.value.length)
-  			//})
-
 		})
 	},
 
@@ -380,25 +352,26 @@ var app = {
 			//alert("Sound off!");
 			if (self.soundOn == false) {
 				self.soundOn = true;
-				//$('div#sound_control').html('<img src="/images/soundcontrol.svg" />')
-				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
+
 				$('div#sound_on').css('background-position', '0px 100%')
-				$('div#sound_control').css('background-position', '-2px 0px')
+
+				$('div#sound_control').css('background-position', '0px 0px')
 
 				var audioSprite = document.getElementById("squish")
 				audioSprite.load()
 
 				var bong = document.getElementById("bell")
 				bong.load()
+
 				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
 
 			} else { 
 				self.soundOn = false; 
-				//$('div#sound_control').html('<img src="/images/soundcontrol_off.svg" />')
-				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>OFF</span> TO KEEP IT MELLOW")
+
 				$('div#sound_on').css('background-position', '0px 0px')
 
-				$('div#sound_control').css('background-position', '-46px 0px')
+				$('div#sound_control').css('background-position', '-53px 0px')
+
 				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 
 
