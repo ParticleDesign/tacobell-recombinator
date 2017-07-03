@@ -190,7 +190,7 @@ var app = {
 				$('div#sound_on').css('background-position', '0px 99.6%')
 
 				
-				$('div#sound_control').css('background-position', '-2px 0px')
+				$('div#sound_control').css('background-position', '0px 0px')
 				self.soundOn = true;
 				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
 
@@ -207,7 +207,7 @@ var app = {
 				$('div#sound_on').css('background-position', '0px 0px')
 
 				
-				$('div#sound_control').css('background-position', '-46px 0px')
+				$('div#sound_control').css('background-position', '-53px 0px')
 				self.soundOn = false;
 				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 			}
