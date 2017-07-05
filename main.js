@@ -136,13 +136,6 @@ var app = {
 
 			return meal
 		},		
-// 	checkUrl: function(){
-// 		var url 	= window.location.href
-// 		var origin 	= window.location.origin
-// console.log(url)
-// 		console.log(url.match(/\?[^\]]+/g))
-// 	},
-
 
 	armStartButton: function(){
 		var $landing_page = $('div#landing_page')
@@ -234,7 +227,7 @@ var app = {
 	},
 	armRecombinateButton: function() {
 		$('div#recombinate_button').on("click", function(){
-// console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
 			$('div#recombinate_button').addClass('disabled')
 			
 			self.clearCurrentMeal()
@@ -405,14 +398,12 @@ var app = {
 		})
 
 		location.hash = hash
-//<<<<<<< HEAD
-		console.log(hash)
+
 		$("div#meal_url").html("http://"+ window.location.hostname + "/#" + hash); 
-//=======
 
 		self.mealHash = hash
 
-//>>>>>>> 6d096cd1e71fd9a5e4c820f13812c5cb0549e9f1
+
 	},
 	createMealModel: function() {
 			//........................ reset model ....................
@@ -472,16 +463,6 @@ var app = {
 				i++
 			}
 		},
-
-	// createMealUrl: function() {
-	// 	var url = window.location.origin + '/?'
-	// 	self.meal.forEach(function(item) {
-	// 		url += item.hash
-	// 	})
-
-	// 	window.location.href = url
-	// 	console.log(url)
-	// },
 
 	createMealName: function() {
 		// declare variables for naming the meal
@@ -580,7 +561,6 @@ var app = {
 				numShells++
 				if (item.ingredient.match("Tortilla")) {
 					numTortillas++
-					//console.log("Found a tortilla!")
 				} 
 
 			}
@@ -638,11 +618,30 @@ var app = {
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
 				+ mealName
-				+ "?&url=https%3A%2F%2Fwww.recombinator.zone%2F%23"
+				+ "?&url=http%3A%2F%2Fwww.recombinator.zone%2F%23"
 				+ self.mealHash
 				+ "&hashtags=recombinator,recombinate";
 
 		$('.twitter-share-button').attr('href', href)
+		
+		//facebook
+		var url = 'http://www.recominator.zone/#'+self.mealHash
+		
+		$('meta[name="og:url"]').attr('content', url)
+		$('meta[name="og:title"]').attr('content', mealName)
+
+
+
+
+		$('#fb img').on('click', function(){
+			FB.ui({
+			  method: 'feed',
+			  link: 'http://www.recominator.zone/#'+self.mealHash,
+			  caption: mealName,
+			}, function(response){});
+		})
+
+
 	},
 
 
@@ -712,7 +711,7 @@ var app = {
 			//animate each ingredient into place one at a time
 				setTimeout(function() {
 					$currentIngredient.addClass("clear");
-					console.log("dropping!")
+					// console.log("dropping!")
 				}, delay)
 			})
 		//}, 200)
