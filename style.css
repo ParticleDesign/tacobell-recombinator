@@ -449,7 +449,9 @@ div#recombinator_page {
 	div#sound_control.off {
 		background-position: -46px 0px;
 	}*/
-
+	div#header {
+		width: 90%;
+	}
 
 }
 
@@ -560,6 +562,9 @@ div#recombinator_page {
 	div#sound_control.off {
 		background-position: -46px 0px;
 	}*/
+	div#header {
+		width: 90%;
+	}
 }
 
 @media screen and (min-width: 720px) {
@@ -660,11 +665,16 @@ div#recombinator_page {
 		/*-webkit-animation: bounce-in-bottom 0.5s both;
 		        animation: bounce-in-bottom 0.5s both;*/
 	}
+
+	div#header {
+		width: 100%;
+	}
 }
 
 div#meal_title {
 	opacity: 0;
 	font-size: 1.8rem;
+	white-space: normal;
 }
 
 
@@ -672,28 +682,33 @@ div#header {
 	position: absolute;
 	top:-3%;
 	/*left:-1%;*/
+	/*width:100%;*/
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	width:100%;
 	max-width: 560px;
 	min-width: 327px;
 	height:8%;
 	z-index: 2;
+	transform: skewY(-3deg);
 
     /*box-shadow: -1px 0px 20px #333;
 	background-color: purple;
 	transform: rotate(-5deg);*/
 }
+	div#header img {
+		height: 50%;
+		position: absolute;
+		bottom: 5;
+	}
 	/*img#header_image {
 		position:relative;
 		left:-1vw;
 		top:.25vh;
 		width: 3vh;
 	}*/
-	div#header_text {
+/*	div#header_text {
 		position: absolute;
-		/*left:8vw;*/
 		top:35%;
 
 		font-family: Roboto-Regular;
@@ -728,7 +743,8 @@ div#header {
 		-o-transform: scaleY(-1);
 		-webkit-transform: scaleY(-1);
 		transform: scaleY(-1);
-	}
+	}*/
+	
 div#recombinator_container {
 	position: absolute;
 	top:18%;
@@ -937,6 +953,7 @@ div#share_menu {
 	overflow: hidden;
 	display: inline-block;
 	vertical-align: middle;
+	border-bottom: 6px solid white;
 	transition: height .3s ease;
 }
 
@@ -1099,7 +1116,7 @@ div#recombinator_disclaimer a {
 div#sound_control {
 	position: absolute;
 	top: 20%;
-	right: -22px;
+	right: -18px;
 	z-index: 5;
 	background-image: url("/images/sound_icons.svg");
 	width: 44px;
@@ -1109,11 +1126,11 @@ div#sound_control {
 }
 
 div#sound_control.on {
-	background-position: -2px 0px;
+	background-position: 0px 0px;
 }
 
 div#sound_control.off {
-	background-position: -46px 0px;
+	background-position: -53px 0px;
 }
 
 
