@@ -180,10 +180,10 @@ var app = {
 			if (self.soundOn == false) {
 				//$('div#sound_on').html("<img class='inline-img' src='images/headphones.png' />SOUND <span id='headphone_toggle'>ON </span>TO HEAR THE FLAVOR")
 				//$('div#sound_on').html("<img src='images/sound_on_button.svg' />")
-				$('div#sound_on').css('background-position', '0px 99.6%')
+				$('div#sound_on').css('background-position', '0px 100%')
 
 				
-				$('div#sound_control').css('background-position', '-3px 0px')
+				$('div#sound_control').css('background-position', '0px 0px')
 				self.soundOn = true;
 				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
 
@@ -200,14 +200,14 @@ var app = {
 				$('div#sound_on').css('background-position', '0px 0px')
 
 				
-				$('div#sound_control').css('background-position', '-46px 0px')
+				$('div#sound_control').css('background-position', '-53px 0px')
 				self.soundOn = false;
 				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 			}
 		})
 
 		//arm "recombinator!" header home button
-		$('div#header_text').on('click', function() {
+		$('div#header img').on('click', function() {
 			$landing_page.transition({
 				'transform':"translate(0%)"
 			})
@@ -325,13 +325,13 @@ var app = {
    	 				var msg = successful ? 'successful' : 'unsuccessful';
     				console.log('Copying text command was ' + msg);
 				   	$('div#link_copied_modal').show().fadeOut(3000);
-   	  				ga('send', 'event', 'Share', 'link_copied'); // log click in Analytics
+
 
   				} catch (err) {
     				console.log('Unable to copy');
   				}
 
-
+   	  			ga('send', 'event', 'Share', 'link_copied'); // log click in Analytics
 
         	});
 		})
@@ -345,7 +345,7 @@ var app = {
 
 				$('div#sound_on').css('background-position', '0px 100%')
 
-				$('div#sound_control').css('background-position', '-3px 0px')
+				$('div#sound_control').css('background-position', '0px 0px')
 
 				var audioSprite = document.getElementById("squish")
 				audioSprite.load()
@@ -360,7 +360,7 @@ var app = {
 
 				$('div#sound_on').css('background-position', '0px 0px')
 
-				$('div#sound_control').css('background-position', '-46px 0px')
+				$('div#sound_control').css('background-position', '-53px 0px')
 
 				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 
@@ -625,7 +625,7 @@ var app = {
 		$('.twitter-share-button').attr('href', href)
 		
 		//facebook
-		var url = 'http://www.recominator.zone/#'+self.mealHash
+		var url = 'http://www.recombinator.zone/#'+self.mealHash
 		
 		$('meta[name="og:url"]').attr('content', url)
 		$('meta[name="og:title"]').attr('content', mealName)
@@ -636,11 +636,13 @@ var app = {
 		$('#fb img').on('click', function(){
 			FB.ui({
 			  method: 'feed',
-			  link: 'http://www.recominator.zone/#'+self.mealHash,
+			  link: 'http://www.recombinator.zone/#'+self.mealHash,
 			  caption: mealName,
 			}, function(response){});
 		})
 
+		//copy link
+		//$("div#meal_url").html("http://"+ window.location.hostname + "/#" + self.mealHash); 
 
 	},
 
@@ -840,7 +842,7 @@ var app = {
 				var bong = document.getElementById("bell")			
 				bong.play();
 			}
-
+		
 			$banner_title.transition({
 				"width":"126%",
 				//"height":"200%",
@@ -848,7 +850,7 @@ var app = {
 				"left":"-13%",
 				//"top": "0",
 				//"bottom":"0",
-				"font-size":"2.5rem",
+				"font-size":"2.5em"
 				//"font-size":"7vh"
 			}, self.animationInterval_bannerText, function() {
 				callback()
@@ -861,7 +863,7 @@ var app = {
 			setTimeout(function(){
 
 				$banner_title.transition({
-					"font-size":"1.8rem",
+					"font-size":"1.8em",
 					//"font-size":"5vh",
 					"width":"90%",
 					"left":"5%"
