@@ -2,19 +2,18 @@
 
 var app = {
 	self,
-	domain: 'recombinator.zone',
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_ingredientCountChances: [
 		{item:1, chance: .02},
-		{item:2, chance: .03},
+		{item:2, chance: .04},
 		{item:3, chance: .1},
-		{item:4, chance: .2},
+		{item:4, chance: .21},
 		{item:5, chance: .26},
 		{item:6, chance: .21},
 		{item:7, chance: .1},
-		{item:8, chance: .05},
-		{item:9, chance: .03}
+		{item:8, chance: .04},
+		{item:9, chance: .02}
 		//{item:10, chance: .02}
 
 		// {item:1, chance: 0},
@@ -91,6 +90,8 @@ var app = {
 
 				self.createMealName()
 				self.displayMealDivs()
+				self.createMealHash()
+				self.setSocialMediaLinks()
 
 				window.location.hash = ""
 			}
@@ -620,36 +621,27 @@ var app = {
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
 				+ mealName
-				+ "?&url=http%3A%2F%2Fwww.recombinator.zone%2F%23"
+				+ "?&url=http%3A%2F%2Fwww."+location.hostname+"%2F%23"
 				+ self.mealHash
 				+ "&hashtags=recombinator,recombinate";
 
 		$('.twitter-share-button').attr('href', href)
 		
 		//facebook
-		var url = 'http://www.recombinator.zone/#'+self.mealHash
+		// var url = 'http://www.'+location.hostname+'/#'+self.mealHash
 		
-		$('meta[name="og:url"]').attr('content', url)
-		$('meta[name="og:title"]').attr('content', mealName)
+		// $('meta[name="og:url"]').attr('content', url)
+		// $('meta[name="og:title"]').attr('content', mealName)
 
 
-		$('div#fb').on('click', function() {
-			FB.ui({
-			  method: 'share',
-			  href: 'http://www.' + self.domain +'/#'+self.mealHash,
-			  caption: mealName,
-			}, function(response){});
-		}) 
-
-
-
-		// $('#fb img').on('click', function(){
+		// $('div#fb').on('click', function() {
 		// 	FB.ui({
-		// 	  method: 'feed',
-		// 	  link: 'http://www.recominator.zone/#'+self.mealHash,
+		// 	  method: 'share',
+		// 	  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
 		// 	  caption: mealName,
 		// 	}, function(response){});
-		// })
+		// }) 
+
 
 		//copy link
 		//$("div#meal_url").html("http://"+ window.location.hostname + "/#" + self.mealHash); 
