@@ -190,7 +190,7 @@ var app = {
 				$('div#sound_on').css('background-position', '0px 99.6%')
 
 				
-				$('div#sound_control').css('background-position', '0px 0px')
+				$('div#sound_control').css('background-position', '-3px 0px')
 				self.soundOn = true;
 				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
 
@@ -207,7 +207,7 @@ var app = {
 				$('div#sound_on').css('background-position', '0px 0px')
 
 				
-				$('div#sound_control').css('background-position', '-53px 0px')
+				$('div#sound_control').css('background-position', '-46px 0px')
 				self.soundOn = false;
 				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 			}
@@ -271,13 +271,10 @@ var app = {
 	armShareButton: function() {
 		//var share_menu = document.getElementByID("#share_menu");
 		$('div#share_button').on("click", function() {
-
-			//console.log("share open!");
-			//$('div#share_menu').toggleClass("open");
-			//screenshotPage();
-			//share_menu.classList.toggle("open");
-			//$('div#share_button_text').html("<img src='/images/close_share_menu.png' />")
-
+			
+			if ($('div#meal_url').html('')) {
+				$("div#meal_url").html(window.location.href); 
+			}
 
 			var shareItems = []
 			shareItems.push(document.getElementsByClassName("share_item"))
@@ -355,7 +352,7 @@ var app = {
 
 				$('div#sound_on').css('background-position', '0px 100%')
 
-				$('div#sound_control').css('background-position', '0px 0px')
+				$('div#sound_control').css('background-position', '-3px 0px')
 
 				var audioSprite = document.getElementById("squish")
 				audioSprite.load()
@@ -370,7 +367,7 @@ var app = {
 
 				$('div#sound_on').css('background-position', '0px 0px')
 
-				$('div#sound_control').css('background-position', '-53px 0px')
+				$('div#sound_control').css('background-position', '-46px 0px')
 
 				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
 
@@ -834,7 +831,7 @@ var app = {
 		$banner.html("<div id='meal_title'>"+self.mealName+"</div>")
 
 		//banner animation
-		var ingredientsDoneFalling = self.ingredientContainerIDs.length * self.animationInterval_ingredients + 200; // added +200 to prevent overlap with bong 7/2
+		var ingredientsDoneFalling = self.ingredientContainerIDs.length * self.animationInterval_ingredients + 500; // added +500 to prevent overlap with bong 7/2
 		var $banner_title = $('div#meal_title')
 
 		var expandBannerText = function(callback) {

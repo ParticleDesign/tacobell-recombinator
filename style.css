@@ -70,6 +70,7 @@ div#bottom_taco{
 		/*width: 955px;
 		margin: auto;
 		/*bottom: -125;*/
+		width: 700px;
 		right: 0;
 		left: 0;
 		bottom: 0;
@@ -178,6 +179,12 @@ div#sound_on {
 	background-image: url("/images/sound_on_buttons.svg");
 	background-repeat: no-repeat;
 	background-size: 100% auto;
+
+		-webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation-delay: 0.5s;
+
+    animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation-delay: 0.5s;
 }
 
 div#sound_on img {
@@ -728,7 +735,7 @@ div#recombinator_container {
 	width: 100%;
 	/*max-width:560px;
 	min-width: 327px;*/
-	height:70%;
+	height:72%;
 	overflow: hidden;
 	/*-webkit-transform: translateZ(0);*/
 
@@ -1092,9 +1099,9 @@ div#recombinator_disclaimer a {
 div#sound_control {
 	position: absolute;
 	top: 20%;
-	right: -20px;
+	right: -22px;
 	z-index: 5;
-	background-image: url("/images/sound_icons.png");
+	background-image: url("/images/sound_icons.svg");
 	width: 44px;
 	height: 48px;
 	display: inline-block;
@@ -1102,11 +1109,11 @@ div#sound_control {
 }
 
 div#sound_control.on {
-	background-position: 0px 0px;
+	background-position: -2px 0px;
 }
 
 div#sound_control.off {
-	background-position: -53px 0px;
+	background-position: -46px 0px;
 }
 
 
