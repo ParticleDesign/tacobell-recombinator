@@ -953,7 +953,7 @@ div#share_menu {
 	overflow: hidden;
 	display: inline-block;
 	vertical-align: middle;
-	/*border-bottom: 6px solid white;*/
+	border-bottom: 6px solid white;
 	transition: height .2s ease;
 }
 
