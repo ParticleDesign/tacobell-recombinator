@@ -2,6 +2,7 @@
 
 var app = {
 	self,
+	domain: 'recombinator.zone',
 //.................. config ...................
 	numberOfIngredients:0,
 	weightedArray_ingredientCountChances: [
@@ -90,6 +91,8 @@ var app = {
 
 				self.createMealName()
 				self.displayMealDivs()
+
+				window.location.hash = ""
 			}
 		})
 
@@ -397,8 +400,6 @@ var app = {
 			hash += item.hash
 		})
 
-		location.hash = hash
-
 		$("div#meal_url").html("http://"+ window.location.hostname + "/#" + hash); 
 
 		self.mealHash = hash
@@ -631,15 +632,23 @@ var app = {
 		$('meta[name="og:title"]').attr('content', mealName)
 
 
-
-
-		$('#fb img').on('click', function(){
+		$('div#fb').on('click', function() {
 			FB.ui({
-			  method: 'feed',
-			  link: 'http://www.recominator.zone/#'+self.mealHash,
+			  method: 'share',
+			  href: 'http://www.' + self.domain +'/#'+self.mealHash,
 			  caption: mealName,
 			}, function(response){});
-		})
+		}) 
+
+
+
+		// $('#fb img').on('click', function(){
+		// 	FB.ui({
+		// 	  method: 'feed',
+		// 	  link: 'http://www.recominator.zone/#'+self.mealHash,
+		// 	  caption: mealName,
+		// 	}, function(response){});
+		// })
 
 
 	},
