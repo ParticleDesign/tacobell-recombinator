@@ -283,12 +283,11 @@ var app = {
 				console.log("checking for class...")
 				$('.share_item').each(function(i) {
 					setTimeout(function() {
-						document.getElementsByClassName("share_item")[1-i].classList.add('hide-cards');
-						document.getElementsByClassName("share_item")[1-i].classList.remove('show-cards')
+						document.getElementsByClassName("share_item")[2-i].classList.add('hide-cards');
+						document.getElementsByClassName("share_item")[2-i].classList.remove('show-cards')
 					}, 200 * (i*.40))
 				})
 
-				console.log("we're at the bottom...")
 			} else {
 				$('.share_item').each(function(i) {
 					$('div#share_button_text').html("<img src='/images/close_share_menu.png' />");

@@ -940,7 +940,7 @@ div#buttons {
 
 div#share_menu {
 	/*height: 270px;*/
-	height: 180px;
+	height: 270px;
 	position: absolute;
 	left: 11.25%;
 	bottom: 100%;
@@ -959,7 +959,7 @@ div#share_menu {
 
 div#share_menu.open {
 	/*height: 270px;*/
-	height: 180px;
+	height: 270px;
 	transition: height .2s ease;
 }
 
@@ -1038,7 +1038,7 @@ div#share_menu li img {
 	text-align: center;
 	vertical-align: middle;
 	/*height: 33%;*/
-	height: 50%;
+	height: 33%;
 	position: relative;
 	border: 1px solid white;
 	z-index: 200;
@@ -1144,8 +1144,8 @@ div#sound_control.off {
 .show-cards {
 	display: block;
 	/* top: 100;*/
-    -webkit-animation: show-cards 0.20s;
-	        animation: show-cards 0.20s;
+    -webkit-animation: show-cards 0.30s;
+	        animation: show-cards 0.30s;
 }
 
 .hide-cards {
@@ -1337,7 +1337,7 @@ div#sound_control.off {
   to {
     /*opacity: 0;*/
    /* transform: translate3d(0, 280px, 0); */
-   transform: translate3d(0, 180px, 0);
+   transform: translate3d(0, 280px, 0);
 
   }
 }
