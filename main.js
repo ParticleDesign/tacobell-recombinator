@@ -137,7 +137,11 @@ var app = {
 				meal.push(currentIngredient)
 			})
 
+			$("div#meal_url").html("http://"+ window.location.hostname + "/#" + mealPath); 
+			console.log("mealPath = " + mealPath);
+
 			return meal
+
 		},		
 
 	armStartButton: function(){
@@ -267,11 +271,7 @@ var app = {
 	armShareButton: function() {
 		//var share_menu = document.getElementByID("#share_menu");
 		$('div#share_button').on("click", function() {
-			
-			if ($('div#meal_url').html('')) {
-				$("div#meal_url").html(window.location.href); 
-			}
-
+		
 			var shareItems = []
 			shareItems.push(document.getElementsByClassName("share_item"))
 			console.log("share clicked!")
@@ -400,7 +400,8 @@ var app = {
 			hash += item.hash
 		})
 
-		$("div#meal_url").html("http://"+ window.location.hostname + "/#" + hash); 
+		$("div#meal_url").html("http://"+ window.location.hostname + "/#" + hash);
+		console.log("hash = " + hash); 
 
 		self.mealHash = hash
 
