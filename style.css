@@ -1337,7 +1337,7 @@ div#sound_control.off {
   to {
     /*opacity: 0;*/
    /* transform: translate3d(0, 280px, 0); */
-   transform: translate3d(0, 180px, 0);
+   transform: translate3d(0, 190px, 0);
 
   }
 }
