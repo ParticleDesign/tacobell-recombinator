@@ -621,7 +621,7 @@ var app = {
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
 				+ mealName
-				+ "?&url=http%3A%2F%2Fwww."+location.hostname+"%2F%23"
+				+ "?&url=http%3A%2F%2F"+location.hostname+"%2F%23"
 				+ self.mealHash
 				+ "&hashtags=recombinator,recombinate";
 
