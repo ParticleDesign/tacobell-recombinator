@@ -257,8 +257,8 @@ var app = {
 					console.log("checking for class...")
 					$('.share_item').each(function(i) {
 						setTimeout(function() {
-							document.getElementsByClassName("share_item")[2-i].classList.add('hide-cards');
-							document.getElementsByClassName("share_item")[2-i].classList.remove('show-cards')
+							document.getElementsByClassName("share_item")[1-i].classList.add('hide-cards');
+							document.getElementsByClassName("share_item")[1-i].classList.remove('show-cards')
 						}, 200 * (i*.40))
 					})
 			}
