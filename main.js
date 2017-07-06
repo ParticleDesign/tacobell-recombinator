@@ -193,7 +193,7 @@ var app = {
 				
 				$('div#sound_control').css('background-position', '0px 0px')
 				self.soundOn = true;
-				ga('send', 'event', 'Sound', 'toggle_on'); // log click in Analytics
+				ga('send', 'event', 'Sound', 'toggle_on_start'); // log click in Analytics
 
 
 				/*var audioSprite = document.getElementById("squish")
@@ -210,7 +210,7 @@ var app = {
 				
 				$('div#sound_control').css('background-position', '-53px 0px')
 				self.soundOn = false;
-				ga('send', 'event', 'Sound', 'toggle_off'); // log click in Analytics
+				ga('send', 'event', 'Sound', 'toggle_off_start'); // log click in Analytics
 			}
 		})
 
@@ -302,10 +302,11 @@ var app = {
 
 			$('div#twitter').on('click', function() {
 				ga('send', 'event', 'Share', 'twitter'); // log click in Analytics
-				console.log('twitter clicked');
+				//console.log('twitter clicked');
 			})
 
 			$('div#fb').on('click', function() {
+
 				ga('send', 'event', 'Share', 'facebook'); // log click in Analytics
 			})
 
@@ -729,9 +730,36 @@ var app = {
 
 		var mealContainerHeight = $(window).height() - $('#buttons').height();
 
-		/*// Prep audio file - should this go somewhere else?
-		var audioSprite = new Audio("sounds/squish_250ms.mp3");*/
-		//var audioSprite = new Audio("sounds/squish_1sec.mp3");
+		// play squish sound
+		self.playSquish();
+		
+		//move each ingredient into view
+		self.ingredientContainerIDs.forEach(function(containerID, i) {
+
+			var $currentIngredient = $("div#"+containerID),
+				delay = self.animationInterval_ingredients * i;
+
+			//push all ingredients offscreen above window
+			//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
+
+			//animate each ingredient into place one at a time
+			setTimeout(function() {
+				$currentIngredient.addClass("drop");
+				/*$currentIngredient.transition({
+					y:0
+				},self.animationInterval_ingredients)*/
+			}, delay)
+
+			// console.log("soundOn = " + self.soundOn)
+
+
+		})
+
+		self.displayNameBanner()
+	},
+
+	playSquish: function() {
+		// Prep audio file - should this go somewhere else?
 		var audioSprite = document.getElementById("squish")
 
 		// store stopping times for each ingredient amount
@@ -774,7 +802,6 @@ var app = {
 			    }
 			];
 
-			// console.log(spriteData)
 		// create a handler to stop the sound at the right time 
 		var handler = function() {
 			console.log(this.currentTime);
@@ -783,45 +810,15 @@ var app = {
 				console.log("Stopping squish...");
 			}
 		}
+
 		// Add event listener to the audio sprite
 		audioSprite.addEventListener('timeupdate', handler, false);
 
-			//play squish for each ingredient
-			if (self.soundOn == true) {
-				//setTimeout(function() {
-					audioSprite.currentTime = spriteData[self.numberOfIngredients-1].start
-					audioSprite.play()
-					//var squish = new Audio("sounds/squish1.mp3"); // buffers automatically when created
-					//squish.play()					
-					//squish.cloneNode().play()
-					//document.getElementById("squish").cloneNode(true).play()
-				//}, 50)
-			}
-		
-		//move each ingredient into view
-		self.ingredientContainerIDs.forEach(function(containerID, i) {
-
-			var $currentIngredient = $("div#"+containerID),
-				delay = self.animationInterval_ingredients * i;
-
-			//push all ingredients offscreen above window
-			//$currentIngredient.transition({ y:mealContainerHeight*-1 },0)
-
-			//animate each ingredient into place one at a time
-			setTimeout(function() {
-				$currentIngredient.addClass("drop");
-				/*$currentIngredient.transition({
-					y:0
-				},self.animationInterval_ingredients)*/
-			}, delay)
-
-			// console.log("soundOn = " + self.soundOn)
-
-
-		})
-
-
-		self.displayNameBanner()
+		//play squish for each ingredient
+		if (self.soundOn == true) {
+			audioSprite.currentTime = spriteData[self.numberOfIngredients-1].start
+			audioSprite.play()
+		}
 	},
 
 	displayNameBanner: function() {
