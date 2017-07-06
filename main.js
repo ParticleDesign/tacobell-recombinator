@@ -160,6 +160,7 @@ var app = {
 			},500, function(){
 				self.recombinate()
 				self.displayMealDivs()
+				$('div#recombinate_button').addClass('disabled')
 			})
 
 			var audioSprite = document.getElementById("squish")
@@ -288,7 +289,6 @@ var app = {
 					}, 200 * (i*.40))
 				})
 
-				console.log("we're at the bottom...")
 			} else {
 				$('.share_item').each(function(i) {
 					$('div#share_button_text').html("<img src='/images/close_share_menu.png' />");
