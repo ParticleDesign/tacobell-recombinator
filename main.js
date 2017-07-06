@@ -626,6 +626,9 @@ var app = {
 
 		$('.twitter-share-button').attr('href', href)
 		
+		$('meta[name="twitter:title"]').attr('content', self.mealName)
+		$('meta[name="twitter:description"]').attr('content', 'have you ever seen a ' + self.mealName)
+
 		//facebook
 		// var url = 'http://www.'+location.hostname+'/#'+self.mealHash
 		
