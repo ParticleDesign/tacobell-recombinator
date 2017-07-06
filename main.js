@@ -629,19 +629,17 @@ var app = {
 		$('.twitter-share-button').attr('href', href)
 		
 		//facebook
-		// var url = 'http://www.'+location.hostname+'/#'+self.mealHash
-		
-		// $('meta[name="og:url"]').attr('content', url)
-		// $('meta[name="og:title"]').attr('content', mealName)
+		$('meta[name="og:url"]').attr('content', 'http://www.'+location.hostname+'/#'+self.mealHash)
+		$('meta[name="og:title"]').attr('content', mealName)
 
 
-		// $('div#fb').on('click', function() {
-		// 	FB.ui({
-		// 	  method: 'share',
-		// 	  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
-		// 	  caption: mealName,
-		// 	}, function(response){});
-		// }) 
+		$('div#fb').on('click', function() {
+			FB.ui({
+			  method: 'share',
+			  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
+			  caption: mealName,
+			}, function(response){});
+		}) 
 
 
 		//copy link
