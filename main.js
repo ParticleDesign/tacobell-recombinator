@@ -308,7 +308,7 @@ var app = {
 
 			$('div#fb').on('click', function() {
 
-				ga('send', 'event', 'Share', 'facebook'); // log click in Analytics
+				//ga('send', 'event', 'Share', 'facebook'); // log click in Analytics
 			})
 
   			$('div#copy_group').on('click', function() {
@@ -634,10 +634,12 @@ var app = {
 
 
 		$('div#fb').on('click', function() {
+			console.log(mealName);
 			FB.ui({
 			  method: 'share',
 			  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
-			  caption: mealName,
+			  quote: 'Have you ever seen a ' + mealName + '?',
+			  hashtag: '#recombinator', 
 			}, function(response){});
 		}) 
 
