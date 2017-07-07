@@ -629,8 +629,8 @@ var app = {
 		$('.twitter-share-button').attr('href', href)
 		
 		//facebook
-		$('meta[name="og:url"]').attr('content', 'http://www.'+location.hostname+'/#'+self.mealHash)
-		$('meta[name="og:title"]').attr('content', mealName)
+		// $('meta[name="og:url"]').attr('content', 'http://www.'+location.hostname+'/#'+self.mealHash)
+		// $('meta[name="og:title"]').attr('content', mealName)
 
 
 		$('div#fb').on('click', function() {
