@@ -306,10 +306,10 @@ var app = {
 				//console.log('twitter clicked');
 			})
 
-			$('div#fb').on('click', function() {
+			/*$('div#fb').on('click', function() {
 
 				ga('send', 'event', 'Share', 'facebook'); // log click in Analytics
-			})
+			})*/
 
   			$('div#copy_group').on('click', function() {
   				var meal_url = document.getElementById('meal_url')
@@ -614,10 +614,15 @@ var app = {
 	setSocialMediaLinks: function(){
 		var mealNameArray = self.mealName.split(' ').slice(0,-1)
 		var mealName = ""
+		var fbMealName = ""
 		mealNameArray.forEach(function(item,i,arr) {
 			mealName+=item
+			fbMealName+=item
 
-			if (i!==arr.length-1) mealName += "%20"
+			if (i!==arr.length-1) {
+				fbMealName += " "
+				mealName += "%20"
+			} 
 		})
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
@@ -642,10 +647,18 @@ var app = {
 		// 	  caption: mealName,
 		// 	}, function(response){});
 		// }) 
+		$('div#fb').on('click', function() {
+			console.log(mealNameArray);
+			FB.ui({
+			  method: 'share',
+			  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
+			  quote: 'Have you ever seen a ' + fbMealName + '?',
+			}, function(response){});
+
+			ga('send', 'event', 'Share', 'facebook'); // log click in Analytics			
+		}) 
 
 
-		//copy link
-		//$("div#meal_url").html("http://"+ window.location.hostname + "/#" + self.mealHash); 
 
 	},
 
