@@ -646,9 +646,9 @@ var app = {
 		// 	  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
 		// 	  caption: mealName,
 		// 	}, function(response){});
-		// }) 
+		// })
+		$('div#fb').unbind('click') 
 		$('div#fb').on('click', function() {
-			console.log(mealNameArray);
 			FB.ui({
 			  method: 'share',
 			  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
