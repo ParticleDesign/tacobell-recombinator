@@ -614,10 +614,15 @@ var app = {
 	setSocialMediaLinks: function(){
 		var mealNameArray = self.mealName.split(' ').slice(0,-1)
 		var mealName = ""
+		var fbMealName = ""
 		mealNameArray.forEach(function(item,i,arr) {
 			mealName+=item
+			fbMealName+=item
 
-			if (i!==arr.length-1) mealName += "%20"
+			if (i!==arr.length-1) {
+				mealName += "%20"
+				fbMealName += " "
+			}
 		})
 
 		var href = "https://twitter.com/intent/tweet?text=Have%20you%20ever%20seen%20a%20"
@@ -634,12 +639,11 @@ var app = {
 
 
 		$('div#fb').on('click', function() {
-			console.log(mealName);
+			console.log(mealNameArray);
 			FB.ui({
 			  method: 'share',
 			  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
-			  quote: 'Have you ever seen a ' + mealName + '?',
-			  hashtag: '#recombinator', 
+			  quote: 'Have you ever seen a ' + fbMealName + '?',
 			}, function(response){});
 		}) 
 
