@@ -651,7 +651,7 @@ var app = {
 		$('div#fb').on('click', function() {
 			FB.ui({
 			  method: 'share',
-			  href: 'http://www.' + location.hostname +'/#'+self.mealHash,
+			  href: 'http://' + location.hostname +'/#'+self.mealHash,
 			  quote: 'Have you ever seen a ' + fbMealName + '?',
 			}, function(response){});
 
